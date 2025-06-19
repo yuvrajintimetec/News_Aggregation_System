@@ -1,0 +1,10 @@
+from fastapi import FastAPI
+from server.routes import authentication_routes, article_routes, external_server_routes, category_routes, user_routes
+
+app = FastAPI()
+
+app.include_router(authentication_routes.router)
+app.include_router(article_routes.router)
+app.include_router(external_server_routes.router)
+app.include_router(category_routes.router)
+app.include_router(user_routes.router)
