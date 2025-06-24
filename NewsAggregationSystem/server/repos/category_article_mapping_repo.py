@@ -1,4 +1,4 @@
-from server.database import db_query
+from NewsAggregationSystem.server.database import db_query
 
 class CategoryArticleMappingRepo:
     def create_category_article_mapping(self, category_id, article_id):

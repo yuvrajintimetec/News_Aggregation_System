@@ -1,10 +1,4 @@
-import sys
-import os
-
-root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-sys.path.append(root_dir)
-
-from server.database import db_query
+from NewsAggregationSystem.server.database import db_query
 
 class UserRepo:
     def insert_user(self, name, email, password, role):
@@ -19,3 +13,12 @@ class UserRepo:
     def get_user_by_email(self, email):
         query = "SELECT user_id, name, email, password, role FROM user WHERE email = %s"
         return db_query(query, (email,))
+
+    def get_user_by_id(self, user_id):
+        query = """
+            SELECT user_id, name, email, role
+            FROM user
+            WHERE user_id = %s
+        """
+        return db_query(query, (user_id,))
+

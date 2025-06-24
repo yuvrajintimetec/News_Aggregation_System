@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends, Query
-from server.controllers.article_controller import ArticleController
+from NewsAggregationSystem.server.controllers.article_controller import ArticleController
 
 
 router = APIRouter(prefix="/api/articles")

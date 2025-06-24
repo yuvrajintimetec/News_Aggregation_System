@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Body
-from server.controllers.authentication_controller import AuthenticationController
-from server.dtos.requests.user_login_request_dto import UserSignInRequest
-from server.dtos.requests.user_register_request_dto import UserRegisterRequest
+from NewsAggregationSystem.server.controllers.authentication_controller import AuthenticationController
+from NewsAggregationSystem.server.dtos.requests.user_login_request_dto import UserSignInRequest
+from NewsAggregationSystem.server.dtos.requests.user_register_request_dto import UserRegisterRequest
 
 
 router = APIRouter(prefix="/api/auth")

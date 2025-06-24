@@ -1,5 +1,5 @@
-from server.services.extenal_server_service import ExternalServerService
-from server.dtos.requests.external_server_update_request import ExternalServerUpdateRequest
+from NewsAggregationSystem.server.services.external_server_service import ExternalServerService
+from NewsAggregationSystem.server.dtos.requests.external_server_update_request import ExternalServerUpdateRequest
 
 class ExternalServerController:
 

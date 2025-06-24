@@ -1,14 +1,17 @@
-
-from client.menu.base_menu import BaseMenu
-from client.utilities import api_utilities
+from NewsAggregationSystem.client.menu.base_menu import BaseMenu
+from NewsAggregationSystem.client.utilities import api_utilities
 import sys
 from datetime import datetime
 
 class UserMenu(BaseMenu):
 
+    def __init__(self, access_token, user_data):
+        self.access_token = access_token
+        self.user_data = user_data
+
     def show_menu(self):
         now = datetime.now().strftime("%d-%b-%Y \nTime:%I:%M%p")
-        print(f"\nWelcome to the News Application, Suresh! Date: {now}")
+        print(f"\nWelcome to the News Application, {self.user_data['name']} Date: {datetime.now()}")
         print("Please choose the options below:")
         print("1. Headlines")
         print("2. Saved Articles")

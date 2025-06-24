@@ -1,4 +1,4 @@
-from server.repos.category_repo import CategoryRepo
+from NewsAggregationSystem.server.repos.category_repo import CategoryRepo
 
 class CategoryService:
     def __init__(self):

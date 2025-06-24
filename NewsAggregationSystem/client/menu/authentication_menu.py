@@ -1,7 +1,7 @@
-from client.menu.admin_menu import AdminMenu
-from client.menu.base_menu import BaseMenu
-from client.menu.user_menu import UserMenu
-from client.utilities import api_utilities
+from NewsAggregationSystem.client.menu.admin_menu import AdminMenu
+from NewsAggregationSystem.client.menu.base_menu import BaseMenu
+from NewsAggregationSystem.client.menu.user_menu import UserMenu
+from NewsAggregationSystem.client.utilities import api_utilities
 import sys
 
 class AuthenticationMenu(BaseMenu):
@@ -23,17 +23,18 @@ class AuthenticationMenu(BaseMenu):
                     "password": input("Password: ")
                 }
                 login_data = api_utilities.create("auth/login", user_data)
-                print()
-                access_token = login_data['access_token']
-                headers = {
-                    "Authorization": f"Bearer {access_token}"
-                }
-                user_data = api_utilities.get_all_with_token("user/profile", headers)
-                user_role =  user_data["user_role"]
-                if user_role == "admin":
-                    AdminMenu()
-                else:
-                    UserMenu()
+                if 'access_token' in login_data:
+                    access_token = login_data['access_token']
+                    headers = {
+                        "Authorization": f"Bearer {access_token}"
+                    }
+                    user_data = api_utilities.get_all_with_token("user/profile", headers)
+                    user_role =  user_data["user_role"]
+                    if user_role == "admin":
+                        role_menu = AdminMenu(access_token, user_data)
+                    else:
+                        role_menu = UserMenu(access_token, user_data)
+                    return role_menu
 
             elif choice == "2":
                 user_data = {

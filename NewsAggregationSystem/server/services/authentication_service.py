@@ -1,6 +1,6 @@
-from server.repos.user_repo import UserRepo
-from server.utilities.password_utils import PasswordUtils
-from server.utilities.jwt_utils import JWTUtils
+from NewsAggregationSystem.server.repos.user_repo import UserRepo
+from NewsAggregationSystem.server.utilities.password_utils import PasswordUtils
+from NewsAggregationSystem.server.utilities.jwt_utils import JWTUtils
 
 class AuthenticationService:
 

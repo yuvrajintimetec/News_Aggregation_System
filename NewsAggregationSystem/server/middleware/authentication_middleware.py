@@ -1,6 +1,6 @@
 from fastapi import Depends
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
-from server.utilities.jwt_utils import JWTUtils
+from NewsAggregationSystem.server.utilities.jwt_utils import JWTUtils
 
 security = HTTPBearer()
 

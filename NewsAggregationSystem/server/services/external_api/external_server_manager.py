@@ -1,8 +1,8 @@
 
 
-from server.services.external_api.newsapi_service import NewsAPIService
-from server.services.external_api.thenewsapi_service import TheNewsApiService
-from server.repos.external_server_repo import ExternalServerRepo
+from NewsAggregationSystem.server.services.external_api.newsapi_service import NewsAPIService
+from NewsAggregationSystem.server.services.external_api.thenewsapi_service import TheNewsApiService
+from NewsAggregationSystem.server.repos.external_server_repo import ExternalServerRepo
 
 class ExternalServerManager:
 

@@ -1,6 +1,6 @@
-from server.repos.article_repo import ArticleRepo
-from server. repos.category_repo import CategoryRepo
-from server.repos.category_article_mapping_repo import CategoryArticleMappingRepo
+from NewsAggregationSystem.server.repos.article_repo import ArticleRepo
+from NewsAggregationSystem.server. repos.category_repo import CategoryRepo
+from NewsAggregationSystem.server.repos.category_article_mapping_repo import CategoryArticleMappingRepo
 
 class ArticleService:
 
@@ -30,7 +30,7 @@ class ArticleService:
                 "server_id": server_id
             }
             self.article_repo.insert_article(article_data)
-            article_id = self.article_repo.find_article()[0]
+            article_id = self.article_repo.find_latest_article()[0]
 
             for category_name in categories:
                 if category_name:
@@ -55,5 +55,5 @@ class ArticleService:
     def delete_saved_article(self, user_id, article_id):
         return self.article_repo.delete_saved_article(user_id, article_id)
 
-    def search_articles_by_keyword(self, keyword, user_id):
-        return self.article_repo.search_articles(keyword)
+    def search_articles_by_keyword(self, start_date, end_date, keyword, user_id):
+        return self.article_repo.search_articles( start_date, end_date, keyword)

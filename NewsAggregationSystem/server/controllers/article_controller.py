@@ -1,5 +1,5 @@
-from server.services.external_api.external_server_manager import ExternalServerManager
-from server.services.article_service import ArticleService
+from NewsAggregationSystem.server.services.external_api.external_server_manager import ExternalServerManager
+from NewsAggregationSystem.server.services.article_service import ArticleService
 
 class ArticleController:
 

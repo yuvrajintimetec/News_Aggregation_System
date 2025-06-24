@@ -1,13 +1,16 @@
-
-
-from client.menu.base_menu import BaseMenu
-from client.utilities import api_utilities
+from NewsAggregationSystem.client.menu.base_menu import BaseMenu
+from NewsAggregationSystem.client.utilities import api_utilities
 import sys
+from datetime import datetime
 
 class AdminMenu(BaseMenu):
 
+    def __init__(self, access_token, user_data):
+        self.user_data = user_data
+        self.access_token = access_token
+
     def show_menu(self):
-        print("\nAdmin Dashboard - News Aggregator")
+        print(f"\nWelcome to the News Application, {self.user_data['name']} Date: {datetime.now()}")
         print("1. View the list of external servers and status")
         print("2. View the external server’s details")
         print("3. Update/Edit the external server’s details")
@@ -20,15 +23,23 @@ class AdminMenu(BaseMenu):
             choice = input("Enter your choice (1-5): ")
 
             if choice == "1":
-                response = api_utilities.get_all("external-server")
+                headers = {
+                    "Authorization": f"Bearer {self.access_token}"
+                }
+                response = api_utilities.get_all_with_token("admin/list_external_server", headers)
                 print("All External Servers:\n", response)
 
             elif choice == "2":
-                server_id = int(input("Enter Server ID to view: "))
-                response = api_utilities.get_by_id("external-server", server_id)
+                headers = {
+                    "Authorization": f"Bearer {self.access_token}"
+                }
+                response = api_utilities.get_all_with_token("admin/list_external_server", headers)
                 print("Server Details:\n", response)
 
             elif choice == "3":
+                headers = {
+                    "Authorization": f"Bearer {self.access_token}"
+                }
                 server_id = int(input("Enter Server ID to update: "))
                 api_key = input("New API Key (leave blank to skip): ")
                 base_url = input("New Base URL (leave blank to skip): ")
@@ -42,16 +53,19 @@ class AdminMenu(BaseMenu):
                 if is_active:
                     data["is_active"] = is_active.lower() == "true"
 
-                response = api_utilities.update("external-server", server_id, data)
+                response = api_utilities.update_with_token("admin/update_external_server", server_id, data, headers)
                 print("Update Response:\n", response)
 
             elif choice == "4":
+                headers = {
+                    "Authorization": f"Bearer {self.access_token}"
+                }
                 category_name = input("Enter new category name: ")
-                response =api_utilities.create("category", {"category_name": category_name})
+                response =api_utilities.create_with_token("admin/add_category", {"category_name": category_name}, headers)
                 print("Add Category Response:\n", response)
 
             elif choice == "5":
-                print("Logging out. Goodbye, Admin!")
+
                 sys.exit()
 
             else:

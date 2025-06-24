@@ -1,6 +1,6 @@
 from fastapi.params import Depends, Query
-from server.middleware.authentication_middleware import get_current_user
-from server.controllers.user_controller import UserController
+from NewsAggregationSystem.server.middleware.authentication_middleware import get_current_user
+from NewsAggregationSystem.server.controllers.user_controller import UserController
 from fastapi import APIRouter
 from datetime import date
 
@@ -8,8 +8,15 @@ router = APIRouter(prefix="/api/user")
 user_controller = UserController()
 
 @router.get("/profile")
-async def get_user_profile(user_info = Depends(get_current_user)):
-    return user_info
+def get_user_profile(user_info=Depends(get_current_user)):
+    user = user_controller.get_user_by_id(user_info["user_id"])[0]
+    print(user)
+    return {
+        "user_id":user[0],
+        "name":user[1],
+        "email":user[2],
+        "user_role":user[3]
+    }
 
 @router.get("/headlines/today")
 def get_today_headlines(user_info=Depends(get_current_user)):
@@ -20,7 +27,7 @@ def get_today_headlines(user_info=Depends(get_current_user)):
 def get_articles_by_date_range(
     start_date: date = Query(...),
     end_date: date = Query(...),
-    category: str = Query("all"),
+    category: str = Query(...),
     user_info=Depends(get_current_user)
 ):
     return user_controller.get_articles_by_range(user_info, start_date, end_date, category)
@@ -42,8 +49,10 @@ def delete_saved_article(article_id: int, user_info=Depends(get_current_user)):
 
 
 @router.get("/search")
-def search_articles(keyword: str = Query(...), user_info=Depends(get_current_user)):
-    return user_controller.search_articles(keyword, user_info)
+def search_articles( start_date: date = Query(...),
+    end_date: date = Query(...),
+    keyword: str = Query(...), user_info=Depends(get_current_user)):
+    return user_controller.search_articles(start_date, end_date, keyword, user_info)
 
 
 

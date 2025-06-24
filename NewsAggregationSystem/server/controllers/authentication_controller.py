@@ -1,4 +1,4 @@
-from server.services.authentication_service import AuthenticationService
+from NewsAggregationSystem.server.services.authentication_service import AuthenticationService
 
 
 class AuthenticationController:

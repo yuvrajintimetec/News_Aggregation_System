@@ -1,4 +1,4 @@
-from server.database import db_query
+from NewsAggregationSystem.server.database import db_query
 
 class CategoryRepo:
     def find_category(self, category_name):
