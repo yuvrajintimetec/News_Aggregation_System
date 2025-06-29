@@ -37,8 +37,11 @@ class ArticleService:
                     category = self.category_repo.find_category(category_name)
                     if category:
                         category_id, category_name = category[0]
-                        self.mapping_repo.create_category_article_mapping(category_id, article_id)
+                        existing_mapping = self.mapping_repo.get_category_article_mapping(category_id, article_id)
+                        if not existing_mapping:
+                            self.mapping_repo.create_category_article_mapping(category_id, article_id)
 
+            self.article_repo.insert_notifications_for_article(article_id)
 
     def get_articles_for_today(self, user_id):
         return self.article_repo.fetch_articles_by_date(user_id)
@@ -47,7 +50,19 @@ class ArticleService:
         return self.article_repo.fetch_articles_by_date_range(user_id, start_date, end_date, category)
 
     def save_article(self, user_id, article_id):
-        return self.article_repo.save_article(user_id, article_id)
+        if article_id is None:
+            return {"error": "Article id is required"}
+
+        existing_article = self.article_repo.find_save_article(user_id, article_id)
+        if existing_article:
+            return {"error": "Article already saved"}
+
+        if self.article_repo.save_article(user_id, article_id):
+            return {"message": "Article saved successfully"}
+        else:
+            return {"error": "Article not saved"}
+
+
 
     def get_saved_articles(self, user_id):
         return self.article_repo.get_saved_articles(user_id)
@@ -55,5 +70,19 @@ class ArticleService:
     def delete_saved_article(self, user_id, article_id):
         return self.article_repo.delete_saved_article(user_id, article_id)
 
-    def search_articles_by_keyword(self, start_date, end_date, keyword, user_id):
-        return self.article_repo.search_articles( start_date, end_date, keyword)
+    def search_articles_by_keyword(self, start_date, end_date, keyword, sort_by,  user_id):
+        print(start_date, end_date, keyword, sort_by,  user_id)
+        return self.article_repo.search_articles(start_date, end_date, keyword, sort_by)
+
+    def react_to_article(self, user_id: int, article_id: int, is_like: bool):
+        existing_reaction = self.article_repo.get_reaction(user_id, article_id)
+        if existing_reaction:
+             self.article_repo.update_reaction(user_id, article_id, is_like)
+             return {"message": "You reacted on an article"}
+        else:
+            if self.article_repo.insert_reaction(user_id, article_id, is_like):
+                return {"message": "You reacted on an article"}
+            else:
+                return {"error": "Won't be able to react"}
+
+

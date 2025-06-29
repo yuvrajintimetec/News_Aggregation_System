@@ -1,5 +1,6 @@
 from NewsAggregationSystem.client.menu.base_menu import BaseMenu
 from NewsAggregationSystem.client.utilities import api_utilities
+from NewsAggregationSystem.client.utilities.server_reponse_utils import external_server_details_response,external_server_status_response, simple_response
 import sys
 from datetime import datetime
 
@@ -26,15 +27,17 @@ class AdminMenu(BaseMenu):
                 headers = {
                     "Authorization": f"Bearer {self.access_token}"
                 }
-                response = api_utilities.get_all_with_token("admin/list_external_server", headers)
-                print("All External Servers:\n", response)
+                server_details = api_utilities.get_all_with_token("admin/list_external_server", headers)
+                for server_detail in server_details:
+                    external_server_status_response(server_detail)
 
             elif choice == "2":
                 headers = {
                     "Authorization": f"Bearer {self.access_token}"
                 }
-                response = api_utilities.get_all_with_token("admin/list_external_server", headers)
-                print("Server Details:\n", response)
+                server_details = api_utilities.get_all_with_token("admin/list_external_server", headers)
+                for server_detail in server_details:
+                    external_server_details_response(server_detail)
 
             elif choice == "3":
                 headers = {
@@ -53,20 +56,20 @@ class AdminMenu(BaseMenu):
                 if is_active:
                     data["is_active"] = is_active.lower() == "true"
 
-                response = api_utilities.update_with_token("admin/update_external_server", server_id, data, headers)
-                print("Update Response:\n", response)
+                updated_server_details = api_utilities.update_with_token("admin/update_external_server", server_id, data, headers)
+                simple_response(updated_server_details)
 
             elif choice == "4":
                 headers = {
                     "Authorization": f"Bearer {self.access_token}"
                 }
                 category_name = input("Enter new category name: ")
-                response =api_utilities.create_with_token("admin/add_category", {"category_name": category_name}, headers)
-                print("Add Category Response:\n", response)
+                add_category_data =api_utilities.create_with_token("admin/add_category", {"category_name": category_name}, headers)
+                simple_response(add_category_data)
 
             elif choice == "5":
-
-                sys.exit()
+                print("Logging out from Admin console....")
+                return
 
             else:
                 print("Invalid option. Please enter a number between 1 and 5.")

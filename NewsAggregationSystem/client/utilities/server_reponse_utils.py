@@ -1,0 +1,20 @@
+
+def simple_response(data):
+    if data["message"] is not None:
+        print(data["message"])
+    elif data["error"] is not None:
+        print(data["error"])
+    else:
+        print(data)
+
+def external_server_status_response(data):
+    server_name = data["server_name"]
+    is_active = "Active" if data["is_active"] else "Not Active"
+    last_accessed = data["last_accessed"][:10]
+    print(f"{server_name} - {is_active} - last accessed : {last_accessed}")
+
+def external_server_details_response(data):
+    server_name = data["server_name"]
+    api_key = data["api_key"]
+    print(f"{server_name} - <{api_key}>")
+

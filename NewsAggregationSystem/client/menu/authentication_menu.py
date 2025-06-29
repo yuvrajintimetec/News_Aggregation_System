@@ -2,6 +2,7 @@ from NewsAggregationSystem.client.menu.admin_menu import AdminMenu
 from NewsAggregationSystem.client.menu.base_menu import BaseMenu
 from NewsAggregationSystem.client.menu.user_menu import UserMenu
 from NewsAggregationSystem.client.utilities import api_utilities
+from NewsAggregationSystem.client.utilities.server_reponse_utils import simple_response
 import sys
 
 class AuthenticationMenu(BaseMenu):
@@ -34,6 +35,7 @@ class AuthenticationMenu(BaseMenu):
                         role_menu = AdminMenu(access_token, user_data)
                     else:
                         role_menu = UserMenu(access_token, user_data)
+                    simple_response(login_data)
                     return role_menu
 
             elif choice == "2":
@@ -43,7 +45,7 @@ class AuthenticationMenu(BaseMenu):
                     "password": input("Password: ")
                 }
                 register_data = api_utilities.create("auth/register", user_data)
-                print(register_data)
+                simple_response(register_data)
 
             elif choice == "3":
                 print("Thank you for using the News Aggregator app. Goodbye!")

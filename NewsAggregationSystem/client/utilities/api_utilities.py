@@ -1,7 +1,11 @@
-# utils/api_utils.py
 import requests
+import os
+from dotenv import load_dotenv
 
-BASE_URL = "http://localhost:4024/api"
+load_dotenv()
+
+
+BASE_URL = os.getenv("BASE_URL")
 
 def get_all(endpoint: str):
     return requests.get(f"{BASE_URL}/{endpoint}").json()

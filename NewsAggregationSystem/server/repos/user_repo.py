@@ -20,5 +20,5 @@ class UserRepo:
             FROM user
             WHERE user_id = %s
         """
-        return db_query(query, (user_id,))
+        return db_query(query, (user_id,))[0]
 

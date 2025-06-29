@@ -43,7 +43,7 @@ class UserMenu(BaseMenu):
 
             elif choice == "5":
                 print("Goodbye! You've been logged out.")
-                sys.exit()
+                return
 
             else:
                 print("Invalid option. Please enter a number between 1 and 5.")
