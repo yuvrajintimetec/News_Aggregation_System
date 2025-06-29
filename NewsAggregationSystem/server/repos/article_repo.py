@@ -2,6 +2,7 @@ from NewsAggregationSystem.server.database import db_query
 from datetime import datetime
 
 
+
 class ArticleRepo:
     def insert_article(self, article):
         published_at = article.get("published_at")
@@ -34,7 +35,7 @@ class ArticleRepo:
     def fetch_articles_by_date(self, user_id):
         query = """
             SELECT * FROM article
-            WHERE DATE(published_at) = CURDATE()
+            WHERE DATE(published_at) = CURDATE() and is_hidden = FALSE
         """
         return db_query(query)
 
@@ -42,7 +43,7 @@ class ArticleRepo:
         if category.lower() == "all":
             query = """
                 SELECT * FROM article
-                WHERE DATE(published_at) BETWEEN %s AND %s
+                WHERE DATE(published_at) BETWEEN %s AND %s and is_hidden = FALSE
             """
             return db_query(query, (start_date, end_date))
         else:
@@ -50,7 +51,7 @@ class ArticleRepo:
                 SELECT a.* FROM article a
                 JOIN category_article_mapping cam ON a.article_id = cam.article_id
                 JOIN category c ON cam.category_id = c.category_id
-                WHERE DATE(a.published_at) BETWEEN %s AND %s AND c.category_name = %s
+                WHERE DATE(a.published_at) BETWEEN %s AND %s AND c.category_name = %s and a.is_hidden = FALSE
             """
             return db_query(query, (start_date, end_date, category))
 
@@ -69,7 +70,7 @@ class ArticleRepo:
         query = """
             SELECT a.* FROM article a
             JOIN saved_article usa ON a.article_id = usa.article_id
-            WHERE usa.user_id = %s
+            WHERE usa.user_id = %s and a.is_hidden = FALSE
         """
         return db_query(query, (user_id,))
 
@@ -91,7 +92,7 @@ class ArticleRepo:
                 FROM article a
                 LEFT JOIN article_reaction ar ON a.article_id = ar.article_id
                 WHERE a.published_at BETWEEN %s AND %s
-                  AND (a.title LIKE %s OR a.description LIKE %s OR a.content LIKE %s)
+                  AND (a.title LIKE %s OR a.description LIKE %s OR a.content LIKE %s) and a.is_hidden = FALSE
                 GROUP BY a.article_id
                 ORDER BY {sort_column}
             """
@@ -156,7 +157,7 @@ class ArticleRepo:
               AND NOT EXISTS (
                   SELECT 1 FROM notification_setting ns2
                   WHERE ns2.category_id = ns.category_id AND ns2.keyword_id IS NOT NULL
-                        AND ns2.user_id = ns.user_id
+                        AND ns2.user_id = ns.user_id 
               )
         """
         db_query(query_category_only, (article_id,))
@@ -206,3 +207,17 @@ class ArticleRepo:
             WHERE user_id = %s AND article_id = %s
         """
         return db_query(query, (is_like, user_id, article_id))
+
+    def set_article_hidden(self, article_id: int, hidden: bool):
+        query = "UPDATE article SET is_hidden = %s WHERE article_id = %s"
+        return db_query(query, (hidden, article_id))
+
+    def set_articles_hidden_by_category(self, category_id: str):
+            query = """
+                UPDATE article
+                SET is_hidden = TRUE
+                WHERE article_id IN (
+                    SELECT article_id FROM category_article_mapping WHERE category_id = %s
+                )
+            """
+            return db_query(query, (category_id,))

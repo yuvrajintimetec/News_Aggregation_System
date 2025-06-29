@@ -12,7 +12,7 @@ def start_scheduler_for_email_notification():
     scheduler.add_job(
         run_send_notifications_job,
         trigger='interval',
-        hours=2
+        hours = 1
     )
 
     scheduler.start()

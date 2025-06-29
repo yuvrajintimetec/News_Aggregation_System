@@ -1,6 +1,11 @@
 from NewsAggregationSystem.server.repos.article_repo import ArticleRepo
 from NewsAggregationSystem.server. repos.category_repo import CategoryRepo
 from NewsAggregationSystem.server.repos.category_article_mapping_repo import CategoryArticleMappingRepo
+from NewsAggregationSystem.server.repos.report_article_repo import ReportArticleRepo
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 class ArticleService:
 
@@ -8,6 +13,7 @@ class ArticleService:
         self.article_repo = ArticleRepo()
         self.category_repo = CategoryRepo()
         self.mapping_repo = CategoryArticleMappingRepo()
+        self.report_article_repo = ReportArticleRepo()
 
     def save_articles_with_category(self, articles):
         for article in articles:
@@ -84,5 +90,46 @@ class ArticleService:
                 return {"message": "You reacted on an article"}
             else:
                 return {"error": "Won't be able to react"}
+
+    def submit_article_report(self, article_id: int, user_id: int, reason: str):
+        existing_reaction = self.report_article_repo.get_article_report(article_id, user_id)
+        if existing_reaction:
+            self.report_article_repo.update_article_report(article_id, user_id, reason)
+            return {"message": "Article reported successfully"}
+        else:
+            if self.report_article_repo.insert_article_report(article_id, user_id, reason):
+                return {"message": "Article reported successfully"}
+            else:
+                return {"error": "Won't be able to report"}
+
+    def check_article_report(self):
+        reports = self.report_article_repo.get_all_reported_articles()
+        return reports
+
+    def hide_article_report(self, article_id):
+        report = self.report_article_repo.count_reports_for_article(article_id)
+        article_id = report[0]
+        report_count = report[1]
+        if report_count >= int(os.getenv("REPORT_THRESHOLD")):
+            self.article_repo.set_article_hidden(article_id, True)
+        return {"message": f"Article hidden successfully"}
+
+    def hide_reported_articles_with_keyword(self, keyword):
+        articles = self.article_repo.search_articles_with_keyword(keyword)
+        for article in articles:
+            article_id = article[0]
+            self.article_repo.set_article_hidden(article_id, True)
+        return {"message": f"Article hidden successfully"}
+
+    def hide_articles_by_category(self, category_name: str):
+        category = self.category_repo.find_category(category_name)
+        if category:
+            category_id, category_name = category[0]
+            updated_rows = self.article_repo.set_articles_hidden_by_category(category_id)
+            return {"message": f"{updated_rows} articles from category {category_id} were hidden successfully."}
+        else:
+            return {"error": "Category not found"}
+
+
 
 

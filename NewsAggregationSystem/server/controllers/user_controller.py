@@ -117,3 +117,6 @@ class UserController:
         else:
             return {"error": response["error"]}
 
+    def report_article(self, article_id: int, user_id: int, reason: str):
+        return self.article_service.submit_article_report(article_id, user_id, reason)
+

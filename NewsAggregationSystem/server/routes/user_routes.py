@@ -10,6 +10,7 @@ from NewsAggregationSystem.server.dtos.responses.user_detail_response import Use
 from NewsAggregationSystem.server.dtos.responses.article_details_response import ArticleDetailsResponse
 from NewsAggregationSystem.server.dtos.responses.save_atrticle_response import SaveArticleResponse
 from NewsAggregationSystem.server.dtos.responses.delete_article_response import DeleteArticleResponse
+from NewsAggregationSystem.server.dtos.requests.report_article_request import ReportArticleRequest
 
 router = APIRouter(prefix="/api/user")
 user_controller = UserController()
@@ -72,7 +73,9 @@ def react_to_article(
     return user_controller.react_to_article(user_info["user_id"], react_body.article_id, react_body.is_like)
 
 
-
+@router.post("/report-article/{article_id}")
+def report_article(article_id: int, report_body: ReportArticleRequest  = Body(...), current_user=Depends(get_current_user)):
+    return user_controller.report_article(article_id, current_user["user_id"], report_body.reason)
 
 
 
