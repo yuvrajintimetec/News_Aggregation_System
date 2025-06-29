@@ -1,0 +1,59 @@
+from datetime import datetime
+from NewsAggregationSystem.client.menu.base_menu import BaseMenu
+from NewsAggregationSystem.client.utilities import api_utilities
+from NewsAggregationSystem.client.utilities.server_reponse_utils import article_details_response
+
+class HeadlineMenu(BaseMenu):
+
+    def __init__(self, access_token, user_data):
+        self.access_token = access_token
+        self.user_data = user_data
+
+    def show_menu(self):
+        print("\nHEADLINES")
+        print("1. Today")
+        print("2. Date range")
+        print("3. Logout")
+
+    def api_request(self):
+        while True:
+            self.show_menu()
+            choice = input("Choose an option (1-3): ")
+
+            if choice == "1":
+                self.display_articles("user/headlines/today")
+            elif choice == "2":
+                start = input("Enter start date (YYYY-MM-DD): ")
+                end = input("Enter end date (YYYY-MM-DD): ")
+                print("1. All\n2. Business\n3. Entertainment\n4. Sports\n5. Technology")
+                cat_choice = input("Choose a category: ")
+                category_map = {
+                    "2": "business", "3": "entertainment", "4": "sports", "5": "technology"
+                }
+                category = category_map.get(cat_choice)
+                if category:
+                    url = f"user/headlines/range?start_date={start}&end_date={end}&category={category}"
+                else:
+                    url = f"user/headlines/range?start_date={start}&end_date={end}"
+                display = self.display_articles(url)
+                if display == 0:
+                    return 0
+            elif choice == "3":
+                return 0
+            else:
+                print("Invalid choice.")
+
+    def display_articles(self, url):
+        articles = api_utilities.get_all_with_token(url, {"Authorization": f"Bearer {self.access_token}"})
+        print("\nH E A D L I N E S")
+        print("1. Back\n2. Logout\n3. Save Article")
+        for article in articles:
+            article_details_response(article)
+        action = input("Choose (1-3): ")
+        if action == "1":
+            return
+        elif action == "2":
+            return 0
+        elif action == "3":
+            article_id = input("Enter Article ID to save: ")
+            api_utilities.create_with_token(f"user/save/{article_id}", {},{"Authorization": f"Bearer {self.access_token}"})

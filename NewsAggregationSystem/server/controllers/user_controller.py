@@ -78,6 +78,23 @@ class UserController:
         article_response = [dict(zip(keys, article)) for article in articles]
         return article_response
 
+    def get_liked_articles(self, user_info):
+        articles =  self.article_service.get_liked_articles(user_info["user_id"])
+        keys = [
+            "article_id",
+            "title",
+            "description",
+            "content",
+            "source",
+            "url",
+            "published_at",
+            "server_id"
+        ]
+
+        article_response = [dict(zip(keys, article)) for article in articles]
+        return article_response
+
+
     def delete_saved_article(self, user_info, article_id):
         if self.article_service.delete_saved_article(user_info["user_id"], article_id):
             return {"message": f"Article with id {article_id} deleted Successfully"}

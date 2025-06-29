@@ -11,7 +11,8 @@ class AdminMenu(BaseMenu):
         self.access_token = access_token
 
     def show_menu(self):
-        print(f"\nWelcome to the News Application, {self.user_data['name']} Date: {datetime.now()}")
+        now = datetime.now().strftime("%d-%b-%Y Time:%I:%M%p")
+        print(f"\nWelcome to the News Application, {self.user_data['name']}! Date: {now}")
         print("1. View the list of external servers and status")
         print("2. View the external server’s details")
         print("3. Update/Edit the external server’s details")

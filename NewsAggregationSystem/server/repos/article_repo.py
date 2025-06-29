@@ -74,6 +74,14 @@ class ArticleRepo:
         """
         return db_query(query, (user_id,))
 
+    def get_liked_articles(self, user_id):
+        query = """
+            SELECT a.* FROM article a
+            JOIN article_reaction ar ON a.article_id = ar.article_id
+            WHERE ar.user_id = %s and a.is_hidden = FALSE
+        """
+        return db_query(query, (user_id,))
+
     def delete_saved_article(self, user_id, article_id):
         query = """
                DELETE FROM saved_article

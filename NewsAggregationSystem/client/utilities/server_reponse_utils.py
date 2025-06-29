@@ -18,3 +18,9 @@ def external_server_details_response(data):
     api_key = data["api_key"]
     print(f"{server_name} - <{api_key}>")
 
+
+def article_details_response(article):
+    print(f"\nArticle Id: {article['article_id']}")
+    print(f"{article['title']}\n\n{article['description']}\n")
+    print(f"source: {article['source']}")
+    print(f"URL:\n{article['url']}")

@@ -73,6 +73,9 @@ class ArticleService:
     def get_saved_articles(self, user_id):
         return self.article_repo.get_saved_articles(user_id)
 
+    def get_liked_articles(self, user_id):
+        return self.article_repo.get_liked_articles(user_id)
+
     def delete_saved_article(self, user_id, article_id):
         return self.article_repo.delete_saved_article(user_id, article_id)
 

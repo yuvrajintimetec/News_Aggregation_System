@@ -29,7 +29,7 @@ def get_today_headlines(user_info=Depends(get_current_user)):
 def get_articles_by_date_range(
     start_date: date = Query(...),
     end_date: date = Query(...),
-    category: str = Query(...),
+    category: str = Query("all"),
     user_info=Depends(get_current_user)
 ):
     return user_controller.get_articles_by_range(user_info, start_date, end_date, category)
@@ -43,6 +43,10 @@ def save_article(article_id: int, user_info=Depends(get_current_user)):
 @router.get("/saved", response_model=List[ArticleDetailsResponse])
 def get_saved_articles(user_info=Depends(get_current_user)):
     return user_controller.get_saved_articles(user_info)
+
+@router.get("/liked", response_model=List[ArticleDetailsResponse])
+def get_liked_articles(user_info=Depends(get_current_user)):
+    return user_controller.get_liked_articles(user_info)
 
 
 @router.delete("/saved/{article_id}", response_model=DeleteArticleResponse)
