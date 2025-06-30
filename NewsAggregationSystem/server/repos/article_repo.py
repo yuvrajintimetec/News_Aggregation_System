@@ -90,18 +90,13 @@ class ArticleRepo:
         return db_query(query, (user_id, article_id))
 
     def search_articles(self,start_date, end_date, keyword, sort_by):
-        sort_column = "like_count DESC" if sort_by == "likes" else "dislike_count DESC"
+        sort_column = "likes DESC" if sort_by == "likes" else "dislikes DESC"
 
         query = f"""
-                SELECT 
-                    a.*,
-                    COALESCE(SUM(CASE WHEN ar.is_like = TRUE THEN 1 ELSE 0 END), 0) AS like_count,
-                    COALESCE(SUM(CASE WHEN ar.is_like = FALSE THEN 1 ELSE 0 END), 0) AS dislike_count
+                SELECT *
                 FROM article a
-                LEFT JOIN article_reaction ar ON a.article_id = ar.article_id
                 WHERE a.published_at BETWEEN %s AND %s
                   AND (a.title LIKE %s OR a.description LIKE %s OR a.content LIKE %s) and a.is_hidden = FALSE
-                GROUP BY a.article_id
                 ORDER BY {sort_column}
             """
         keyword_like = f"%{keyword}%"
@@ -116,105 +111,6 @@ class ArticleRepo:
         like_pattern = f"%{keyword}%"
         return db_query(query, (like_pattern, like_pattern, like_pattern))
 
-    def insert_notifications_for_article(self, article_id):
-        query_both = """
-            INSERT INTO Notification (
-                user_id,
-                notification_setting_id,
-                article_id,
-                message,
-                notification_date
-            )
-            SELECT
-                ns.user_id,
-                ns.notification_setting_id,
-                cam.article_id,
-                CONCAT('New article: ', a.title, ' - ', a.description),
-                NOW()
-            FROM category_article_mapping cam
-            JOIN keyword_article_mapping kam ON cam.article_id = kam.article_id
-            JOIN notification_setting ns 
-                ON ns.category_id = cam.category_id AND ns.keyword_id = kam.keyword_id
-            JOIN article a ON a.article_id = cam.article_id
-            WHERE cam.article_id = %s
-              AND ns.is_enabled = true
-        """
-        db_query(query_both, (article_id,))
-
-
-        query_category_only = """
-            INSERT INTO Notification (
-                user_id,
-                notification_setting_id,
-                article_id,
-                message,
-                notification_date
-            )
-            SELECT
-                ns.user_id,
-                ns.notification_setting_id,
-                cam.article_id,
-                CONCAT('Category alert: ', a.title, ' - ', a.description),
-                NOW()
-            FROM category_article_mapping cam
-            JOIN notification_setting ns 
-                ON cam.category_id = ns.category_id AND ns.keyword_id IS NULL
-            JOIN article a ON a.article_id = cam.article_id
-            WHERE cam.article_id = %s
-              AND ns.is_enabled = true
-              AND NOT EXISTS (
-                  SELECT 1 FROM notification_setting ns2
-                  WHERE ns2.category_id = ns.category_id AND ns2.keyword_id IS NOT NULL
-                        AND ns2.user_id = ns.user_id 
-              )
-        """
-        db_query(query_category_only, (article_id,))
-
-
-        query_keyword_only = """
-            INSERT INTO Notification (
-                user_id,
-                notification_setting_id,
-                article_id,
-                message,
-                notification_date
-            )
-            SELECT
-                ns.user_id,
-                ns.notification_setting_id,
-                kam.article_id,
-                CONCAT('Keyword match: ', a.title, ' - ', a.description),
-                NOW()
-            FROM keyword_article_mapping kam
-            JOIN notification_setting ns 
-                ON kam.keyword_id = ns.keyword_id AND ns.category_id IS NULL
-            JOIN article a ON a.article_id = kam.article_id
-            WHERE kam.article_id = %s
-              AND ns.is_enabled = true
-        """
-        db_query(query_keyword_only, (article_id,))
-
-    def get_reaction(self, user_id: int, article_id: int):
-        query = """
-            SELECT * FROM article_reaction
-            WHERE user_id = %s AND article_id = %s
-        """
-        return db_query(query, (user_id, article_id))
-
-    def insert_reaction(self, user_id: int, article_id: int, is_like: bool):
-        query = """
-            INSERT INTO article_reaction (user_id, article_id, is_like)
-            VALUES (%s, %s, %s)
-        """
-        return db_query(query, (user_id, article_id, is_like))
-
-    def update_reaction(self, user_id: int, article_id: int, is_like: bool):
-        query = """
-            UPDATE article_reaction
-            SET is_like = %s, reaction_date = NOW()
-            WHERE user_id = %s AND article_id = %s
-        """
-        return db_query(query, (is_like, user_id, article_id))
 
     def set_article_hidden(self, article_id: int, hidden: bool):
         query = "UPDATE article SET is_hidden = %s WHERE article_id = %s"
@@ -229,3 +125,28 @@ class ArticleRepo:
                 )
             """
             return db_query(query, (category_id,))
+
+    def update_likes_dislikes(self):
+        query = """
+        UPDATE article a
+        LEFT JOIN (
+            SELECT
+                ar.article_id,
+                SUM(CASE WHEN ar.is_like = TRUE THEN 1 ELSE 0 END) AS like_count,
+                SUM(CASE WHEN ar.is_like = FALSE THEN 1 ELSE 0 END) AS dislike_count
+            FROM article_reaction ar
+            GROUP BY ar.article_id
+        ) AS react_summary ON a.article_id = react_summary.article_id
+        SET
+            a.likes = IFNULL(react_summary.like_count, 0),
+            a.dislikes = IFNULL(react_summary.dislike_count, 0);
+        """
+        db_query(query)
+
+    def update_latest_status(self, article_id):
+        query = "UPDATE article SET is_latest = 0 WHERE article_id = %s"
+        return db_query(query, (article_id,))
+
+    def get_latest_status(self, article_id):
+        query = "SELECT is_latest from article WHERE article_id = %s"
+        return db_query(query, (article_id,))

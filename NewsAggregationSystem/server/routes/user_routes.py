@@ -35,12 +35,12 @@ def get_articles_by_date_range(
     return user_controller.get_articles_by_range(user_info, start_date, end_date, category)
 
 
-@router.post("/save/{article_id}", response_model=SaveArticleResponse)
+@router.post("/saved-article/{article_id}", response_model=SaveArticleResponse)
 def save_article(article_id: int, user_info=Depends(get_current_user)):
     return user_controller.save_article_for_user(user_info, article_id)
 
 
-@router.get("/saved", response_model=List[ArticleDetailsResponse])
+@router.get("/saved-articles", response_model=List[ArticleDetailsResponse])
 def get_saved_articles(user_info=Depends(get_current_user)):
     return user_controller.get_saved_articles(user_info)
 
@@ -49,7 +49,7 @@ def get_liked_articles(user_info=Depends(get_current_user)):
     return user_controller.get_liked_articles(user_info)
 
 
-@router.delete("/saved/{article_id}", response_model=DeleteArticleResponse)
+@router.delete("/saved-article/{article_id}", response_model=DeleteArticleResponse)
 def delete_saved_article(article_id: int, user_info=Depends(get_current_user)):
     return user_controller.delete_saved_article(user_info, article_id)
 

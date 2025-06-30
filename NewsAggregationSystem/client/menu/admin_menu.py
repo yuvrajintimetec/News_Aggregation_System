@@ -70,7 +70,7 @@ class AdminMenu(BaseMenu):
 
             elif choice == "5":
                 print("Logging out from Admin console....")
-                return
+                return "logout"
 
             else:
                 print("Invalid option. Please enter a number between 1 and 5.")

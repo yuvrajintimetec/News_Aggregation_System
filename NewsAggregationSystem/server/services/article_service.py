@@ -1,6 +1,8 @@
 from NewsAggregationSystem.server.repos.article_repo import ArticleRepo
 from NewsAggregationSystem.server. repos.category_repo import CategoryRepo
 from NewsAggregationSystem.server.repos.category_article_mapping_repo import CategoryArticleMappingRepo
+from NewsAggregationSystem.server.repos.notification_repo import NotificationRepo
+from NewsAggregationSystem.server.repos.react_article_repo import ReactArticleRepo
 from NewsAggregationSystem.server.repos.report_article_repo import ReportArticleRepo
 import os
 from dotenv import load_dotenv
@@ -14,6 +16,8 @@ class ArticleService:
         self.category_repo = CategoryRepo()
         self.mapping_repo = CategoryArticleMappingRepo()
         self.report_article_repo = ReportArticleRepo()
+        self.notification_repo = NotificationRepo()
+        self.react_article_repo = ReactArticleRepo()
 
     def save_articles_with_category(self, articles):
         for article in articles:
@@ -47,7 +51,11 @@ class ArticleService:
                         if not existing_mapping:
                             self.mapping_repo.create_category_article_mapping(category_id, article_id)
 
-            self.article_repo.insert_notifications_for_article(article_id)
+            is_latest = self.article_repo.get_latest_status(article_id)[0][0]
+            if is_latest:
+                self.notification_repo.insert_notifications_for_article(article_id)
+
+            self.article_repo.update_latest_status(article_id)
 
     def get_articles_for_today(self, user_id):
         return self.article_repo.fetch_articles_by_date(user_id)
@@ -68,8 +76,6 @@ class ArticleService:
         else:
             return {"error": "Article not saved"}
 
-
-
     def get_saved_articles(self, user_id):
         return self.article_repo.get_saved_articles(user_id)
 
@@ -84,15 +90,19 @@ class ArticleService:
         return self.article_repo.search_articles(start_date, end_date, keyword, sort_by)
 
     def react_to_article(self, user_id: int, article_id: int, is_like: bool):
-        existing_reaction = self.article_repo.get_reaction(user_id, article_id)
+        existing_reaction = self.react_article_repo.get_reaction(user_id, article_id)
         if existing_reaction:
-             self.article_repo.update_reaction(user_id, article_id, is_like)
-             return {"message": "You reacted on an article"}
+             if not self.react_article_repo.update_reaction(user_id, article_id, is_like):
+                 return {"error": "Won't be able to react"}
         else:
-            if self.article_repo.insert_reaction(user_id, article_id, is_like):
-                return {"message": "You reacted on an article"}
+            if self.react_article_repo.insert_reaction(user_id, article_id, is_like):
+                pass
             else:
                 return {"error": "Won't be able to react"}
+
+        self.article_repo.update_likes_dislikes()
+        return {"message": "You reacted on an article"}
+
 
     def submit_article_report(self, article_id: int, user_id: int, reason: str):
         existing_reaction = self.report_article_repo.get_article_report(article_id, user_id)

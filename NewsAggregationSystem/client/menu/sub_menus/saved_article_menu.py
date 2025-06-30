@@ -16,7 +16,7 @@ class SavedArticleMenu(BaseMenu):
 
     def api_request(self):
         while True:
-            articles = api_utilities.get_all_with_token("user/saved", {"Authorization": f"Bearer {self.access_token}"})
+            articles = api_utilities.get_all_with_token("user/saved-articles", {"Authorization": f"Bearer {self.access_token}"})
             self.show_menu()
             for article in articles:
                 article_details_response(article)
@@ -24,7 +24,7 @@ class SavedArticleMenu(BaseMenu):
             if choice == "1":
                 return
             elif choice == "2":
-                return 0
+                return "logout"
             elif choice == "3":
                 article_id = input("Enter Article ID to delete: ")
-                api_utilities.delete_with_token("user/saved", int(article_id), {"Authorization": f"Bearer {self.access_token}"})
+                api_utilities.delete_with_token("user/saved-article", int(article_id), {"Authorization": f"Bearer {self.access_token}"})

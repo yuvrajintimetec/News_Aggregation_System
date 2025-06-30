@@ -27,18 +27,18 @@ class UserMenu(BaseMenu):
             choice = input("Enter your choice (1-5): ")
             if choice == "1":
                 headline_menu = HeadlineMenu(self.access_token, self.user_data).api_request()
-                if headline_menu == 0:
-                    break
+                if headline_menu == "logout":
+                    return "logout"
             elif choice == "2":
                 save_article_menu = SavedArticleMenu(self.access_token, self.user_data).api_request()
-                if save_article_menu == 0:
-                    return
+                if save_article_menu == "logout":
+                    return "logout"
             elif choice == "3":
                 SearchMenu(self.access_token, self.user_data).api_request()
             elif choice == "4":
                 NotificationMenu(self.access_token, self.user_data).api_request()
             elif choice == "5":
                 print("Goodbye! You've been logged out.")
-                return
+                return "logout"
             else:
                 print("Invalid option. Please enter a number between 1 and 5.")

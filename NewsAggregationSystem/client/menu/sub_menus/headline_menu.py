@@ -36,10 +36,10 @@ class HeadlineMenu(BaseMenu):
                 else:
                     url = f"user/headlines/range?start_date={start}&end_date={end}"
                 display = self.display_articles(url)
-                if display == 0:
-                    return 0
+                if display == "logout":
+                    return "logout"
             elif choice == "3":
-                return 0
+                return "logout"
             else:
                 print("Invalid choice.")
 
@@ -53,7 +53,7 @@ class HeadlineMenu(BaseMenu):
         if action == "1":
             return
         elif action == "2":
-            return 0
+            return "logout"
         elif action == "3":
             article_id = input("Enter Article ID to save: ")
-            api_utilities.create_with_token(f"user/save/{article_id}", {},{"Authorization": f"Bearer {self.access_token}"})
+            api_utilities.create_with_token(f"user/saved-article/{article_id}", {},{"Authorization": f"Bearer {self.access_token}"})
