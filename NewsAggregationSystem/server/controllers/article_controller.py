@@ -11,7 +11,7 @@ class ArticleController:
         service = ArticleService()
 
         all_articles = manager.fetch_articles_from_active_servers()
-        service.save_articles_with_category(all_articles)
+        service.save_articles(all_articles)
 
         return {"message": "Articles saved successfully", "total": len(all_articles)}
 

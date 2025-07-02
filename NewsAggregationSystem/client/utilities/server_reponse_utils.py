@@ -1,11 +1,19 @@
 
 def simple_response(data):
-    if data["message"] is not None:
+    if ("message" in data) and (data["message"] is not None):
         print(data["message"])
-    elif data["error"] is not None:
+    elif ("error" in data) and (data["error"] is not None):
         print(data["error"])
     else:
         print(data)
+
+def simple_response_containing_list(data):
+    if ("message" in data) and (data["message"] is not None):
+        return data["message"]
+    elif ("error" in data) and (data["error"] is not None):
+        return data["error"]
+    else:
+        return data
 
 def external_server_status_response(data):
     server_name = data["server_name"]
@@ -24,3 +32,6 @@ def article_details_response(article):
     print(f"{article['title']}\n\n{article['description']}\n")
     print(f"source: {article['source']}")
     print(f"URL:\n{article['url']}")
+
+def notification_details_response(data):
+    print(f"\n{data}")

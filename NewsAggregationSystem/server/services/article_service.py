@@ -19,7 +19,7 @@ class ArticleService:
         self.notification_repo = NotificationRepo()
         self.react_article_repo = ReactArticleRepo()
 
-    def save_articles_with_category(self, articles):
+    def save_articles(self, articles):
         for article in articles:
             title = article.get("title")
             description = article.get("description")

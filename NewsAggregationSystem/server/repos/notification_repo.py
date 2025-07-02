@@ -4,9 +4,9 @@ class NotificationRepo:
     def get_user_notifications(self, user_id):
         query = """
             SELECT n.notification_id, n.user_id, n.message
-            FROM Notification n
+            FROM Notification n where n.user_id = %s
         """
-        return db_query(query, (user_id))
+        return db_query(query, (user_id,))
 
     def get_all_notifications(self):
         query = """

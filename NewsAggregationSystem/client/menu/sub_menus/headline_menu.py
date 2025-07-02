@@ -1,7 +1,9 @@
 from datetime import datetime
 from NewsAggregationSystem.client.menu.base_menu import BaseMenu
 from NewsAggregationSystem.client.utilities import api_utilities
-from NewsAggregationSystem.client.utilities.server_reponse_utils import article_details_response
+from NewsAggregationSystem.client.utilities.server_reponse_utils import article_details_response, \
+    simple_response_containing_list
+
 
 class HeadlineMenu(BaseMenu):
 
@@ -44,11 +46,15 @@ class HeadlineMenu(BaseMenu):
                 print("Invalid choice.")
 
     def display_articles(self, url):
-        articles = api_utilities.get_all_with_token(url, {"Authorization": f"Bearer {self.access_token}"})
+        response = api_utilities.get_all_with_token(url, {"Authorization": f"Bearer {self.access_token}"})
         print("\nH E A D L I N E S")
         print("1. Back\n2. Logout\n3. Save Article")
-        for article in articles:
-            article_details_response(article)
+        articles = simple_response_containing_list(response)
+        if type(articles) is list:
+            for article in articles:
+                article_details_response(article)
+        else:
+            print(articles)
         action = input("Choose (1-3): ")
         if action == "1":
             return

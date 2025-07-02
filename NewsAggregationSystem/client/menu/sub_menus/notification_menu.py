@@ -1,6 +1,9 @@
 from NewsAggregationSystem.client.menu.base_menu import BaseMenu
 from NewsAggregationSystem.client.menu.sub_menus.notification_config_menu import NotificationConfigMenu
 from NewsAggregationSystem.client.utilities import api_utilities
+from NewsAggregationSystem.client.utilities.server_reponse_utils import simple_response_containing_list, \
+    notification_details_response
+
 
 class NotificationMenu(BaseMenu):
 
@@ -20,10 +23,14 @@ class NotificationMenu(BaseMenu):
             self.show_menu()
             choice = input("Choose (1-4): ")
             if choice == "1":
-                notifications = api_utilities.get_by_id("notifications", self.user_data["user_id"])
+                response = api_utilities.get_all_with_token("user/notifications", {"Authorization": f"Bearer {self.access_token}"})
                 print("\nNOTIFICATIONS")
-                for note in notifications:
-                    print(f"\n{note['title']}\n{note['message']}")
+                notifications = simple_response_containing_list(response)
+                if type(notifications) is list:
+                    for notification in notifications:
+                       notification_details_response(notification)
+                else:
+                    print(notifications)
             elif choice == "2":
                 NotificationConfigMenu(self.access_token, self.user_data).api_request()
             elif choice == "3":

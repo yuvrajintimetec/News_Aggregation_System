@@ -13,7 +13,7 @@ class AdminController:
         servers = self.external_server_service.get_all_servers()
         keys = ["server_name", "api_key", "base_url", "is_active", "last_accessed"]
         server_response = [dict(zip(keys, server[1:])) for server in servers]
-        return server_response
+        return {"message": server_response}
 
     def update_server(self, server_id, update_data):
         self.external_server_service.update_server(server_id, update_data)
@@ -36,7 +36,7 @@ class AdminController:
        ]
         print(articles)
         article_response = [dict(zip(keys, article)) for article in articles]
-        return article_response
+        return {"message": article_response}
 
     def hide_reported_article(self, article_id):
        return self.article_service.hide_article_report(article_id)

@@ -1,7 +1,7 @@
 from NewsAggregationSystem.client.menu.base_menu import BaseMenu
 from NewsAggregationSystem.client.utilities import api_utilities
-from NewsAggregationSystem.client.utilities.server_reponse_utils import external_server_details_response,external_server_status_response, simple_response
-import sys
+from NewsAggregationSystem.client.utilities.server_reponse_utils import external_server_details_response, \
+    external_server_status_response, simple_response, simple_response_containing_list
 from datetime import datetime
 
 class AdminMenu(BaseMenu):
@@ -28,17 +28,24 @@ class AdminMenu(BaseMenu):
                 headers = {
                     "Authorization": f"Bearer {self.access_token}"
                 }
-                server_details = api_utilities.get_all_with_token("admin/list_external_server", headers)
-                for server_detail in server_details:
-                    external_server_status_response(server_detail)
-
+                response = api_utilities.get_all_with_token("admin/list_external_server", headers)
+                server_details = simple_response_containing_list(response)
+                if type(server_details) is list:
+                    for server_detail in server_details:
+                        external_server_status_response(server_detail)
+                else:
+                    print(server_details)
             elif choice == "2":
                 headers = {
                     "Authorization": f"Bearer {self.access_token}"
                 }
-                server_details = api_utilities.get_all_with_token("admin/list_external_server", headers)
-                for server_detail in server_details:
-                    external_server_details_response(server_detail)
+                response = api_utilities.get_all_with_token("admin/list_external_server", headers)
+                server_details = simple_response_containing_list(response)
+                if type(server_details) is list:
+                    for server_detail in server_details:
+                        external_server_details_response(server_detail)
+                else:
+                    print(server_details)
 
             elif choice == "3":
                 headers = {

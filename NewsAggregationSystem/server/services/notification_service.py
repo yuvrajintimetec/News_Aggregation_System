@@ -9,7 +9,12 @@ class NotificationService:
         self.user_repo = UserRepo()
 
     def get_notifications(self, user_id):
-        return self.notification_repo.get_user_notifications(user_id)
+        notifications = self.notification_repo.get_user_notifications(user_id)
+        messages = []
+        for notification in notifications:
+            message = notification[2]
+            messages.append(message)
+        return messages
 
     async def send_notifications_by_email(self):
         notifications = self.notification_repo.get_all_notifications()

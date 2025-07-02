@@ -1,7 +1,9 @@
 from datetime import datetime
 from NewsAggregationSystem.client.menu.base_menu import BaseMenu
 from NewsAggregationSystem.client.utilities import api_utilities
-from NewsAggregationSystem.client.utilities.server_reponse_utils import article_details_response
+from NewsAggregationSystem.client.utilities.server_reponse_utils import article_details_response, \
+    simple_response_containing_list
+
 
 class SavedArticleMenu(BaseMenu):
 
@@ -16,10 +18,14 @@ class SavedArticleMenu(BaseMenu):
 
     def api_request(self):
         while True:
-            articles = api_utilities.get_all_with_token("user/saved-articles", {"Authorization": f"Bearer {self.access_token}"})
+            response = api_utilities.get_all_with_token("user/saved-articles", {"Authorization": f"Bearer {self.access_token}"})
             self.show_menu()
-            for article in articles:
-                article_details_response(article)
+            articles = simple_response_containing_list(response)
+            if type(articles) is list:
+                for article in articles:
+                    article_details_response(article)
+            else:
+                print(articles)
             choice = input("Choose (1-3): ")
             if choice == "1":
                 return

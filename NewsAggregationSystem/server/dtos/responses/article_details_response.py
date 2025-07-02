@@ -1,8 +1,9 @@
 from pydantic import BaseModel
 from datetime import datetime
-from typing import Optional
+from typing import Optional, List
 
-class ArticleDetailsResponse(BaseModel):
+
+class ArticleDetailResponse(BaseModel):
     article_id: Optional[int] = None
     title: Optional[str] = None
     description: Optional[str] = None
@@ -11,3 +12,7 @@ class ArticleDetailsResponse(BaseModel):
     url: Optional[str] = None
     published_at: datetime | None
     server_id : Optional[int] = None
+
+class ArticleDetailsResponse(BaseModel):
+    message: Optional[List[ArticleDetailResponse]] = None
+    error: Optional[str] = None

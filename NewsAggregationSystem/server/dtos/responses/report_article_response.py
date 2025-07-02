@@ -1,3 +1,4 @@
+from typing import Optional, List
 from pydantic import BaseModel
 from datetime import datetime
 
@@ -7,3 +8,7 @@ class ReportArticleResponse(BaseModel):
     user_id: int
     report_reason: str
     reported_at: datetime
+
+class ReportArticlesResponse(BaseModel):
+    message: Optional[List[ReportArticleResponse]] = None
+    error: Optional[str] = None

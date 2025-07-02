@@ -33,7 +33,7 @@ class UserController:
         ]
 
         article_response = [dict(zip(keys, article)) for article in articles]
-        return article_response
+        return {"message": article_response}
 
     def get_articles_by_range(self, user_info, start_date, end_date, category):
         articles = self.article_service.get_articles_by_date_range(
@@ -52,7 +52,7 @@ class UserController:
         ]
 
         article_response = [dict(zip(keys, article)) for article in articles]
-        return article_response
+        return {"message": article_response}
 
     def save_article_for_user(self, user_info, article_id):
          response =  self.article_service.save_article(user_info["user_id"], article_id)
@@ -76,7 +76,7 @@ class UserController:
         ]
 
         article_response = [dict(zip(keys, article)) for article in articles]
-        return article_response
+        return {"message": article_response}
 
     def get_liked_articles(self, user_info):
         articles =  self.article_service.get_liked_articles(user_info["user_id"])
@@ -92,7 +92,7 @@ class UserController:
         ]
 
         article_response = [dict(zip(keys, article)) for article in articles]
-        return article_response
+        return {"message": article_response}
 
 
     def delete_saved_article(self, user_info, article_id):
@@ -115,10 +115,11 @@ class UserController:
             "server_id"
         ]
         article_response = [dict(zip(keys, article[0:8])) for article in articles]
-        return article_response
+        return {"message":article_response}
 
     def view_notifications(self, user_id):
-        return self.notification_service.get_notifications(user_id)
+        messages =  self.notification_service.get_notifications(user_id)
+        return {"message": messages}
 
 
     def configure(self, user_id, config):

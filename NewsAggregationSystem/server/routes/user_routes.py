@@ -1,4 +1,6 @@
 from fastapi.params import Depends, Query, Body
+
+from NewsAggregationSystem.server.dtos.responses.notification_details_response import NotificationDetailsResponse
 from NewsAggregationSystem.server.middleware.authentication_middleware import get_current_user
 from NewsAggregationSystem.server.controllers.user_controller import UserController
 from fastapi import APIRouter
@@ -20,12 +22,12 @@ def get_user_profile(user_info=Depends(get_current_user)):
     return user_controller.get_user_by_id(user_info["user_id"])
 
 
-@router.get("/headlines/today", response_model=List[ArticleDetailsResponse])
+@router.get("/headlines/today", response_model=ArticleDetailsResponse)
 def get_today_headlines(user_info=Depends(get_current_user)):
     return user_controller.get_today_articles(user_info)
 
 
-@router.get("/headlines/range", response_model=List[ArticleDetailsResponse])
+@router.get("/headlines/range", response_model=ArticleDetailsResponse)
 def get_articles_by_date_range(
     start_date: date = Query(...),
     end_date: date = Query(...),
@@ -40,11 +42,11 @@ def save_article(article_id: int, user_info=Depends(get_current_user)):
     return user_controller.save_article_for_user(user_info, article_id)
 
 
-@router.get("/saved-articles", response_model=List[ArticleDetailsResponse])
+@router.get("/saved-articles", response_model=ArticleDetailsResponse)
 def get_saved_articles(user_info=Depends(get_current_user)):
     return user_controller.get_saved_articles(user_info)
 
-@router.get("/liked", response_model=List[ArticleDetailsResponse])
+@router.get("/liked", response_model=ArticleDetailsResponse)
 def get_liked_articles(user_info=Depends(get_current_user)):
     return user_controller.get_liked_articles(user_info)
 
@@ -54,14 +56,14 @@ def delete_saved_article(article_id: int, user_info=Depends(get_current_user)):
     return user_controller.delete_saved_article(user_info, article_id)
 
 
-@router.get("/search", response_model=List[ArticleDetailsResponse])
+@router.get("/articles/search", response_model=ArticleDetailsResponse)
 def search_articles( start_date: date = Query(...),
     end_date: date = Query(...),
     sort_by: str = Query("likes"),
     keyword: str = Query(...), user_info=Depends(get_current_user)):
     return user_controller.search_articles(start_date, end_date, keyword, sort_by, user_info)
 
-@router.get("/notifications")
+@router.get("/notifications", response_model=NotificationDetailsResponse)
 def view_notifications(user_info=Depends(get_current_user)):
     return user_controller.view_notifications(user_info["user_id"])
 

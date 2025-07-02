@@ -1,5 +1,8 @@
 from NewsAggregationSystem.client.menu.base_menu import BaseMenu
 from NewsAggregationSystem.client.utilities import api_utilities
+from NewsAggregationSystem.client.utilities.server_reponse_utils import simple_response_containing_list, \
+    article_details_response
+
 
 class SearchMenu(BaseMenu):
 
@@ -15,16 +18,22 @@ class SearchMenu(BaseMenu):
         keyword = input("Enter search keyword: ")
         start = input("Start Date (YYYY-MM-DD): ")
         end = input("End Date (YYYY-MM-DD): ")
-        sort = input("Sort by (likes/dislikes): ")
-        url = f"articles/search?keyword={keyword}&start={start}&end={end}&sort={sort}"
+        sort = input("Sort by (likes/dislikes, leave blank to skip): ")
+        if sort:
+            url = f"user/articles/search?keyword={keyword}&start_date={start}&end_date={end}&sort_by={sort}"
+        else:
+            url = f"user/articles/search?keyword={keyword}&start_date={start}&end_date={end}"
 
-        articles = api_utilities.get_all(url)
+        response = api_utilities.get_all_with_token(url, {"Authorization": f"Bearer {self.access_token}"})
         print(f"\nS E A R C H\nResults for “{keyword}”")
         self.show_menu()
-        for article in articles:
-            print(f"\nArticle Id: {article['article_id']} {article['title']}")
-            print(f"{article['description']}\n")
-            print(f"source : {article['source']}\nURL:\n{article['url']}\nBusiness: {article['category']}")
+        articles = simple_response_containing_list(response)
+        if type(articles) is list:
+            for article in articles:
+                article_details_response(article)
+        else:
+            print(articles)
+
         choice = input("Choose (1-3): ")
         if choice == "3":
             article_id = input("Enter Article ID to save: ")

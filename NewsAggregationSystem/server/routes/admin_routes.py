@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, Body, Query
 from typing import List
 from NewsAggregationSystem.server.controllers.admin_controller import AdminController
 from NewsAggregationSystem.server.dtos.requests.external_server_update_request import ExternalServerUpdateRequest
-from NewsAggregationSystem.server.dtos.responses.report_article_response import ReportArticleResponse
+from NewsAggregationSystem.server.dtos.responses.report_article_response import ReportArticlesResponse
 from NewsAggregationSystem.server.middleware.check_user_role_middleware import admin_required
 from NewsAggregationSystem.server.dtos.requests.create_category_request import CreateCategoryRequest
 from NewsAggregationSystem.server.dtos.responses.external_server_details_response import ExternalServerDetailsResponse
@@ -12,7 +12,7 @@ from NewsAggregationSystem.server.dtos.responses.add_category_response import Ad
 router = APIRouter(prefix="/api/admin", tags=["Admin"])
 admin_controller = AdminController()
 
-@router.get("/list_external_server", response_model=List[ExternalServerDetailsResponse])
+@router.get("/list_external_server", response_model=ExternalServerDetailsResponse)
 async def get_all_servers(user_info=Depends(admin_required)):
     return admin_controller.get_all_servers()
 
@@ -27,7 +27,7 @@ async def update_server(server_id: int, external_server_data: ExternalServerUpda
 async def add_category(category: CreateCategoryRequest, user_info=Depends(admin_required)):
     return admin_controller.add_category(category)
 
-@router.get("/reported-articles", response_model=List[ReportArticleResponse])
+@router.get("/reported-articles", response_model=ReportArticlesResponse)
 async def add_category(user_info=Depends(admin_required)):
     return admin_controller.check_reported_articles()
 
