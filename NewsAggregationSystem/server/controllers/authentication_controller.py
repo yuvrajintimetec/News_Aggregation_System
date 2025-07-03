@@ -7,9 +7,9 @@ class AuthenticationController:
         self.authentication_service = AuthenticationService()
 
     def register(self, body):
-       register_response =  self.authentication_service.register(body.name, body.email, body.password)
-       return register_response
+       is_register =  self.authentication_service.register(body.name, body.email, body.password)
+       return is_register
 
     def login(self, body):
-       login_response = self.authentication_service.login(body.email, body.password)
-       return login_response
+       is_login = self.authentication_service.login(body.email, body.password)
+       return is_login

@@ -4,6 +4,10 @@ def simple_response(data):
         print(data["message"])
     elif ("error" in data) and (data["error"] is not None):
         print(data["error"])
+    elif ("detail" in data) and (type(data["detail"]) is list) and (data["error"] is not None) :
+        print(data["detail"][0]["msg"])
+    elif ("detail" in data) and (data["error"] is not None):
+        print(data["detail"])
     else:
         print(data)
 
@@ -12,6 +16,10 @@ def simple_response_containing_list(data):
         return data["message"]
     elif ("error" in data) and (data["error"] is not None):
         return data["error"]
+    elif ("detail" in data) and (type(data["detail"]) is list) and (data["error"] is not None):
+        return data["detail"][0]["msg"]
+    elif ("detail" in data) and (data["error"] is not None):
+        return data["detail"]
     else:
         return data
 

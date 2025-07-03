@@ -20,11 +20,13 @@ class AuthenticationService:
         if user:
             user_id, user_name, user_email, user_password, user_role = user[0]
             is_valid = PasswordUtils.verify_password(password, user_password)
-            if is_valid:
-                access_token = JWTUtils.create_access_token(data={"user_id": user_id, "user_role": user_role})
-                return {
-                    "message": "User login successfully",
-                    "access_token": access_token
-                }
+            if not is_valid:
+                return {"error": "Wrong email and password. Please re-enter it"}
+
+            access_token = JWTUtils.create_access_token(data={"user_id": user_id, "user_role": user_role})
+            return {
+                "message": "User login successfully",
+                "access_token": access_token
+            }
         else:
-            return {"message": "User not found"}
+            return {"error": "Wrong email and password. Please re-enter it"}

@@ -5,6 +5,7 @@ from NewsAggregationSystem.server.utilities.jwt_utils import JWTUtils
 security = HTTPBearer()
 
 def get_current_user(credentials: HTTPAuthorizationCredentials = Depends(security)):
+
     token = credentials.credentials
     payload = JWTUtils.decode_access_token(token)
     user_info = {
