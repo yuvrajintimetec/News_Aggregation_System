@@ -23,6 +23,6 @@ def db_query(query, params=None):
                 connection.commit()
                 return cursor.rowcount
 
-    except sql.Error as e:
-        print(f"Database error: {e}")
+    except sql.Error as error:
+        print(f"Database error: {error}")
         return None

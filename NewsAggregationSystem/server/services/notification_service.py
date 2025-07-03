@@ -12,8 +12,10 @@ class NotificationService:
         notifications = self.notification_repo.get_user_notifications(user_id)
         messages = []
         for notification in notifications:
+            notification_id = notification[0]
             message = notification[2]
             messages.append(message)
+            self.notification_repo.mark_as_read(notification_id)
         return messages
 
     async def send_notifications_by_email(self):

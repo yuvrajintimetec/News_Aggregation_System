@@ -1,13 +1,12 @@
 from NewsAggregationSystem.server.database import db_query
 
-create_saved_article_table_query = """
-CREATE TABLE saved_article (
-    saved_article_id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
+create_keyword_article_mapping_table_query = """
+CREATE TABLE keyword_article_mapping (
+    keyword_article_mapping_id INT AUTO_INCREMENT PRIMARY KEY,
+    keyword_id INT,
     article_id INT NOT NULL,
-    saved_date DATETIME DEFAULT CURRENT_TIMESTAMP,
 
-    FOREIGN KEY (user_id) REFERENCES user(user_id)
+    FOREIGN KEY (keyword_id) REFERENCES keyword(keyword_id)
         ON DELETE CASCADE
         ON UPDATE CASCADE,
 
@@ -17,7 +16,7 @@ CREATE TABLE saved_article (
 );
 """
 
-result = db_query(create_saved_article_table_query)
+result = db_query(create_keyword_article_mapping_table_query)
 
 if result is not None:
     print("Table created successfully.")
