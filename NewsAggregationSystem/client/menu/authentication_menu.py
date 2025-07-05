@@ -3,6 +3,7 @@ from NewsAggregationSystem.client.menu.base_menu import BaseMenu
 from NewsAggregationSystem.client.menu.user_menu import UserMenu
 from NewsAggregationSystem.client.utilities import api_utilities
 from NewsAggregationSystem.client.utilities.server_reponse_utils import simple_response
+from getpass import getpass
 import sys
 
 class AuthenticationMenu(BaseMenu):
@@ -24,7 +25,7 @@ class AuthenticationMenu(BaseMenu):
                     "password": input("Password: ")
                 }
                 login_data = api_utilities.create("auth/login", user_data)
-                if 'access_token' in login_data:
+                if ('access_token' in login_data) and (login_data['access_token'] is not None):
                     access_token = login_data['access_token']
                     headers = {
                         "Authorization": f"Bearer {access_token}"
@@ -37,6 +38,7 @@ class AuthenticationMenu(BaseMenu):
                         role_menu = UserMenu(access_token, user_data)
                     simple_response(login_data)
                     return role_menu
+                simple_response(login_data)
 
             elif choice == "2":
                 user_data = {

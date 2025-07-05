@@ -16,7 +16,19 @@ class ExternalServerRepo:
         return db_query(query)
 
     def update_server(self, server_id, external_server_data):
-        print(external_server_data)
-        query = '''Update external_server SET api_key = %s WHERE server_id = %s'''
-        return db_query(query, (external_server_data['api_key'], server_id))
+        fields = []
+        values = []
+
+        for key, value in external_server_data.items():
+            fields.append(f"{key} = %s")
+            values.append(value)
+
+        values.append(server_id)
+
+        query = f"""
+               UPDATE external_server
+               SET {', '.join(fields)}
+               WHERE server_id = %s
+           """
+        return db_query(query, tuple(values))
 

@@ -16,8 +16,11 @@ class AdminController:
         return {"message": server_response}
 
     def update_server(self, server_id, update_data):
-        self.external_server_service.update_server(server_id, update_data)
-        return {"message": "server details updated successfully"}
+        updated_info = self.external_server_service.update_server(server_id, update_data)
+        if "message" in updated_info and updated_info["message"] is not None:
+            return {"message": updated_info["message"]}
+        else:
+            return {"error": updated_info["error"]}
 
     def add_category(self, category):
         if self.category_service.add_category(category.category_name):

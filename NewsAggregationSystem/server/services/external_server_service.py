@@ -12,6 +12,10 @@ class ExternalServerService:
 
 
     def update_server(self, server_id, external_server_data):
-        if self.external_server_repo.update_server(server_id, external_server_data):
-            return {"message":"Server details updated successfully"}
+        updated_data =  self.external_server_repo.update_server(server_id, external_server_data)
+        if updated_data == 0:
+            return {"error": f"Server with ID {server_id} not found or no changes made"}
+
+        return {"message": "Server details updated successfully"}
+
 

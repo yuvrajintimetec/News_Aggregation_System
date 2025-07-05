@@ -4,9 +4,9 @@ def simple_response(data):
         print(data["message"])
     elif ("error" in data) and (data["error"] is not None):
         print(data["error"])
-    elif ("detail" in data) and (type(data["detail"]) is list) and (data["error"] is not None) :
+    elif ("detail" in data) and (type(data["detail"]) is list) and (data["detail"] is not None) :
         print(data["detail"][0]["msg"])
-    elif ("detail" in data) and (data["error"] is not None):
+    elif ("detail" in data) and (data["detail"] is not None):
         print(data["detail"])
     else:
         print(data)

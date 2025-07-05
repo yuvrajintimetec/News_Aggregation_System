@@ -1,4 +1,5 @@
 import mysql.connector as sql
+from fastapi import HTTPException
 
 def get_connection():
     return sql.connect(
@@ -14,7 +15,7 @@ def db_query(query, params=None):
     try:
         connection = get_connection()
         with connection:
-            with connection.cursor() as cursor:
+            with connection.cursor(buffered=True) as cursor:
                 cursor.execute(query, params or ())
 
                 if query.strip().upper().startswith("SELECT"):
@@ -24,5 +25,7 @@ def db_query(query, params=None):
                 return cursor.rowcount
 
     except sql.Error as error:
-        print(f"Database error: {error}")
-        return None
+        raise HTTPException(
+            status_code=500,
+            detail=f"Database error: {error}"
+        )

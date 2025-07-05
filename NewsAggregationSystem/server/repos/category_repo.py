@@ -7,6 +7,6 @@ class CategoryRepo:
 
     def insert_category(self, category_name: str):
         query = '''INSERT INTO category (category_name) VALUES (%s)'''
-        return db_query(query, (category_name,))
+        return db_query(query, (category_name.lower(),))
 
 

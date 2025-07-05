@@ -25,7 +25,7 @@ class ReportArticleRepo:
 
     def count_reports_for_article(self, article_id):
         query = "SELECT article_id, COUNT(*) as count FROM reported_article where article_id = %s group by article_id"
-        return db_query(query, (article_id,))[0]
+        return db_query(query, (article_id,))
 
     def get_all_reported_articles(self):
         query = "SELECT * FROM reported_article"

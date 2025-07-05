@@ -32,28 +32,93 @@ class ArticleRepo:
         query = '''Select * from article order by article_id desc limit 1'''
         return db_query(query, ())[0]
 
-    def fetch_articles_by_date(self, user_id):
-        query = """
-            SELECT * FROM article
-            WHERE DATE(published_at) = CURDATE() and is_hidden = FALSE
-        """
-        return db_query(query)
+    def fetch_articles_by_user_preference(self, base_filter, category_filter, sort_by_filter, params):
+
+        if category_filter:
+            last_query = f"""
+                    SELECT DISTINCT a.* FROM article a
+                    JOIN category_article_mapping cam ON a.article_id = cam.article_id
+                    JOIN category c ON cam.category_id = c.category_id
+                    WHERE {base_filter} {category_filter} {sort_by_filter}
+                """
+        else:
+            last_query = f"""
+                    SELECT DISTINCT a.* FROM article a
+                    WHERE {base_filter} {sort_by_filter}
+                """
+
+
+        query = f"""    
+                  SELECT DISTINCT a.* FROM category_article_mapping cam
+                   JOIN keyword_article_mapping kam ON cam.article_id = kam.article_id
+                   JOIN notification_setting ns 
+                    ON ns.category_id = cam.category_id AND ns.keyword_id = kam.keyword_id
+                    JOIN article a ON a.article_id = cam.article_id
+                    WHERE {base_filter} AND ns.user_id = %s
+                       UNION
+                       (
+                            SELECT DISTINCT a.* FROM article a
+                            JOIN category_article_mapping cam ON a.article_id = cam.article_id
+                            JOIN notification_setting ns ON cam.category_id = ns.category_id
+                            WHERE {base_filter} AND ns.user_id = %s                
+                        )
+                       UNION
+                        (
+                            SELECT DISTINCT a.* FROM article a
+                            JOIN keyword_article_mapping kam ON a.article_id = kam.article_id
+                            JOIN notification_setting ns ON kam.keyword_id = ns.keyword_id
+                            WHERE {base_filter} AND ns.user_id = %s                
+                        )
+                       UNION
+                       (
+                           SELECT DISTINCT a.* FROM article a
+                           JOIN article_reaction ar ON a.article_id = ar.article_id
+                           WHERE  {base_filter} AND ar.user_id = %s 
+                       )
+                       UNION
+                       (
+                           SELECT DISTINCT a.* FROM article a
+                           JOIN saved_article sa ON a.article_id = sa.article_id
+                           WHERE  {base_filter} AND sa.user_id = %s  
+                       )
+                       UNION
+                       (
+                            {last_query}
+                        )
+                    """
+        return db_query(query, tuple(params))
+
+    def fetch_articles_by_today(self, user_id):
+        base_filter = "a.is_hidden = 0 AND DATE(a.published_at) = CURDATE()"
+        category_filter = ""
+        sort_by_filter = ""
+        params = [user_id, user_id, user_id, user_id, user_id]
+
+        return self.fetch_articles_by_user_preference(base_filter, category_filter, sort_by_filter, params)
+
 
     def fetch_articles_by_date_range(self, user_id, start_date, end_date, category):
-        if category.lower() == "all":
-            query = """
-                SELECT * FROM article
-                WHERE DATE(published_at) BETWEEN %s AND %s and is_hidden = FALSE
-            """
-            return db_query(query, (start_date, end_date))
-        else:
-            query = """
-                SELECT a.* FROM article a
-                JOIN category_article_mapping cam ON a.article_id = cam.article_id
-                JOIN category c ON cam.category_id = c.category_id
-                WHERE DATE(a.published_at) BETWEEN %s AND %s AND c.category_name = %s and a.is_hidden = FALSE
-            """
-            return db_query(query, (start_date, end_date, category))
+        base_filter = "a.is_hidden = 0 AND DATE(a.published_at) BETWEEN %s AND %s"
+        category_filter = ""
+        sort_by_filter = ""
+        params = [start_date, end_date, user_id, start_date, end_date, user_id, start_date, end_date, user_id,
+                  start_date, end_date, user_id, start_date, end_date, user_id, start_date, end_date]
+
+        if category.lower() != "all" and category != "":
+            category_filter = "AND c.category_name = %s"
+            params.insert(len(params)-1, category.lower())
+
+        return self.fetch_articles_by_user_preference(base_filter, category_filter, sort_by_filter, params)
+
+    def search_articles(self, start_date, end_date, keyword, sort_by, user_id):
+        keyword_like = f"%{keyword}%"
+        category_filter = ""
+        sort_by_filter = "likes DESC" if sort_by == "likes" else "dislikes DESC"
+        base_filter = "a.is_hidden = 0 AND DATE(a.published_at) BETWEEN %s AND %s AND (a.title LIKE %s OR a.description LIKE %s OR a.content LIKE %s)"
+        params = [start_date, end_date, keyword_like, keyword_like, keyword_like, user_id, start_date, end_date, keyword_like, keyword_like, keyword_like, user_id, start_date, end_date, keyword_like, keyword_like, keyword_like, user_id,
+                  start_date, end_date, keyword_like, keyword_like, keyword_like, user_id, start_date, end_date, keyword_like, keyword_like, keyword_like, user_id, start_date, end_date, keyword_like, keyword_like, keyword_like]
+
+        return self.fetch_articles_by_user_preference(base_filter, category_filter, sort_by_filter, params)
 
     def save_article(self, user_id, article_id):
         query = """
@@ -88,20 +153,6 @@ class ArticleRepo:
                WHERE user_id = %s AND article_id = %s
            """
         return db_query(query, (user_id, article_id))
-
-    def search_articles(self,start_date, end_date, keyword, sort_by):
-        sort_column = "likes DESC" if sort_by == "likes" else "dislikes DESC"
-
-        query = f"""
-                SELECT *
-                FROM article a
-                WHERE a.published_at BETWEEN %s AND %s
-                  AND (a.title LIKE %s OR a.description LIKE %s OR a.content LIKE %s) and a.is_hidden = FALSE
-                ORDER BY {sort_column}
-            """
-        keyword_like = f"%{keyword}%"
-        return db_query(query, (start_date, end_date, keyword_like, keyword_like, keyword_like))
-
 
     def search_articles_with_keyword(self, keyword):
         query = """

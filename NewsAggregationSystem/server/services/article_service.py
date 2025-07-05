@@ -6,6 +6,7 @@ from NewsAggregationSystem.server.repos.react_article_repo import ReactArticleRe
 from NewsAggregationSystem.server.repos.report_article_repo import ReportArticleRepo
 import os
 from dotenv import load_dotenv
+from fastapi import HTTPException, status
 
 load_dotenv()
 
@@ -58,23 +59,26 @@ class ArticleService:
             self.article_repo.update_latest_status(article_id)
 
     def get_articles_for_today(self, user_id):
-        return self.article_repo.fetch_articles_by_date(user_id)
+        articles =  self.article_repo.fetch_articles_by_today(user_id)
+        if not articles:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Articles not found")
+        return articles
 
     def get_articles_by_date_range(self, user_id, start_date, end_date, category):
-        return self.article_repo.fetch_articles_by_date_range(user_id, start_date, end_date, category)
+        articles =  self.article_repo.fetch_articles_by_date_range(user_id, start_date, end_date, category)
+        if not articles:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Articles not found")
+        return articles
 
     def save_article(self, user_id, article_id):
-        if article_id is None:
-            return {"error": "Article id is required"}
-
         existing_article = self.article_repo.find_save_article(user_id, article_id)
         if existing_article:
-            return {"error": "Article already saved"}
+            raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail=f"Article already saved")
 
         if self.article_repo.save_article(user_id, article_id):
             return {"message": "Article saved successfully"}
         else:
-            return {"error": "Article not saved"}
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Article already saved")
 
     def get_saved_articles(self, user_id):
         return self.article_repo.get_saved_articles(user_id)
@@ -86,8 +90,7 @@ class ArticleService:
         return self.article_repo.delete_saved_article(user_id, article_id)
 
     def search_articles_by_keyword(self, start_date, end_date, keyword, sort_by,  user_id):
-        print(start_date, end_date, keyword, sort_by,  user_id)
-        return self.article_repo.search_articles(start_date, end_date, keyword, sort_by)
+        return self.article_repo.search_articles(start_date, end_date, keyword, sort_by, user_id)
 
     def react_to_article(self, user_id: int, article_id: int, is_like: bool):
         existing_reaction = self.react_article_repo.get_reaction(user_id, article_id)
@@ -121,14 +124,21 @@ class ArticleService:
 
     def hide_article_report(self, article_id):
         report = self.report_article_repo.count_reports_for_article(article_id)
-        article_id = report[0]
-        report_count = report[1]
+        if not report:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail = f"Article with id {article_id} doesn't exist")
+        article_id = report[0][0]
+        report_count = report[0][1]
         if report_count >= int(os.getenv("REPORT_THRESHOLD")):
             self.article_repo.set_article_hidden(article_id, True)
         return {"message": f"Article hidden successfully"}
 
     def hide_reported_articles_with_keyword(self, keyword):
+        keyword = keyword.strip()
+        if not keyword:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Keyword not found")
         articles = self.article_repo.search_articles_with_keyword(keyword)
+        if not articles:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Articles not found with the keyword name {keyword}")
         for article in articles:
             article_id = article[0]
             self.article_repo.set_article_hidden(article_id, True)
@@ -141,7 +151,7 @@ class ArticleService:
             updated_rows = self.article_repo.set_articles_hidden_by_category(category_id)
             return {"message": f"{updated_rows} articles from category {category_id} were hidden successfully."}
         else:
-            return {"error": "Category not found"}
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail = f"Category not found")
 
 
 

@@ -1,11 +1,9 @@
 from fastapi.params import Depends, Query, Body
-
 from NewsAggregationSystem.server.dtos.responses.notification_details_response import NotificationDetailsResponse
 from NewsAggregationSystem.server.middleware.authentication_middleware import get_current_user
 from NewsAggregationSystem.server.controllers.user_controller import UserController
 from fastapi import APIRouter
 from datetime import date
-from typing import List
 from NewsAggregationSystem.server.dtos.requests.notification_configuration_request import NotificationConfigurationRequest
 from NewsAggregationSystem.server.dtos.requests.react_article_request import ReactArticleRequest
 from NewsAggregationSystem.server.dtos.responses.user_detail_response import UserDetailsResponse
