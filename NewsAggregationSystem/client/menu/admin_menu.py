@@ -1,4 +1,5 @@
 from NewsAggregationSystem.client.menu.base_menu import BaseMenu
+from NewsAggregationSystem.client.menu.sub_menus.reported_article_menu import ReportedArticleMenu
 from NewsAggregationSystem.client.utilities import api_utilities
 from NewsAggregationSystem.client.utilities.server_reponse_utils import external_server_details_response, \
     external_server_status_response, simple_response, simple_response_containing_list
@@ -18,6 +19,7 @@ class AdminMenu(BaseMenu):
         print("3. Update/Edit the external server’s details")
         print("4. Add new News Category")
         print("5. Logout")
+        print("6.View reported articles")
 
     def api_request(self):
         while True:
@@ -79,5 +81,11 @@ class AdminMenu(BaseMenu):
                 print("Logging out from Admin console....")
                 return "logout"
 
+            elif choice == "6":
+                reported_article_menu = ReportedArticleMenu(self.access_token, self.user_data).api_request()
+                if reported_article_menu == "logout":
+                    return "logout"
+
             else:
                 print("Invalid option. Please enter a number between 1 and 5.")
+

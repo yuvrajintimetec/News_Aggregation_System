@@ -36,4 +36,4 @@ class NotificationMenu(BaseMenu):
             elif choice == "3":
                 return
             elif choice == "4":
-                exit()
+                return "logout"

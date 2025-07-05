@@ -36,7 +36,9 @@ class UserMenu(BaseMenu):
             elif choice == "3":
                 SearchMenu(self.access_token, self.user_data).api_request()
             elif choice == "4":
-                NotificationMenu(self.access_token, self.user_data).api_request()
+                notification_menu = NotificationMenu(self.access_token, self.user_data).api_request()
+                if notification_menu == "logout":
+                    return "logout"
             elif choice == "5":
                 print("Goodbye! You've been logged out.")
                 return "logout"

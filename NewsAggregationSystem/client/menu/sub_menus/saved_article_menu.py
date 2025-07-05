@@ -2,8 +2,7 @@ from datetime import datetime
 from NewsAggregationSystem.client.menu.base_menu import BaseMenu
 from NewsAggregationSystem.client.utilities import api_utilities
 from NewsAggregationSystem.client.utilities.server_reponse_utils import article_details_response, \
-    simple_response_containing_list
-
+    simple_response_containing_list, simple_response
 
 class SavedArticleMenu(BaseMenu):
 
@@ -33,4 +32,5 @@ class SavedArticleMenu(BaseMenu):
                 return "logout"
             elif choice == "3":
                 article_id = input("Enter Article ID to delete: ")
-                api_utilities.delete_with_token("user/saved-article", int(article_id), {"Authorization": f"Bearer {self.access_token}"})
+                delete_saved_article_response = api_utilities.delete_with_token("user/saved-article", int(article_id), {"Authorization": f"Bearer {self.access_token}"})
+                simple_response(delete_saved_article_response)

@@ -118,6 +118,8 @@ class ArticleService:
         if existing_reaction:
              if not self.react_article_repo.update_reaction(user_id, article_id, is_like):
                     raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Won't be able to react")
+             else:
+                 return {"message": "Reaction on the article updated successfully"}
         else:
             if self.react_article_repo.insert_reaction(user_id, article_id, is_like):
                 pass
@@ -129,10 +131,13 @@ class ArticleService:
 
 
     def submit_article_report(self, article_id: int, user_id: int, reason: str):
-        existing_reaction = self.report_article_repo.get_article_report(article_id, user_id)
-        if existing_reaction:
-            self.report_article_repo.update_article_report(article_id, user_id, reason)
-            raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail=f"Article already reported")
+        existing_report = self.report_article_repo.get_article_report(article_id, user_id)
+        if existing_report:
+            updated_report_data = self.report_article_repo.update_article_report(article_id, user_id, reason)
+            if not updated_report_data:
+                raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail=f"Article already reported")
+            else:
+                return {"message": "Report content updated successfully"}
         else:
             if self.report_article_repo.insert_article_report(article_id, user_id, reason):
                 return {"message": "Article reported successfully"}
@@ -149,8 +154,11 @@ class ArticleService:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail = f"Article with id {article_id} doesn't exist")
         article_id = report[0][0]
         report_count = report[0][1]
-        if report_count >= int(os.getenv("REPORT_THRESHOLD")):
+        threshold_value = os.getenv("REPORT_THRESHOLD")
+        if report_count >= int(threshold_value):
             self.article_repo.set_article_hidden(article_id, True)
+        else:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail=f"Cannot reach the threshold value yet which is {int(threshold_value)} ")
         return {"message": f"Article hidden successfully"}
 
     def hide_reported_articles_with_keyword(self, keyword):

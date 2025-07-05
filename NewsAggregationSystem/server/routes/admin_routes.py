@@ -35,10 +35,10 @@ async def add_category(user_info=Depends(admin_required)):
 def hide_reported_article(article_id :int, current_admin=Depends(admin_required)):
     return admin_controller.hide_reported_article(article_id)
 
-@router.put("/hide-articles-by-keyword")
+@router.post("/hide-articles-by-keyword")
 def hide_reported_articles_with_keyword(keyword: str = Query(...), current_admin=Depends(admin_required)):
     return admin_controller.hide_reported_articles_with_keyword(keyword)
 
-@router.put("/hide-articles-by-category")
+@router.post("/hide-articles-by-category")
 def hide_articles_by_category_route(category: str = Query(...), current_admin = Depends(admin_required)):
     return admin_controller.hide_articles_by_category(category)

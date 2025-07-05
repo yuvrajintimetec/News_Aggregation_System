@@ -16,9 +16,9 @@ def simple_response_containing_list(data):
         return data["message"]
     elif ("error" in data) and (data["error"] is not None):
         return data["error"]
-    elif ("detail" in data) and (type(data["detail"]) is list) and (data["error"] is not None):
+    elif ("detail" in data) and (type(data["detail"]) is list) and (data["detail"] is not None):
         return data["detail"][0]["msg"]
-    elif ("detail" in data) and (data["error"] is not None):
+    elif ("detail" in data) and (data["detail"] is not None):
         return data["detail"]
     else:
         return data
@@ -43,3 +43,8 @@ def article_details_response(article):
 
 def notification_details_response(data):
     print(f"\n{data}")
+
+def reported_articles_details_response(article):
+    print(f"\nArticle Id: {article['article_id']}")
+    print(f"\n Reason: {article['report_reason']}\n")
+    print(f"reported_at: {article['reported_at']}")
