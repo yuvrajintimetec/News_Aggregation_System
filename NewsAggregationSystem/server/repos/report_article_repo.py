@@ -11,7 +11,7 @@ class ReportArticleRepo:
     def update_article_report(self, article_id: int, user_id: int, reason: str):
         query = """
             UPDATE reported_article
-            SET report_reason = %s, report_date = NOW()
+            SET report_reason = %s, reported_at = NOW()
             WHERE article_id = %s AND user_id = %s
         """
         return db_query(query, (reason, article_id, user_id))

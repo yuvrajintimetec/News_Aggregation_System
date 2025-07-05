@@ -1,3 +1,4 @@
+from NewsAggregationSystem.server.repos.read_article_history_repo import ReadArticleHistoryRepo, ReadArticleHistoryRepo
 from NewsAggregationSystem.server.repos.article_repo import ArticleRepo
 from NewsAggregationSystem.server. repos.category_repo import CategoryRepo
 from NewsAggregationSystem.server.repos.category_article_mapping_repo import CategoryArticleMappingRepo
@@ -19,6 +20,7 @@ class ArticleService:
         self.report_article_repo = ReportArticleRepo()
         self.notification_repo = NotificationRepo()
         self.react_article_repo = ReactArticleRepo()
+        self.read_article_history_repo = ReadArticleHistoryRepo()
 
     def save_articles(self, articles):
         for article in articles:
@@ -58,16 +60,38 @@ class ArticleService:
 
             self.article_repo.update_latest_status(article_id)
 
+    def save_article_read_history(self, article_id: int, user_id: int):
+        existing_article_read_history = self.read_article_history_repo.get_article_read_history(user_id, article_id)
+        if existing_article_read_history:
+            self.read_article_history_repo.update_article_read_date(user_id, article_id)
+        else:
+            self.read_article_history_repo.insert_article_read_history(user_id, article_id)
+
     def get_articles_for_today(self, user_id):
         articles =  self.article_repo.fetch_articles_by_today(user_id)
         if not articles:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Articles not found")
+        read_history = [self.save_article_read_history(article[0], user_id) for article in articles]
+        if not read_history:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Won't read the articles")
         return articles
 
     def get_articles_by_date_range(self, user_id, start_date, end_date, category):
         articles =  self.article_repo.fetch_articles_by_date_range(user_id, start_date, end_date, category)
         if not articles:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Articles not found")
+        read_history = [self.save_article_read_history(article[0], user_id) for article in articles]
+        if not read_history:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Won't read the articles")
+        return articles
+
+    def search_articles_by_keyword(self, start_date, end_date, keyword, sort_by,  user_id):
+        articles = self.article_repo.search_articles(start_date, end_date, keyword, sort_by, user_id)
+        if not articles:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Articles not found")
+        read_history = [self.save_article_read_history(article[0], user_id) for article in articles]
+        if not read_history:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Won't read the articles")
         return articles
 
     def save_article(self, user_id, article_id):
@@ -89,19 +113,16 @@ class ArticleService:
     def delete_saved_article(self, user_id, article_id):
         return self.article_repo.delete_saved_article(user_id, article_id)
 
-    def search_articles_by_keyword(self, start_date, end_date, keyword, sort_by,  user_id):
-        return self.article_repo.search_articles(start_date, end_date, keyword, sort_by, user_id)
-
-    def react_to_article(self, user_id: int, article_id: int, is_like: bool):
+    def react_to_article(self, user_id: int, article_id: int, is_like:bool):
         existing_reaction = self.react_article_repo.get_reaction(user_id, article_id)
         if existing_reaction:
              if not self.react_article_repo.update_reaction(user_id, article_id, is_like):
-                 return {"error": "Won't be able to react"}
+                    raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Won't be able to react")
         else:
             if self.react_article_repo.insert_reaction(user_id, article_id, is_like):
                 pass
             else:
-                return {"error": "Won't be able to react"}
+                raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Won't be able to react")
 
         self.article_repo.update_likes_dislikes()
         return {"message": "You reacted on an article"}
@@ -111,12 +132,12 @@ class ArticleService:
         existing_reaction = self.report_article_repo.get_article_report(article_id, user_id)
         if existing_reaction:
             self.report_article_repo.update_article_report(article_id, user_id, reason)
-            return {"message": "Article reported successfully"}
+            raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail=f"Article already reported")
         else:
             if self.report_article_repo.insert_article_report(article_id, user_id, reason):
                 return {"message": "Article reported successfully"}
             else:
-                return {"error": "Won't be able to report"}
+                raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Won't be able to report")
 
     def check_article_report(self):
         reports = self.report_article_repo.get_all_reported_articles()

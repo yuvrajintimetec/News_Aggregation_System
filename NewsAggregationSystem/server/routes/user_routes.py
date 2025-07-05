@@ -69,12 +69,13 @@ def view_notifications(user_info=Depends(get_current_user)):
 def configure_notifications(config: NotificationConfigurationRequest, user_info=Depends(get_current_user)):
     return user_controller.configure(user_info["user_id"], config)
 
-@router.post("/react")
+@router.post("/react/{article_id}")
 def react_to_article(
-    react_body: ReactArticleRequest = Body(...),
+    article_id:int,
+    react_body : ReactArticleRequest,
     user_info=Depends(get_current_user)
 ):
-    return user_controller.react_to_article(user_info["user_id"], react_body.article_id, react_body.is_like)
+    return user_controller.react_to_article(user_info["user_id"], article_id, react_body.is_like)
 
 
 @router.post("/report-article/{article_id}")

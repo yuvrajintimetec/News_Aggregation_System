@@ -17,7 +17,6 @@ def db_query(query, params=None):
         with connection:
             with connection.cursor(buffered=True) as cursor:
                 cursor.execute(query, params or ())
-
                 if query.strip().upper().startswith("SELECT"):
                     return cursor.fetchall()
 

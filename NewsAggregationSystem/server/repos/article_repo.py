@@ -49,12 +49,12 @@ class ArticleRepo:
 
 
         query = f"""    
-                  SELECT DISTINCT a.* FROM category_article_mapping cam
-                   JOIN keyword_article_mapping kam ON cam.article_id = kam.article_id
-                   JOIN notification_setting ns 
-                    ON ns.category_id = cam.category_id AND ns.keyword_id = kam.keyword_id
-                    JOIN article a ON a.article_id = cam.article_id
-                    WHERE {base_filter} AND ns.user_id = %s
+                        SELECT DISTINCT a.* FROM category_article_mapping cam
+                        JOIN keyword_article_mapping kam ON cam.article_id = kam.article_id
+                        JOIN notification_setting ns 
+                        ON ns.category_id = cam.category_id AND ns.keyword_id = kam.keyword_id
+                        JOIN article a ON a.article_id = cam.article_id
+                        WHERE {base_filter} AND ns.user_id = %s
                        UNION
                        (
                             SELECT DISTINCT a.* FROM article a
@@ -83,6 +83,12 @@ class ArticleRepo:
                        )
                        UNION
                        (
+                           SELECT DISTINCT a.* FROM article a
+                           JOIN read_article_history rah ON a.article_id = rah.article_id
+                           WHERE {base_filter} AND rah.user_id = %s  
+                       )
+                       UNION
+                       (
                             {last_query}
                         )
                     """
@@ -92,7 +98,7 @@ class ArticleRepo:
         base_filter = "a.is_hidden = 0 AND DATE(a.published_at) = CURDATE()"
         category_filter = ""
         sort_by_filter = ""
-        params = [user_id, user_id, user_id, user_id, user_id]
+        params = [user_id, user_id, user_id, user_id, user_id, user_id]
 
         return self.fetch_articles_by_user_preference(base_filter, category_filter, sort_by_filter, params)
 
@@ -102,7 +108,7 @@ class ArticleRepo:
         category_filter = ""
         sort_by_filter = ""
         params = [start_date, end_date, user_id, start_date, end_date, user_id, start_date, end_date, user_id,
-                  start_date, end_date, user_id, start_date, end_date, user_id, start_date, end_date]
+                  start_date, end_date, user_id, start_date, end_date, user_id, start_date, end_date, user_id, start_date, end_date]
 
         if category.lower() != "all" and category != "":
             category_filter = "AND c.category_name = %s"
@@ -113,10 +119,10 @@ class ArticleRepo:
     def search_articles(self, start_date, end_date, keyword, sort_by, user_id):
         keyword_like = f"%{keyword}%"
         category_filter = ""
-        sort_by_filter = "likes DESC" if sort_by == "likes" else "dislikes DESC"
+        sort_by_filter = "order by likes DESC" if sort_by == "likes" else "order by dislikes DESC"
         base_filter = "a.is_hidden = 0 AND DATE(a.published_at) BETWEEN %s AND %s AND (a.title LIKE %s OR a.description LIKE %s OR a.content LIKE %s)"
         params = [start_date, end_date, keyword_like, keyword_like, keyword_like, user_id, start_date, end_date, keyword_like, keyword_like, keyword_like, user_id, start_date, end_date, keyword_like, keyword_like, keyword_like, user_id,
-                  start_date, end_date, keyword_like, keyword_like, keyword_like, user_id, start_date, end_date, keyword_like, keyword_like, keyword_like, user_id, start_date, end_date, keyword_like, keyword_like, keyword_like]
+                  start_date, end_date, keyword_like, keyword_like, keyword_like, user_id, start_date, end_date, keyword_like, keyword_like, keyword_like, user_id, start_date, end_date, keyword_like, keyword_like, keyword_like, user_id, start_date, end_date, keyword_like, keyword_like, keyword_like]
 
         return self.fetch_articles_by_user_preference(base_filter, category_filter, sort_by_filter, params)
 
