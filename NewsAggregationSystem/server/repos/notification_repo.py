@@ -33,7 +33,7 @@ class NotificationRepo:
                 notification_date
             )
             SELECT
-                ns.user_id,
+               DISTINCT ns.user_id,
                 ns.notification_setting_id,
                 cam.article_id,
                 CONCAT('New article: ', a.title, ' - ', a.description),
@@ -58,7 +58,7 @@ class NotificationRepo:
                 notification_date
             )
             SELECT
-                ns.user_id,
+              DISTINCT ns.user_id,
                 ns.notification_setting_id,
                 cam.article_id,
                 CONCAT('Category alert: ', a.title, ' - ', a.description),
@@ -87,7 +87,7 @@ class NotificationRepo:
                 notification_date
             )
             SELECT
-                ns.user_id,
+               DISTINCT ns.user_id,
                 ns.notification_setting_id,
                 kam.article_id,
                 CONCAT('Keyword match: ', a.title, ' - ', a.description),

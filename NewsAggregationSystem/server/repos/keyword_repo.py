@@ -10,7 +10,7 @@ class KeywordRepo:
             return False, None
 
     def find_latest_keyword(self, ):
-        result = db_query("SELECT * FROM keyword order by keyword_id limit 1", ())
+        result = db_query("SELECT * FROM keyword order by keyword_id desc limit 1", ())
         return result[0]
 
 

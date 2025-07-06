@@ -27,19 +27,33 @@ class HeadlineMenu(BaseMenu):
             elif choice == "2":
                 start = input("Enter start date (YYYY-MM-DD): ")
                 end = input("Enter end date (YYYY-MM-DD): ")
-                print("1. All\n2. Business\n3. Entertainment\n4. Sports\n5. Technology")
-                cat_choice = input("Choose a category: ")
-                category_map = {
-                    "2": "business", "3": "entertainment", "4": "sports", "5": "technology"
-                }
-                category = category_map.get(cat_choice)
-                if category:
-                    url = f"user/headlines/range?start_date={start}&end_date={end}&category={category}"
+                category_response = api_utilities.get_all_with_token("category/", {"Authorization": f"Bearer {self.access_token}"})
+                categories = simple_response_containing_list(category_response)
+                if type(categories) is list:
+                   print("1. all")
+                   category_count = 2
+                   category_map = {"1": "all"}
+                   for category in categories:
+                        category_name = category["category_name"]
+                        category_name = category_name.lower()
+                        print(f"{category_count}. {category_name}")
+                        category_map.update({str(category_count): category_name})
+                        category_count += 1
+                   cat_choice = input("Choose a category: ")
+                   if cat_choice in category_map:
+                       category = category_map[cat_choice]
+                   else:
+                       print("Invalid choice")
+                       continue
+                   if category != 'all':
+                       url = f"user/headlines/range?start_date={start}&end_date={end}&category={category}"
+                   else:
+                       url = f"user/headlines/range?start_date={start}&end_date={end}"
+                   display = self.display_articles(url)
+                   if display == "logout":
+                       return "logout"
                 else:
-                    url = f"user/headlines/range?start_date={start}&end_date={end}"
-                display = self.display_articles(url)
-                if display == "logout":
-                    return "logout"
+                   print(categories)
             elif choice == "3":
                 return "logout"
             else:

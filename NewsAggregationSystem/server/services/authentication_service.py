@@ -1,6 +1,9 @@
+from NewsAggregationSystem.server.exceptions.invalid_credential_exception import InvalidCredentialsException
 from NewsAggregationSystem.server.repos.user_repo import UserRepo
 from NewsAggregationSystem.server.utilities.password_utils import PasswordUtils
 from NewsAggregationSystem.server.utilities.jwt_utils import JWTUtils
+from fastapi import HTTPException,status
+from NewsAggregationSystem.server.exceptions.user_already_exist_exception import UserAlreadyExistsException
 
 class AuthenticationService:
 
@@ -10,7 +13,7 @@ class AuthenticationService:
     def register(self, name, email, password):
         user = self.user_repo.get_user_by_email(email)
         if user:
-            return {"message": "User Already exists"}
+            raise UserAlreadyExistsException("User already exists.")
         hashed_password = PasswordUtils.hash_password(password)
         role = "user"
         return self.user_repo.insert_user(name, email, hashed_password, role)
@@ -21,7 +24,7 @@ class AuthenticationService:
             user_id, user_name, user_email, user_password, user_role = user[0]
             is_valid = PasswordUtils.verify_password(password, user_password)
             if not is_valid:
-                return {"error": "Wrong email and password. Please re-enter it"}
+                raise InvalidCredentialsException("Wrong email or password.")
 
             access_token = JWTUtils.create_access_token(data={"user_id": user_id, "user_role": user_role})
             return {
@@ -29,4 +32,4 @@ class AuthenticationService:
                 "access_token": access_token
             }
         else:
-            return {"error": "Wrong email and password. Please re-enter it"}
+            raise InvalidCredentialsException("Wrong email or password.")

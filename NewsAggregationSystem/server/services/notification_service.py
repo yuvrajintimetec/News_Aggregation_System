@@ -20,12 +20,14 @@ class NotificationService:
 
     async def send_notifications_by_email(self):
         notifications = self.notification_repo.get_all_notifications()
-        notification = random.choice(notifications)
-        notification_id = notification[0]
-        user_id = notification[1]
-        user_email = self.user_repo.get_user_by_id(user_id)[2]
-        message = notification[2]
-        subject = "News Notification"
-        self.notification_repo.update_notification_date(notification_id)
-        if user_id == 8:
-            await send_email(user_email, subject, message)
+        # notification = random.choice(notifications)
+        for notification in notifications:
+            notification_id = notification[0]
+            user_id = notification[1]
+            user_email = self.user_repo.get_user_by_id(user_id)[2]
+            message = notification[2]
+            subject = "News Notification"
+            if user_id == 8:
+                await send_email(user_email, subject, message)
+                self.notification_repo.mark_as_read(notification_id)
+                self.notification_repo.update_notification_date(notification_id)

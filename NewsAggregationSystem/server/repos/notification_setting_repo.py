@@ -22,3 +22,10 @@ class NotificationSettingRepo:
             VALUES (%s, %s, %s, %s)
         """
         return db_query(insert_query, (user_id, category_id, keyword_id, is_enabled))
+
+    def fetch_all_categories_enability(self):
+        query = ("""
+            SELECT DISTINCT c.category_name, ns.is_enabled FROM category c join notification_setting ns on
+            ns.category_id = c.category_id
+            """)
+        return db_query(query)

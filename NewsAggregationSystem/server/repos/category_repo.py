@@ -9,4 +9,8 @@ class CategoryRepo:
         query = '''INSERT INTO category (category_name) VALUES (%s)'''
         return db_query(query, (category_name.lower(),))
 
+    def fetch_all_categories(self):
+        query = "SELECT category_id, category_name FROM category"
+        return db_query(query)
+
 

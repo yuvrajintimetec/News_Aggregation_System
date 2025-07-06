@@ -1,20 +1,18 @@
 from NewsAggregationSystem.server.database import db_query
 
-create_article_reaction_table_query = """
-CREATE TABLE article_reaction (
-    reaction_id INT PRIMARY KEY AUTO_INCREMENT,
+create_read_article_history_table_query = """
+CREATE TABLE read_article_history (
+    article_history_id INT PRIMARY KEY AUTO_INCREMENT,
     user_id INT NOT NULL,
     article_id INT NOT NULL,
-    is_like BOOLEAN DEFAULT FALSE,
-    is_dislike BOOLEAN DEFAULT FALSE,
-    reaction_date DATETIME DEFAULT NOW(),
+    article_read_date DATETIME DEFAULT NOW(),
     UNIQUE(user_id, article_id), 
     FOREIGN KEY (user_id) REFERENCES user(user_id),
     FOREIGN KEY (article_id) REFERENCES article(article_id)
 );
 """
 
-result = db_query(create_article_reaction_table_query)
+result = db_query(create_read_article_history_table_query)
 
 if result is not None:
     print("Table created successfully.")
