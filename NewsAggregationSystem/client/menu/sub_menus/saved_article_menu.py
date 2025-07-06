@@ -18,13 +18,13 @@ class SavedArticleMenu(BaseMenu):
     def api_request(self):
         while True:
             response = api_utilities.get_all_with_token("user/saved-articles", {"Authorization": f"Bearer {self.access_token}"})
-            self.show_menu()
             articles = simple_response_containing_list(response)
             if type(articles) is list:
                 for article in articles:
                     article_details_response(article)
             else:
                 print(articles)
+            self.show_menu()
             choice = input("Choose (1-3): ")
             if choice == "1":
                 return
@@ -34,3 +34,5 @@ class SavedArticleMenu(BaseMenu):
                 article_id = input("Enter Article ID to delete: ")
                 delete_saved_article_response = api_utilities.delete_with_token("user/saved-article", int(article_id), {"Authorization": f"Bearer {self.access_token}"})
                 simple_response(delete_saved_article_response)
+            else:
+                print("Invalid choice.")

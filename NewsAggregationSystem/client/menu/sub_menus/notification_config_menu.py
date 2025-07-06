@@ -45,3 +45,5 @@ class NotificationConfigMenu(BaseMenu):
                 return
             elif choice == "7":
                 return "logout"
+            else:
+                print("Invalid choice.")

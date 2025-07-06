@@ -18,13 +18,13 @@ class ReportedArticleMenu(BaseMenu):
     def api_request(self):
         while True:
             response = api_utilities.get_all_with_token("admin/reported-articles", {"Authorization": f"Bearer {self.access_token}"})
-            self.show_menu()
             reported_articles = simple_response_containing_list(response)
             if type(reported_articles) is list:
                 for article in reported_articles:
                     reported_articles_details_response(article)
             else:
                 print(reported_articles)
+            self.show_menu()
             choice = input("Choose (1-5): ")
             if choice == "1":
                 return
@@ -44,3 +44,5 @@ class ReportedArticleMenu(BaseMenu):
                 hide_reported_article_response = api_utilities.create_with_token(
                     f"admin/hide-articles-by-category?category={category}", {}, {"Authorization": f"Bearer {self.access_token}"})
                 simple_response(hide_reported_article_response)
+            else:
+                print("Invalid choice.")

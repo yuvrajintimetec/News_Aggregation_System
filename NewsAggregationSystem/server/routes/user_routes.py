@@ -1,11 +1,13 @@
 from fastapi.params import Depends, Query, Body
+
+from NewsAggregationSystem.server.dtos.requests.react_dislike_article_request import ReactDislikeArticleRequest
 from NewsAggregationSystem.server.dtos.responses.notification_details_response import NotificationDetailsResponse
 from NewsAggregationSystem.server.middleware.authentication_middleware import get_current_user
 from NewsAggregationSystem.server.controllers.user_controller import UserController
 from fastapi import APIRouter
 from datetime import date
 from NewsAggregationSystem.server.dtos.requests.notification_configuration_request import NotificationConfigurationRequest
-from NewsAggregationSystem.server.dtos.requests.react_article_request import ReactArticleRequest
+from NewsAggregationSystem.server.dtos.requests.react_like_article_request import  ReactLikeArticleRequest
 from NewsAggregationSystem.server.dtos.responses.user_detail_response import UserDetailsResponse
 from NewsAggregationSystem.server.dtos.responses.article_details_response import ArticleDetailsResponse
 from NewsAggregationSystem.server.dtos.responses.save_atrticle_response import SaveArticleResponse
@@ -69,14 +71,19 @@ def view_notifications(user_info=Depends(get_current_user)):
 def configure_notifications(config: NotificationConfigurationRequest, user_info=Depends(get_current_user)):
     return user_controller.configure(user_info["user_id"], config)
 
-@router.post("/react/{article_id}")
-def react_to_article(
+@router.post("/react/like/{article_id}")
+def react_like_to_article(
     article_id:int,
-    react_body : ReactArticleRequest,
     user_info=Depends(get_current_user)
 ):
-    return user_controller.react_to_article(user_info["user_id"], article_id, react_body.is_like)
+    return user_controller.react_like_to_article(user_info["user_id"], article_id)
 
+@router.post("/react/dislike/{article_id}")
+def react_dislike_to_article(
+    article_id:int,
+    user_info=Depends(get_current_user)
+):
+    return user_controller.react_dislike_to_article(user_info["user_id"], article_id)
 
 @router.post("/report-article/{article_id}")
 def report_article(article_id: int, report_body: ReportArticleRequest  = Body(...), current_user=Depends(get_current_user)):

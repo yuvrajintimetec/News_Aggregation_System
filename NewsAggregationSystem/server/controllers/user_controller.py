@@ -128,8 +128,15 @@ class UserController:
         else:
             return {"error": "Configuration setup failed"}
 
-    def react_to_article(self, user_id: int, article_id: int, is_like:bool):
-        response = self.article_service.react_to_article(user_id, article_id, is_like)
+    def react_like_to_article(self, user_id: int, article_id: int):
+        response = self.article_service.react_like_to_article(user_id, article_id)
+        if "message" in response:
+            return {"message": response["message"]}
+        else:
+            return {"error": response["error"]}
+
+    def react_dislike_to_article(self, user_id: int, article_id: int):
+        response = self.article_service.react_dislike_to_article(user_id, article_id)
         if "message" in response:
             return {"message": response["message"]}
         else:

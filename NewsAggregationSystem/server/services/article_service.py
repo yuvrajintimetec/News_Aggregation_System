@@ -113,21 +113,36 @@ class ArticleService:
     def delete_saved_article(self, user_id, article_id):
         return self.article_repo.delete_saved_article(user_id, article_id)
 
-    def react_to_article(self, user_id: int, article_id: int, is_like:bool):
+    def react_like_to_article(self, user_id: int, article_id: int):
         existing_reaction = self.react_article_repo.get_reaction(user_id, article_id)
         if existing_reaction:
-             if not self.react_article_repo.update_reaction(user_id, article_id, is_like):
+             is_like = not existing_reaction[0][5]
+             if not self.react_article_repo.update_like_reaction(user_id, article_id, is_like):
                     raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Won't be able to react")
-             else:
-                 return {"message": "Reaction on the article updated successfully"}
         else:
-            if self.react_article_repo.insert_reaction(user_id, article_id, is_like):
+            if self.react_article_repo.insert_like_reaction(user_id, article_id, True):
                 pass
             else:
                 raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Won't be able to react")
 
-        self.article_repo.update_likes_dislikes()
+        self.article_repo.update_likes()
         return {"message": "You reacted on an article"}
+
+    def react_dislike_to_article(self, user_id: int, article_id: int):
+        existing_reaction = self.react_article_repo.get_reaction(user_id, article_id)
+        if existing_reaction:
+            is_dislike = not existing_reaction[0][4]
+            if not self.react_article_repo.update_dislike_reaction(user_id, article_id, is_dislike):
+                    raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Won't be able to react")
+        else:
+            if self.react_article_repo.insert_dislike_reaction(user_id, article_id, True):
+                pass
+            else:
+                raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Won't be able to react")
+
+        self.article_repo.update_dislikes()
+        return {"message": "You reacted on an article"}
+
 
 
     def submit_article_report(self, article_id: int, user_id: int, reason: str):

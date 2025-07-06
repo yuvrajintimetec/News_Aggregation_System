@@ -183,22 +183,36 @@ class ArticleRepo:
             """
             return db_query(query, (category_id,))
 
-    def update_likes_dislikes(self):
+    def update_likes(self):
         query = """
         UPDATE article a
         LEFT JOIN (
             SELECT
                 ar.article_id,
-                SUM(CASE WHEN ar.is_like = TRUE THEN 1 ELSE 0 END) AS like_count,
-                SUM(CASE WHEN ar.is_like = FALSE THEN 1 ELSE 0 END) AS dislike_count
+                SUM(CASE WHEN ar.is_like = TRUE THEN 1 ELSE 0 END) AS like_count
             FROM article_reaction ar
             GROUP BY ar.article_id
         ) AS react_summary ON a.article_id = react_summary.article_id
         SET
-            a.likes = IFNULL(react_summary.like_count, 0),
+            a.likes = IFNULL(react_summary.like_count, 0);
+        """
+        db_query(query)
+
+    def update_dislikes(self):
+        query = """
+        UPDATE article a
+        LEFT JOIN (
+            SELECT
+                ar.article_id,
+                SUM(CASE WHEN ar.is_dislike = TRUE THEN 1 ELSE 0 END) AS dislike_count
+            FROM article_reaction ar
+            GROUP BY ar.article_id
+        ) AS react_summary ON a.article_id = react_summary.article_id
+        SET
             a.dislikes = IFNULL(react_summary.dislike_count, 0);
         """
         db_query(query)
+
 
     def update_latest_status(self, article_id):
         query = "UPDATE article SET is_latest = 0 WHERE article_id = %s"

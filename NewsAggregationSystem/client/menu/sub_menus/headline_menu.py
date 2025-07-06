@@ -66,12 +66,19 @@ class HeadlineMenu(BaseMenu):
             simple_response(saved_article_response)
         elif action == "4":
             article_id = input("Enter Article ID to react: ")
-            reaction = input("Enter your reaction(true/false): ")
-            article_reaction_response = api_utilities.create_with_token(f"user/react/{article_id}", {"is_like": reaction},{"Authorization": f"Bearer {self.access_token}"})
+            print("1. Like\n2. Dislike")
+            choice = input("Choose(1-2): ")
+            if choice not in ("1","2"):
+                print("Invalid choice.")
+                return
+            endpoint = f"user/react/like/{article_id}" if choice == "1" else f"user/react/dislike/{article_id}"
+            article_reaction_response = api_utilities.create_with_token(endpoint, {},{"Authorization": f"Bearer {self.access_token}"})
             simple_response(article_reaction_response)
         elif action == "5":
             article_id = input("Enter Article ID to report: ")
             report_reason = input("Enter reason for reporting the article: ")
             report_article_response = api_utilities.create_with_token(f"user/report-article/{article_id}", {"reason": report_reason},{"Authorization": f"Bearer {self.access_token}"})
             simple_response(report_article_response)
+        else:
+            print("Invalid choice.")
 

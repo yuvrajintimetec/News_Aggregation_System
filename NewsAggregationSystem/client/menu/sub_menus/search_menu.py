@@ -26,14 +26,13 @@ class SearchMenu(BaseMenu):
 
         response = api_utilities.get_all_with_token(url, {"Authorization": f"Bearer {self.access_token}"})
         print(f"\nS E A R C H\nResults for “{keyword}”")
-        self.show_menu()
         articles = simple_response_containing_list(response)
         if type(articles) is list:
             for article in articles:
                 article_details_response(article)
         else:
             print(articles)
-
+        self.show_menu()
         choice = input("Choose (1-5): ")
         if choice == "3":
             article_id = input("Enter Article ID to save: ")
@@ -42,10 +41,14 @@ class SearchMenu(BaseMenu):
             simple_response(saved_article_response)
         elif choice == "4":
             article_id = input("Enter Article ID to react: ")
-            reaction = input("Enter your reaction(true/false): ")
-            article_reaction_response = api_utilities.create_with_token(f"user/react/{article_id}",
-                                                                        {"is_like": reaction}, {
-                                                                            "Authorization": f"Bearer {self.access_token}"})
+            print("1. Like\n2. Dislike")
+            choice = input("Choose(1-2): ")
+            if choice not in ("1", "2"):
+                print("Invalid choice.")
+                return
+            endpoint = f"user/react/like/{article_id}" if choice == "1" else f"user/react/dislike/{article_id}"
+            article_reaction_response = api_utilities.create_with_token(endpoint, {}, {
+                "Authorization": f"Bearer {self.access_token}"})
             simple_response(article_reaction_response)
         elif choice == "5":
             article_id = input("Enter Article ID to report: ")
@@ -54,3 +57,5 @@ class SearchMenu(BaseMenu):
                                                                       {"reason": report_reason},
                                                                       {"Authorization": f"Bearer {self.access_token}"})
             simple_response(report_article_response)
+        else:
+            print("Invalid choice.")
