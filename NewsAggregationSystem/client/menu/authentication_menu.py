@@ -21,7 +21,7 @@ class AuthenticationMenu(BaseMenu):
 
             if choice == "1":
                 user_data = {
-                    "email": input("Email: "),
+                    "email": input("Email: ").strip(),
                     "password": input("Password: ")
                 }
                 login_data = api_utilities.create("auth/login", user_data)
@@ -42,8 +42,8 @@ class AuthenticationMenu(BaseMenu):
 
             elif choice == "2":
                 user_data = {
-                    "name": input("Username: "),
-                    "email": input("Email: "),
+                    "name": input("Username: ").strip(),
+                    "email": input("Email: ").strip(),
                     "password": input("Password: ")
                 }
                 register_data = api_utilities.create("auth/register", user_data)

@@ -34,7 +34,9 @@ class UserMenu(BaseMenu):
                 if save_article_menu == "logout":
                     return "logout"
             elif choice == "3":
-                SearchMenu(self.access_token, self.user_data).api_request()
+                search_menu = SearchMenu(self.access_token, self.user_data).api_request()
+                if search_menu == "logout":
+                    return "logout"
             elif choice == "4":
                 notification_menu = NotificationMenu(self.access_token, self.user_data).api_request()
                 if notification_menu == "logout":

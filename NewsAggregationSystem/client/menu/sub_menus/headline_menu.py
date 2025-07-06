@@ -23,7 +23,9 @@ class HeadlineMenu(BaseMenu):
             choice = input("Choose an option (1-3): ")
 
             if choice == "1":
-                self.display_articles("user/headlines/today")
+                result = self.display_articles("user/headlines/today")
+                if result == "logout":
+                    return "logout"
             elif choice == "2":
                 start = input("Enter start date (YYYY-MM-DD): ")
                 end = input("Enter end date (YYYY-MM-DD): ")

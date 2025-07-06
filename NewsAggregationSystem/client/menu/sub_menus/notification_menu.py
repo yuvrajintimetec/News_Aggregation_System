@@ -32,7 +32,9 @@ class NotificationMenu(BaseMenu):
                 else:
                     print(notifications)
             elif choice == "2":
-                NotificationConfigMenu(self.access_token, self.user_data).api_request()
+                result = NotificationConfigMenu(self.access_token, self.user_data).api_request()
+                if result == "logout":
+                    return "logout"
             elif choice == "3":
                 return
             elif choice == "4":

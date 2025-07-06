@@ -34,6 +34,10 @@ class SearchMenu(BaseMenu):
             print(articles)
         self.show_menu()
         choice = input("Choose (1-5): ")
+        if choice == "1":
+            return
+        elif choice == "2":
+            return "logout"
         if choice == "3":
             article_id = input("Enter Article ID to save: ")
             saved_article_response = api_utilities.create_with_token(f"user/saved-article/{article_id}", {},
