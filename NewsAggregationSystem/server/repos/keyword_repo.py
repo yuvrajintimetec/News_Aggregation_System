@@ -2,6 +2,7 @@ from NewsAggregationSystem.server.database import db_query
 
 class KeywordRepo:
     def find_or_create_keyword(self, keyword):
+        keyword = keyword.strip().lower()
         result = db_query("SELECT * FROM keyword WHERE keyword_name = %s", (keyword,))
         if result:
             return True, result

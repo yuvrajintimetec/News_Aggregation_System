@@ -15,7 +15,7 @@ class SearchMenu(BaseMenu):
         print("1. Back\n2. Logout\n3. Save Article\n4. React on an Article\n5. Report an Article")
 
     def api_request(self):
-        keyword = input("Enter search keyword: ")
+        keyword = input("Enter search keyword: ").strip().lower()
         start = input("Start Date (YYYY-MM-DD): ")
         end = input("End Date (YYYY-MM-DD): ")
         sort = input("Sort by (likes/dislikes, leave blank to skip): ")

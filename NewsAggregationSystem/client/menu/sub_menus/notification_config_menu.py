@@ -35,17 +35,16 @@ class NotificationConfigMenu(BaseMenu):
             choice = input("Choose an option: ")
             if choice in self.category_map:
                 category = self.category_map[choice]
-                keyword = input("Enter keyword(leave blank space if not require): ")
+                keyword = input("Enter keyword(leave blank space if not require): ").strip().lower()
                 state = input(f"Enable or disable notifications for {category}? (true/false): ")
                 if keyword:
-                    keyword = keyword.lower()
                     data = {"category": category,  "keyword":keyword,  "is_enabled": state}
                 else:
                     data = {"category": category, "is_enabled": state}
                 is_configure = api_utilities.create_with_token("user/notifications/configure", data, {"Authorization": f"Bearer {self.access_token}"})
                 simple_response(is_configure)
             elif choice == str(len(self.category_map) + 1):
-                keyword = input("Enter keyword: ")
+                keyword = input("Enter keyword: ").strip().lower()
                 state = input(f"Enable or disable keyword '{keyword}'? (true/false): ")
                 data = {"keyword": keyword, "is_enabled": state}
                 is_configure = api_utilities.create_with_token("user/notifications/configure", data, {"Authorization": f"Bearer {self.access_token}"})

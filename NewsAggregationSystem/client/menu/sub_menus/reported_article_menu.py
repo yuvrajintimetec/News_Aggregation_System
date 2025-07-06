@@ -35,12 +35,12 @@ class ReportedArticleMenu(BaseMenu):
                 hide_reported_article_response = api_utilities.create_with_token(f"admin/hide-reported-article/{article_id}", {}, {"Authorization": f"Bearer {self.access_token}"})
                 simple_response(hide_reported_article_response)
             elif choice == "4":
-                keyword = input("Enter keyword: ")
+                keyword = input("Enter keyword: ").strip().lower()
                 hide_reported_article_response = api_utilities.create_with_token(
                     f"admin/hide-articles-by-keyword?keyword={keyword}", {}, {"Authorization": f"Bearer {self.access_token}"})
                 simple_response(hide_reported_article_response)
             elif choice == "5":
-                category = input("Enter the category: ")
+                category = input("Enter the category: ").strip().lower()
                 hide_reported_article_response = api_utilities.create_with_token(
                     f"admin/hide-articles-by-category?category={category}", {}, {"Authorization": f"Bearer {self.access_token}"})
                 simple_response(hide_reported_article_response)

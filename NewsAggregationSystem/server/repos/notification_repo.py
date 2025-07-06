@@ -3,14 +3,14 @@ from NewsAggregationSystem.server.database import db_query
 class NotificationRepo:
     def get_user_notifications(self, user_id):
         query = """
-            SELECT n.notification_id, n.user_id, n.message
+            SELECT DISTINCT n.notification_id, n.user_id, n.message
             FROM Notification n where n.user_id = %s and n.is_read = false
         """
         return db_query(query, (user_id,))
 
     def get_all_notifications(self):
         query = """
-            SELECT n.notification_id, n.user_id, n.message
+            SELECT DISTINCT n.notification_id, n.user_id, n.message
             FROM Notification n where n.is_read = false
         """
         return db_query(query, ())

@@ -15,8 +15,8 @@ class AdminMenu(BaseMenu):
         now = datetime.now().strftime("%d-%b-%Y Time:%I:%M%p")
         print(f"\nWelcome to the News Application, {self.user_data['name']}! Date: {now}")
         print("1. View the list of external servers and status")
-        print("2. View the external server’s details")
-        print("3. Update/Edit the external server’s details")
+        print("2. View the external server's details")
+        print("3. Update/Edit the external server's details")
         print("4. Add new News Category")
         print("5. Logout")
         print("6.View reported articles")
@@ -70,12 +70,9 @@ class AdminMenu(BaseMenu):
                 simple_response(updated_server_details)
 
             elif choice == "4":
-                headers = {
-                    "Authorization": f"Bearer {self.access_token}"
-                }
-                category_name = input("Enter new category name: ")
-                add_category_data =api_utilities.create_with_token("admin/add_category", {"category_name": category_name}, headers)
-                simple_response(add_category_data)
+                category_name = input("Enter new category name: ").strip().lower()
+                category_response = api_utilities.create_with_token("admin/category/", {"category_name": category_name}, {"Authorization": f"Bearer {self.access_token}"})
+                simple_response(category_response)
 
             elif choice == "5":
                 print("Logging out from Admin console....")

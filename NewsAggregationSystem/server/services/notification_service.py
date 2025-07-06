@@ -1,7 +1,8 @@
+from fastapi import HTTPException, status
 from NewsAggregationSystem.server.repos.notification_repo import NotificationRepo
 from NewsAggregationSystem.server.repos.user_repo import UserRepo
 from NewsAggregationSystem.server.utilities.email_utils import send_email
-import random
+from NewsAggregationSystem.server.exceptions.not_found_exception import NotFoundException
 
 class NotificationService:
     def __init__(self):
@@ -10,6 +11,8 @@ class NotificationService:
 
     def get_notifications(self, user_id):
         notifications = self.notification_repo.get_user_notifications(user_id)
+        if not notifications:
+            raise NotFoundException(f"notifications not found")
         messages = []
         for notification in notifications:
             notification_id = notification[0]
@@ -20,14 +23,12 @@ class NotificationService:
 
     async def send_notifications_by_email(self):
         notifications = self.notification_repo.get_all_notifications()
-        # notification = random.choice(notifications)
         for notification in notifications:
             notification_id = notification[0]
             user_id = notification[1]
             user_email = self.user_repo.get_user_by_id(user_id)[2]
             message = notification[2]
             subject = "News Notification"
-            if user_id == 8:
-                await send_email(user_email, subject, message)
-                self.notification_repo.mark_as_read(notification_id)
-                self.notification_repo.update_notification_date(notification_id)
+            await send_email(user_email, subject, message)
+            self.notification_repo.mark_as_read(notification_id)
+            self.notification_repo.update_notification_date(notification_id)

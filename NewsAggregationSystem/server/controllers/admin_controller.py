@@ -1,3 +1,8 @@
+from fastapi import HTTPException, status
+
+from NewsAggregationSystem.server.exceptions.invalid_data_exception import InvalidDataException
+from NewsAggregationSystem.server.exceptions.not_found_exception import NotFoundException
+from NewsAggregationSystem.server.exceptions.update_failed_exception import UpdateFailedException
 from NewsAggregationSystem.server.services.article_service import ArticleService
 from NewsAggregationSystem.server.services.external_server_service import ExternalServerService
 from NewsAggregationSystem.server.services.category_service import CategoryService
@@ -10,23 +15,29 @@ class AdminController:
         self.article_service = ArticleService()
 
     def get_all_servers(self):
-        servers = self.external_server_service.get_all_servers()
-        keys = ["server_name", "api_key", "base_url", "is_active", "last_accessed"]
-        server_response = [dict(zip(keys, server[1:])) for server in servers]
-        return {"message": server_response}
+        try:
+            servers = self.external_server_service.get_all_servers()
+            keys = ["server_name", "api_key", "base_url", "is_active", "last_accessed"]
+            server_response = [dict(zip(keys, server[1:])) for server in servers]
+            return {"message": server_response}
+        except NotFoundException as error:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(error))
 
     def update_server(self, server_id, update_data):
-        updated_info = self.external_server_service.update_server(server_id, update_data)
-        if "message" in updated_info and updated_info["message"] is not None:
+        try:
+            updated_info = self.external_server_service.update_server(server_id, update_data)
             return {"message": updated_info["message"]}
-        else:
-            return {"error": updated_info["error"]}
+        except UpdateFailedException as error:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(error))
 
     def add_category(self, category):
-        if self.category_service.add_category(category.category_name):
-            return {"message": "category added successfully"}
-        else:
-            return {"error": "category already exists"}
+        try:
+            if self.category_service.add_category(category.category_name):
+                return {"message": "category added successfully"}
+            else:
+                return {"error": "category already exists"}
+        except InvalidDataException as error:
+            raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(error))
 
     def check_reported_articles(self):
         articles = self.article_service.check_article_report()

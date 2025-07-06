@@ -4,6 +4,8 @@ from NewsAggregationSystem.server.repos.keyword_article_mapping_repo import Keyw
 from NewsAggregationSystem.server.repos.keyword_repo import KeywordRepo
 from NewsAggregationSystem.server.repos.notification_setting_repo import NotificationSettingRepo
 from fastapi import HTTPException, status
+from NewsAggregationSystem.server.exceptions.not_found_exception import NotFoundException
+from NewsAggregationSystem.server.exceptions.invalid_data_exception import InvalidDataException
 
 class NotificationSettingService:
     def __init__(self):
@@ -20,7 +22,7 @@ class NotificationSettingService:
             is_enabled = config.is_enabled
 
         if config.category:
-            category_name = config.category
+            category_name = config.category.strip().lower()
             category = self.category_repo.find_category(category_name)
             if category:
                 category_id = category[0][0]
@@ -30,8 +32,7 @@ class NotificationSettingService:
             is_present, data = self.keyword_repo.find_or_create_keyword(keyword_name)
             articles = self.article_repo.search_articles_with_keyword(keyword_name)
             if not articles:
-                raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
-                                    detail=f"No article found for this keyword name {keyword_name}")
+                raise NotFoundException(f"No article found for this keyword name {keyword_name}")
             for article in articles:
                 article_id = article[0]
                 if is_present:
@@ -42,12 +43,12 @@ class NotificationSettingService:
                     if not existing_mapping:
                         self.keyword_article_mapping_repo.create_keyword_article_mapping(keyword_id, article_id)
         if not category_id and not keyword_id:
-            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=f"Won't be able to insert the configuration")
+            raise InvalidDataException(f"Won't be able to insert the configuration")
 
         return self.repo.upsert_notification_setting(user_id, category_id, keyword_id, is_enabled)
 
     def get_all_categories_enability(self):
         categories = self.repo.fetch_all_categories_enability()
         if not categories:
-            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No categories found")
+            raise NotFoundException("No categories found")
         return [{"category_name": category[0], "is_enabled": category[1]} for category in categories]

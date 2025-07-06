@@ -46,9 +46,9 @@ def save_article(article_id: int, user_info=Depends(get_current_user)):
 def get_saved_articles(user_info=Depends(get_current_user)):
     return user_controller.get_saved_articles(user_info)
 
-@router.get("/liked-articles", response_model=ArticleDetailsResponse)
-def get_liked_articles(user_info=Depends(get_current_user)):
-    return user_controller.get_liked_articles(user_info)
+@router.get("/reacted-articles", response_model=ArticleDetailsResponse)
+def get_reacted_articles(user_info=Depends(get_current_user)):
+    return user_controller.get_reacted_articles(user_info)
 
 
 @router.delete("/saved-article/{article_id}", response_model=DeleteArticleResponse)

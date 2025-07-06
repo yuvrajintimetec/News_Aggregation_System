@@ -110,13 +110,14 @@ class ArticleRepo:
         params = [start_date, end_date, user_id, start_date, end_date, user_id, start_date, end_date, user_id,
                   start_date, end_date, user_id, start_date, end_date, user_id, start_date, end_date, user_id, start_date, end_date]
 
-        if category.lower() != "all" and category != "":
+        if category.strip().lower() != "all" and category.strip() != "":
             category_filter = "AND c.category_name = %s"
-            params.insert(len(params)-1, category.lower())
+            params.insert(len(params)-1, category.strip().lower())
 
         return self.fetch_articles_by_user_preference(base_filter, category_filter, sort_by_filter, params)
 
     def search_articles(self, start_date, end_date, keyword, sort_by, user_id):
+        keyword = keyword.strip().lower()
         keyword_like = f"%{keyword}%"
         category_filter = ""
         sort_by_filter = "order by likes DESC" if sort_by == "likes" else "order by dislikes DESC"
@@ -145,7 +146,7 @@ class ArticleRepo:
         """
         return db_query(query, (user_id,))
 
-    def get_liked_articles(self, user_id):
+    def get_reacted_articles(self, user_id):
         query = """
             SELECT a.* FROM article a
             JOIN article_reaction ar ON a.article_id = ar.article_id

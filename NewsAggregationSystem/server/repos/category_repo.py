@@ -2,6 +2,7 @@ from NewsAggregationSystem.server.database import db_query
 
 class CategoryRepo:
     def find_category(self, category_name):
+        category_name = category_name.strip().lower()
         query = '''Select * from category where category_name = %s'''
         return db_query(query, (category_name,))
 
