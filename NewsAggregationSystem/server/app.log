@@ -1,0 +1,1122 @@
+
+[2025-07-07 17:05:48,026] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 17:05:48,129] INFO in article_service: User 3 is toggling LIKE ON for article 4715 (was OFF, now ON).
+[2025-07-07 17:05:48,192] INFO in article_service: User 3 completed LIKE toggle for article 4715.
+[2025-07-07 17:05:58,576] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 17:05:58,603] INFO in article_service: User 3 is toggling LIKE OFF for article 4715 (was ON, now OFF).
+[2025-07-07 17:05:58,682] INFO in article_service: User 3 completed LIKE toggle for article 4715.
+[2025-07-07 17:13:53,182] INFO in authentication_service: Login attempt for email: yuvraj@gmail.com
+[2025-07-07 17:13:53,677] INFO in password_utils: Password verification attempted. Result: success.
+[2025-07-07 17:13:53,724] INFO in jwt_utils: JWT access token created for data: {'user_id': 3, 'user_role': 'user'}
+[2025-07-07 17:13:53,724] INFO in authentication_service: User login successful for email: yuvraj@gmail.com
+[2025-07-07 17:14:14,025] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 17:14:17,746] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 17:14:41,298] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 17:14:53,118] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 17:15:45,372] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 17:16:03,289] INFO in authentication_service: Login attempt for email: tamgi@gmail.com
+[2025-07-07 17:16:03,661] INFO in password_utils: Password verification attempted. Result: success.
+[2025-07-07 17:16:03,662] INFO in jwt_utils: JWT access token created for data: {'user_id': 7, 'user_role': 'admin'}
+[2025-07-07 17:16:03,662] INFO in authentication_service: User login successful for email: tamgi@gmail.com
+[2025-07-07 17:16:32,185] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 17:16:32,210] INFO in article_service: Checking report threshold for article 4716: current count = 1, threshold = 1
+[2025-07-07 17:16:32,210] INFO in article_service: Threshold met/exceeded for article 4716. Hiding article.
+[2025-07-07 17:16:32,242] INFO in article_service: Article 4716 hidden successfully after reaching threshold.
+[2025-07-07 17:16:35,824] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 17:16:35,842] INFO in article_service: Checking report threshold for article 4716: current count = 1, threshold = 1
+[2025-07-07 17:16:35,842] INFO in article_service: Threshold met/exceeded for article 4716. Hiding article.
+[2025-07-07 17:16:35,857] INFO in article_service: Article 4716 hidden successfully after reaching threshold.
+[2025-07-07 17:16:55,540] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 17:17:02,695] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 17:47:53,819] INFO in authentication_service: Login attempt for email: yuvi@gmail.com
+[2025-07-07 17:47:54,312] INFO in password_utils: Password verification attempted. Result: success.
+[2025-07-07 17:47:54,367] INFO in jwt_utils: JWT access token created for data: {'user_id': 1, 'user_role': 'user'}
+[2025-07-07 17:47:54,367] INFO in authentication_service: User login successful for email: yuvi@gmail.com
+[2025-07-07 17:48:17,729] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 17:48:17,760] INFO in article_service: User 1 is adding a new LIKE for article 4714 (was OFF, now ON).
+[2025-07-07 17:48:17,862] INFO in article_service: User 1 completed LIKE toggle for article 4714.
+[2025-07-07 17:50:14,310] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 17:50:14,431] INFO in article_service: User 1 is toggling LIKE OFF for article 4714 (was ON, now OFF).
+[2025-07-07 17:50:14,471] INFO in article_service: User 1 completed LIKE toggle for article 4714.
+[2025-07-07 17:51:01,840] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 17:51:01,858] INFO in article_service: User 1 is toggling LIKE ON for article 4714 (was OFF, now ON).
+[2025-07-07 17:51:01,908] INFO in article_service: User 1 completed LIKE toggle for article 4714.
+[2025-07-07 17:51:16,897] INFO in authentication_service: Login attempt for email: tamgi@gmail.com
+[2025-07-07 17:51:17,176] INFO in password_utils: Password verification attempted. Result: success.
+[2025-07-07 17:51:17,176] INFO in jwt_utils: JWT access token created for data: {'user_id': 7, 'user_role': 'admin'}
+[2025-07-07 17:51:17,178] INFO in authentication_service: User login successful for email: tamgi@gmail.com
+[2025-07-07 17:51:32,149] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 17:52:21,845] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 17:52:21,870] WARNING in article_service: Article with id 4714 doesn't exist or has no reports.
+[2025-07-07 17:52:40,581] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 17:52:40,598] WARNING in article_service: Article with id 4714 doesn't exist or has no reports.
+[2025-07-07 18:08:40,461] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 18:08:40,806] WARNING in article_service: Article with id 47145 doesn't exist or has no reports.
+[2025-07-07 18:08:50,440] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 18:08:50,486] WARNING in article_service: Article with id 4714 doesn't exist or has no reports.
+[2025-07-07 18:09:14,433] INFO in authentication_service: Login attempt for email: yuvi@gmail.com
+[2025-07-07 18:09:14,788] INFO in password_utils: Password verification attempted. Result: success.
+[2025-07-07 18:09:14,789] INFO in jwt_utils: JWT access token created for data: {'user_id': 1, 'user_role': 'user'}
+[2025-07-07 18:09:14,789] INFO in authentication_service: User login successful for email: yuvi@gmail.com
+[2025-07-07 18:09:27,493] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 18:09:27,515] INFO in article_service: User 1 is adding a new LIKE for article 4697 (was OFF, now ON).
+[2025-07-07 18:09:27,589] INFO in article_service: User 1 completed LIKE toggle for article 4697.
+[2025-07-07 18:09:45,844] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 18:09:45,864] INFO in article_service: User 1 is toggling DISLIKE ON for article 4697 (was OFF, now ON).
+[2025-07-07 18:09:45,923] INFO in article_service: User 1 completed DISLIKE toggle for article 4697.
+[2025-07-07 18:10:16,456] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 18:10:16,470] INFO in article_service: User 1 is toggling DISLIKE OFF for article 4697 (was ON, now OFF).
+[2025-07-07 18:10:16,517] INFO in article_service: User 1 completed DISLIKE toggle for article 4697.
+[2025-07-07 18:10:36,929] INFO in authentication_service: Login attempt for email: tamgi@gmail.com
+[2025-07-07 18:10:37,365] INFO in password_utils: Password verification attempted. Result: success.
+[2025-07-07 18:10:37,366] INFO in jwt_utils: JWT access token created for data: {'user_id': 7, 'user_role': 'admin'}
+[2025-07-07 18:10:37,366] INFO in authentication_service: User login successful for email: tamgi@gmail.com
+[2025-07-07 18:10:52,877] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 18:10:52,895] WARNING in article_service: Article with id 46978 doesn't exist or has no reports.
+[2025-07-07 18:10:56,417] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 18:10:56,434] WARNING in article_service: Article with id 4697 doesn't exist or has no reports.
+[2025-07-07 18:16:11,570] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 18:16:11,730] WARNING in article_service: Article with id 4697 doesn't exist or has no reports.
+[2025-07-07 18:18:28,248] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 18:18:34,293] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 18:19:49,669] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 18:19:56,844] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 18:19:56,868] ERROR in article_controller: Error fetching article 4716: Articles not found
+[2025-07-07 18:20:10,791] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 18:20:29,322] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 18:20:29,340] INFO in article_service: Checking report threshold for article 4697: current count = 1, threshold = 2
+[2025-07-07 18:20:29,341] INFO in article_service: Threshold NOT met for article 4697. Current count: 1, threshold: 2
+[2025-07-07 18:20:50,645] INFO in authentication_service: Login attempt for email: yuvi@gmail.com
+[2025-07-07 18:20:51,065] INFO in password_utils: Password verification attempted. Result: success.
+[2025-07-07 18:20:51,066] INFO in jwt_utils: JWT access token created for data: {'user_id': 1, 'user_role': 'user'}
+[2025-07-07 18:20:51,066] INFO in authentication_service: User login successful for email: yuvi@gmail.com
+[2025-07-07 18:21:00,627] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 18:21:04,210] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 18:21:12,199] INFO in authentication_service: Login attempt for email: tamgi@gmail.com
+[2025-07-07 18:21:12,570] INFO in password_utils: Password verification attempted. Result: success.
+[2025-07-07 18:21:12,571] INFO in jwt_utils: JWT access token created for data: {'user_id': 7, 'user_role': 'admin'}
+[2025-07-07 18:21:12,571] INFO in authentication_service: User login successful for email: tamgi@gmail.com
+[2025-07-07 18:21:24,416] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 18:21:24,431] INFO in article_service: Checking report threshold for article 4697: current count = 2, threshold = 2
+[2025-07-07 18:21:24,431] INFO in article_service: Threshold met/exceeded for article 4697. Hiding article.
+[2025-07-07 18:21:24,456] INFO in article_service: Article 4697 hidden successfully after reaching threshold.
+[2025-07-07 18:21:42,736] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 18:21:42,754] ERROR in article_controller: Error fetching article 4697: Articles not found
+[2025-07-07 18:23:17,647] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 18:23:23,036] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 18:23:39,940] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 18:23:59,271] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 18:24:11,289] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 18:24:19,839] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 18:24:42,375] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 18:24:45,488] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 18:39:49,824] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 18:39:56,629] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 18:40:01,098] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 18:42:59,641] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 18:43:06,965] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 18:44:21,063] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 18:44:24,170] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 19:19:08,294] INFO in article_service: Checking report threshold for article 1: current count = 5, threshold = 3
+[2025-07-07 19:19:08,294] INFO in article_service: Threshold met/exceeded for article 1. Hiding article.
+[2025-07-07 19:19:08,295] INFO in article_service: Article 1 hidden successfully after reaching threshold.
+[2025-07-07 19:19:08,297] INFO in article_service: Checking report threshold for article 1: current count = 1, threshold = 3
+[2025-07-07 19:19:08,297] INFO in article_service: Threshold NOT met for article 1. Current count: 1, threshold: 3
+[2025-07-07 19:19:08,299] INFO in article_service: User 1 is adding a new DISLIKE for article 1 (was OFF, now ON).
+[2025-07-07 19:19:08,299] INFO in article_service: User 1 completed DISLIKE toggle for article 1.
+[2025-07-07 19:19:08,301] INFO in article_service: User 1 is toggling DISLIKE OFF for article 1 (was ON, now OFF).
+[2025-07-07 19:19:08,301] INFO in article_service: User 1 completed DISLIKE toggle for article 1.
+[2025-07-07 19:19:08,304] INFO in article_service: User 1 is adding a new LIKE for article 1 (was OFF, now ON).
+[2025-07-07 19:19:08,304] INFO in article_service: User 1 completed LIKE toggle for article 1.
+[2025-07-07 19:19:08,307] INFO in article_service: User 1 is toggling LIKE OFF for article 1 (was ON, now OFF).
+[2025-07-07 19:19:08,308] INFO in article_service: User 1 completed LIKE toggle for article 1.
+[2025-07-07 19:19:08,309] INFO in article_service: Starting to save articles.
+[2025-07-07 19:19:08,309] INFO in article_service: Starting to save articles.
+[2025-07-07 19:19:08,311] INFO in article_service: Starting to save articles.
+[2025-07-07 19:19:08,311] INFO in article_service: Saving article: Test Article from source: source
+[2025-07-07 19:19:08,313] INFO in article_service: Completed saving all articles.
+[2025-07-07 19:19:08,314] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 19:19:08,314] INFO in classify_category_utils: Keyword match found in text for category: Entertainment
+[2025-07-07 19:19:08,315] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 19:19:08,315] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 19:19:08,315] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 19:19:08,358] INFO in jwt_utils: JWT access token created for data: {'user_id': 1, 'role': 'admin'}
+[2025-07-07 19:19:08,358] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 19:19:08,835] INFO in password_utils: Password hashed.
+[2025-07-07 19:19:09,201] INFO in password_utils: Password verification attempted. Result: success.
+[2025-07-07 19:19:09,553] INFO in password_utils: Password verification attempted. Result: failure.
+[2025-07-07 19:20:46,039] INFO in article_service: Checking report threshold for article 1: current count = 5, threshold = 3
+[2025-07-07 19:20:46,039] INFO in article_service: Threshold met/exceeded for article 1. Hiding article.
+[2025-07-07 19:20:46,040] INFO in article_service: Article 1 hidden successfully after reaching threshold.
+[2025-07-07 19:20:46,041] INFO in article_service: Checking report threshold for article 1: current count = 1, threshold = 3
+[2025-07-07 19:20:46,042] INFO in article_service: Threshold NOT met for article 1. Current count: 1, threshold: 3
+[2025-07-07 19:20:46,043] INFO in article_service: User 1 is adding a new DISLIKE for article 1 (was OFF, now ON).
+[2025-07-07 19:20:46,043] INFO in article_service: User 1 completed DISLIKE toggle for article 1.
+[2025-07-07 19:20:46,046] INFO in article_service: User 1 is toggling DISLIKE OFF for article 1 (was ON, now OFF).
+[2025-07-07 19:20:46,046] INFO in article_service: User 1 completed DISLIKE toggle for article 1.
+[2025-07-07 19:20:46,047] INFO in article_service: User 1 is adding a new LIKE for article 1 (was OFF, now ON).
+[2025-07-07 19:20:46,048] INFO in article_service: User 1 completed LIKE toggle for article 1.
+[2025-07-07 19:20:46,049] INFO in article_service: User 1 is toggling LIKE OFF for article 1 (was ON, now OFF).
+[2025-07-07 19:20:46,050] INFO in article_service: User 1 completed LIKE toggle for article 1.
+[2025-07-07 19:20:46,051] INFO in article_service: Starting to save articles.
+[2025-07-07 19:20:46,051] INFO in article_service: Starting to save articles.
+[2025-07-07 19:20:46,053] INFO in article_service: Starting to save articles.
+[2025-07-07 19:20:46,053] INFO in article_service: Saving article: Test Article from source: source
+[2025-07-07 19:20:46,055] INFO in article_service: Completed saving all articles.
+[2025-07-07 19:20:46,056] INFO in authentication_service: Login attempt for email: test@example.com
+[2025-07-07 19:20:46,056] INFO in authentication_service: User login successful for email: test@example.com
+[2025-07-07 19:20:46,057] INFO in authentication_service: Login attempt for email: notfound@example.com
+[2025-07-07 19:20:46,057] WARNING in authentication_service: Failed login for email: notfound@example.com (user not found)
+[2025-07-07 19:20:46,058] INFO in authentication_service: Login attempt for email: test@example.com
+[2025-07-07 19:20:46,058] WARNING in authentication_service: Failed login for email: test@example.com (invalid password)
+[2025-07-07 19:20:46,356] INFO in password_utils: Password hashed.
+[2025-07-07 19:20:46,370] INFO in notification_service: Starting to send notifications by email.
+[2025-07-07 19:20:50,439] INFO in notification_service: Sent notification email to user_id: 2, email: test@example.com
+[2025-07-07 19:20:50,440] INFO in notification_service: Completed sending notifications by email.
+[2025-07-07 19:20:50,450] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 19:20:50,451] INFO in classify_category_utils: Keyword match found in text for category: Entertainment
+[2025-07-07 19:20:50,451] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 19:20:50,452] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 19:20:50,453] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 19:20:50,466] INFO in jwt_utils: JWT access token created for data: {'user_id': 1, 'role': 'admin'}
+[2025-07-07 19:20:50,467] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 19:20:50,744] INFO in password_utils: Password hashed.
+[2025-07-07 19:20:51,002] INFO in password_utils: Password verification attempted. Result: success.
+[2025-07-07 19:20:51,306] INFO in password_utils: Password verification attempted. Result: failure.
+[2025-07-07 19:35:42,255] INFO in article_service: Checking report threshold for article 1: current count = 5, threshold = 3
+[2025-07-07 19:35:42,256] INFO in article_service: Threshold met/exceeded for article 1. Hiding article.
+[2025-07-07 19:35:42,256] INFO in article_service: Article 1 hidden successfully after reaching threshold.
+[2025-07-07 19:35:42,258] INFO in article_service: Checking report threshold for article 1: current count = 1, threshold = 3
+[2025-07-07 19:35:42,259] INFO in article_service: Threshold NOT met for article 1. Current count: 1, threshold: 3
+[2025-07-07 19:35:42,261] INFO in article_service: User 1 is adding a new DISLIKE for article 1 (was OFF, now ON).
+[2025-07-07 19:35:42,261] INFO in article_service: User 1 completed DISLIKE toggle for article 1.
+[2025-07-07 19:35:42,265] INFO in article_service: User 1 is toggling DISLIKE OFF for article 1 (was ON, now OFF).
+[2025-07-07 19:35:42,265] INFO in article_service: User 1 completed DISLIKE toggle for article 1.
+[2025-07-07 19:35:42,267] INFO in article_service: User 1 is adding a new LIKE for article 1 (was OFF, now ON).
+[2025-07-07 19:35:42,268] INFO in article_service: User 1 completed LIKE toggle for article 1.
+[2025-07-07 19:35:42,270] INFO in article_service: User 1 is toggling LIKE OFF for article 1 (was ON, now OFF).
+[2025-07-07 19:35:42,270] INFO in article_service: User 1 completed LIKE toggle for article 1.
+[2025-07-07 19:35:42,273] INFO in article_service: Starting to save articles.
+[2025-07-07 19:35:42,273] INFO in article_service: Starting to save articles.
+[2025-07-07 19:35:42,276] INFO in article_service: Starting to save articles.
+[2025-07-07 19:35:42,276] INFO in article_service: Saving article: Test Article from source: source
+[2025-07-07 19:35:42,278] INFO in article_service: Completed saving all articles.
+[2025-07-07 19:35:42,281] INFO in authentication_service: Login attempt for email: test@example.com
+[2025-07-07 19:35:42,281] INFO in authentication_service: User login successful for email: test@example.com
+[2025-07-07 19:35:42,282] INFO in authentication_service: Login attempt for email: notfound@example.com
+[2025-07-07 19:35:42,283] WARNING in authentication_service: Failed login for email: notfound@example.com (user not found)
+[2025-07-07 19:35:42,284] INFO in authentication_service: Login attempt for email: test@example.com
+[2025-07-07 19:35:42,284] WARNING in authentication_service: Failed login for email: test@example.com (invalid password)
+[2025-07-07 19:35:42,558] INFO in password_utils: Password hashed.
+[2025-07-07 19:35:42,576] INFO in notification_service: Starting to send notifications by email.
+[2025-07-07 19:35:46,104] INFO in notification_service: Sent notification email to user_id: 2, email: test@example.com
+[2025-07-07 19:35:46,104] INFO in notification_service: Completed sending notifications by email.
+[2025-07-07 19:35:46,122] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 19:35:46,122] INFO in classify_category_utils: Keyword match found in text for category: Entertainment
+[2025-07-07 19:35:46,123] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 19:35:46,123] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 19:35:46,124] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 19:35:46,161] INFO in jwt_utils: JWT access token created for data: {'user_id': 1, 'role': 'admin'}
+[2025-07-07 19:35:46,161] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 19:35:46,434] INFO in password_utils: Password hashed.
+[2025-07-07 19:35:46,672] INFO in password_utils: Password verification attempted. Result: success.
+[2025-07-07 19:35:46,917] INFO in password_utils: Password verification attempted. Result: failure.
+[2025-07-07 19:41:25,714] INFO in article_service: Checking report threshold for article 1: current count = 5, threshold = 3
+[2025-07-07 19:41:25,715] INFO in article_service: Threshold met/exceeded for article 1. Hiding article.
+[2025-07-07 19:41:25,715] INFO in article_service: Article 1 hidden successfully after reaching threshold.
+[2025-07-07 19:41:25,718] INFO in article_service: Checking report threshold for article 1: current count = 1, threshold = 3
+[2025-07-07 19:41:25,718] INFO in article_service: Threshold NOT met for article 1. Current count: 1, threshold: 3
+[2025-07-07 19:41:25,721] INFO in article_service: User 1 is adding a new DISLIKE for article 1 (was OFF, now ON).
+[2025-07-07 19:41:25,722] INFO in article_service: User 1 completed DISLIKE toggle for article 1.
+[2025-07-07 19:41:25,726] INFO in article_service: User 1 is toggling DISLIKE OFF for article 1 (was ON, now OFF).
+[2025-07-07 19:41:25,726] INFO in article_service: User 1 completed DISLIKE toggle for article 1.
+[2025-07-07 19:41:25,728] INFO in article_service: User 1 is adding a new LIKE for article 1 (was OFF, now ON).
+[2025-07-07 19:41:25,728] INFO in article_service: User 1 completed LIKE toggle for article 1.
+[2025-07-07 19:41:25,730] INFO in article_service: User 1 is toggling LIKE OFF for article 1 (was ON, now OFF).
+[2025-07-07 19:41:25,731] INFO in article_service: User 1 completed LIKE toggle for article 1.
+[2025-07-07 19:41:25,733] INFO in article_service: Starting to save articles.
+[2025-07-07 19:41:25,733] INFO in article_service: Starting to save articles.
+[2025-07-07 19:41:25,737] INFO in article_service: Starting to save articles.
+[2025-07-07 19:41:25,737] INFO in article_service: Saving article: Test Article from source: source
+[2025-07-07 19:41:25,740] INFO in article_service: Completed saving all articles.
+[2025-07-07 19:41:25,744] INFO in authentication_service: Login attempt for email: test@example.com
+[2025-07-07 19:41:25,744] INFO in authentication_service: User login successful for email: test@example.com
+[2025-07-07 19:41:25,745] INFO in authentication_service: Login attempt for email: notfound@example.com
+[2025-07-07 19:41:25,746] WARNING in authentication_service: Failed login for email: notfound@example.com (user not found)
+[2025-07-07 19:41:25,747] INFO in authentication_service: Login attempt for email: test@example.com
+[2025-07-07 19:41:25,747] WARNING in authentication_service: Failed login for email: test@example.com (invalid password)
+[2025-07-07 19:41:26,052] INFO in password_utils: Password hashed.
+[2025-07-07 19:41:26,078] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 19:41:26,079] INFO in classify_category_utils: Keyword match found in text for category: Entertainment
+[2025-07-07 19:41:26,079] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 19:41:26,080] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 19:41:26,081] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 19:41:26,124] INFO in jwt_utils: JWT access token created for data: {'user_id': 1, 'role': 'admin'}
+[2025-07-07 19:41:26,125] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 19:41:26,418] INFO in password_utils: Password hashed.
+[2025-07-07 19:41:26,728] INFO in password_utils: Password verification attempted. Result: success.
+[2025-07-07 19:41:27,044] INFO in password_utils: Password verification attempted. Result: failure.
+[2025-07-07 19:44:27,021] INFO in article_service: Checking report threshold for article 1: current count = 5, threshold = 3
+[2025-07-07 19:44:27,021] INFO in article_service: Threshold met/exceeded for article 1. Hiding article.
+[2025-07-07 19:44:27,022] INFO in article_service: Article 1 hidden successfully after reaching threshold.
+[2025-07-07 19:44:27,024] INFO in article_service: Checking report threshold for article 1: current count = 1, threshold = 3
+[2025-07-07 19:44:27,024] INFO in article_service: Threshold NOT met for article 1. Current count: 1, threshold: 3
+[2025-07-07 19:44:27,026] INFO in article_service: User 1 is adding a new DISLIKE for article 1 (was OFF, now ON).
+[2025-07-07 19:44:27,027] INFO in article_service: User 1 completed DISLIKE toggle for article 1.
+[2025-07-07 19:44:27,029] INFO in article_service: User 1 is toggling DISLIKE OFF for article 1 (was ON, now OFF).
+[2025-07-07 19:44:27,030] INFO in article_service: User 1 completed DISLIKE toggle for article 1.
+[2025-07-07 19:44:27,031] INFO in article_service: User 1 is adding a new LIKE for article 1 (was OFF, now ON).
+[2025-07-07 19:44:27,032] INFO in article_service: User 1 completed LIKE toggle for article 1.
+[2025-07-07 19:44:27,034] INFO in article_service: User 1 is toggling LIKE OFF for article 1 (was ON, now OFF).
+[2025-07-07 19:44:27,035] INFO in article_service: User 1 completed LIKE toggle for article 1.
+[2025-07-07 19:44:27,037] INFO in article_service: Starting to save articles.
+[2025-07-07 19:44:27,038] INFO in article_service: Starting to save articles.
+[2025-07-07 19:44:27,040] INFO in article_service: Starting to save articles.
+[2025-07-07 19:44:27,040] INFO in article_service: Saving article: Test Article from source: source
+[2025-07-07 19:44:27,042] INFO in article_service: Completed saving all articles.
+[2025-07-07 19:44:27,043] INFO in authentication_service: Login attempt for email: test@example.com
+[2025-07-07 19:44:27,044] INFO in authentication_service: User login successful for email: test@example.com
+[2025-07-07 19:44:27,045] INFO in authentication_service: Login attempt for email: notfound@example.com
+[2025-07-07 19:44:27,045] WARNING in authentication_service: Failed login for email: notfound@example.com (user not found)
+[2025-07-07 19:44:27,046] INFO in authentication_service: Login attempt for email: test@example.com
+[2025-07-07 19:44:27,046] WARNING in authentication_service: Failed login for email: test@example.com (invalid password)
+[2025-07-07 19:44:27,346] INFO in password_utils: Password hashed.
+[2025-07-07 19:44:27,364] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 19:44:27,365] INFO in classify_category_utils: Keyword match found in text for category: Entertainment
+[2025-07-07 19:44:27,365] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 19:44:27,366] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 19:44:27,366] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 19:44:27,387] INFO in jwt_utils: JWT access token created for data: {'user_id': 1, 'role': 'admin'}
+[2025-07-07 19:44:27,387] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 19:44:27,711] INFO in password_utils: Password hashed.
+[2025-07-07 19:44:28,040] INFO in password_utils: Password verification attempted. Result: success.
+[2025-07-07 19:44:28,379] INFO in password_utils: Password verification attempted. Result: failure.
+[2025-07-07 19:44:55,170] INFO in article_service: Checking report threshold for article 1: current count = 5, threshold = 3
+[2025-07-07 19:44:55,171] INFO in article_service: Threshold met/exceeded for article 1. Hiding article.
+[2025-07-07 19:44:55,171] INFO in article_service: Article 1 hidden successfully after reaching threshold.
+[2025-07-07 19:44:55,172] INFO in article_service: Checking report threshold for article 1: current count = 1, threshold = 3
+[2025-07-07 19:44:55,173] INFO in article_service: Threshold NOT met for article 1. Current count: 1, threshold: 3
+[2025-07-07 19:44:55,175] INFO in article_service: User 1 is adding a new DISLIKE for article 1 (was OFF, now ON).
+[2025-07-07 19:44:55,176] INFO in article_service: User 1 completed DISLIKE toggle for article 1.
+[2025-07-07 19:44:55,180] INFO in article_service: User 1 is toggling DISLIKE OFF for article 1 (was ON, now OFF).
+[2025-07-07 19:44:55,180] INFO in article_service: User 1 completed DISLIKE toggle for article 1.
+[2025-07-07 19:44:55,182] INFO in article_service: User 1 is adding a new LIKE for article 1 (was OFF, now ON).
+[2025-07-07 19:44:55,183] INFO in article_service: User 1 completed LIKE toggle for article 1.
+[2025-07-07 19:44:55,185] INFO in article_service: User 1 is toggling LIKE OFF for article 1 (was ON, now OFF).
+[2025-07-07 19:44:55,185] INFO in article_service: User 1 completed LIKE toggle for article 1.
+[2025-07-07 19:44:55,187] INFO in article_service: Starting to save articles.
+[2025-07-07 19:44:55,187] INFO in article_service: Starting to save articles.
+[2025-07-07 19:44:55,190] INFO in article_service: Starting to save articles.
+[2025-07-07 19:44:55,190] INFO in article_service: Saving article: Test Article from source: source
+[2025-07-07 19:44:55,193] INFO in article_service: Completed saving all articles.
+[2025-07-07 19:44:55,196] INFO in authentication_service: Login attempt for email: test@example.com
+[2025-07-07 19:44:55,196] INFO in authentication_service: User login successful for email: test@example.com
+[2025-07-07 19:44:55,197] INFO in authentication_service: Login attempt for email: notfound@example.com
+[2025-07-07 19:44:55,198] WARNING in authentication_service: Failed login for email: notfound@example.com (user not found)
+[2025-07-07 19:44:55,199] INFO in authentication_service: Login attempt for email: test@example.com
+[2025-07-07 19:44:55,199] WARNING in authentication_service: Failed login for email: test@example.com (invalid password)
+[2025-07-07 19:44:55,486] INFO in password_utils: Password hashed.
+[2025-07-07 19:44:55,502] INFO in notification_service: Starting to send notifications by email.
+[2025-07-07 19:44:59,058] INFO in notification_service: Sent notification email to user_id: 2, email: test@example.com
+[2025-07-07 19:44:59,058] INFO in notification_service: Completed sending notifications by email.
+[2025-07-07 19:44:59,075] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 19:44:59,076] INFO in classify_category_utils: Keyword match found in text for category: Entertainment
+[2025-07-07 19:44:59,076] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 19:44:59,077] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 19:44:59,077] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 19:44:59,094] INFO in jwt_utils: JWT access token created for data: {'user_id': 1, 'role': 'admin'}
+[2025-07-07 19:44:59,095] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 19:44:59,346] INFO in password_utils: Password hashed.
+[2025-07-07 19:44:59,622] INFO in password_utils: Password verification attempted. Result: success.
+[2025-07-07 19:44:59,904] INFO in password_utils: Password verification attempted. Result: failure.
+[2025-07-07 19:49:32,141] INFO in article_service: Checking report threshold for article 1: current count = 5, threshold = 3
+[2025-07-07 19:49:32,142] INFO in article_service: Threshold met/exceeded for article 1. Hiding article.
+[2025-07-07 19:49:32,142] INFO in article_service: Article 1 hidden successfully after reaching threshold.
+[2025-07-07 19:49:32,144] INFO in article_service: Checking report threshold for article 1: current count = 1, threshold = 3
+[2025-07-07 19:49:32,144] INFO in article_service: Threshold NOT met for article 1. Current count: 1, threshold: 3
+[2025-07-07 19:49:32,147] INFO in article_service: User 1 is adding a new DISLIKE for article 1 (was OFF, now ON).
+[2025-07-07 19:49:32,147] INFO in article_service: User 1 completed DISLIKE toggle for article 1.
+[2025-07-07 19:49:32,149] INFO in article_service: User 1 is toggling DISLIKE OFF for article 1 (was ON, now OFF).
+[2025-07-07 19:49:32,149] INFO in article_service: User 1 completed DISLIKE toggle for article 1.
+[2025-07-07 19:49:32,150] INFO in article_service: User 1 is adding a new LIKE for article 1 (was OFF, now ON).
+[2025-07-07 19:49:32,150] INFO in article_service: User 1 completed LIKE toggle for article 1.
+[2025-07-07 19:49:32,152] INFO in article_service: User 1 is toggling LIKE OFF for article 1 (was ON, now OFF).
+[2025-07-07 19:49:32,152] INFO in article_service: User 1 completed LIKE toggle for article 1.
+[2025-07-07 19:49:32,153] INFO in article_service: Starting to save articles.
+[2025-07-07 19:49:32,153] INFO in article_service: Starting to save articles.
+[2025-07-07 19:49:32,155] INFO in article_service: Starting to save articles.
+[2025-07-07 19:49:32,156] INFO in article_service: Saving article: Test Article from source: source
+[2025-07-07 19:49:32,157] INFO in article_service: Completed saving all articles.
+[2025-07-07 19:49:32,159] INFO in authentication_service: Login attempt for email: test@example.com
+[2025-07-07 19:49:32,159] INFO in authentication_service: User login successful for email: test@example.com
+[2025-07-07 19:49:32,160] INFO in authentication_service: Login attempt for email: notfound@example.com
+[2025-07-07 19:49:32,160] WARNING in authentication_service: Failed login for email: notfound@example.com (user not found)
+[2025-07-07 19:49:32,161] INFO in authentication_service: Login attempt for email: test@example.com
+[2025-07-07 19:49:32,161] WARNING in authentication_service: Failed login for email: test@example.com (invalid password)
+[2025-07-07 19:49:32,413] INFO in password_utils: Password hashed.
+[2025-07-07 19:49:32,428] INFO in notification_service: Starting to send notifications by email.
+[2025-07-07 19:49:35,858] INFO in notification_service: Sent notification email to user_id: 2, email: test@example.com
+[2025-07-07 19:49:35,859] INFO in notification_service: Completed sending notifications by email.
+[2025-07-07 19:49:35,880] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 19:49:35,881] INFO in classify_category_utils: Keyword match found in text for category: Entertainment
+[2025-07-07 19:49:35,882] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 19:49:35,883] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 19:49:35,883] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 19:49:35,924] INFO in jwt_utils: JWT access token created for data: {'user_id': 1, 'role': 'admin'}
+[2025-07-07 19:49:35,924] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 19:49:36,247] INFO in password_utils: Password hashed.
+[2025-07-07 19:49:36,580] INFO in password_utils: Password verification attempted. Result: success.
+[2025-07-07 19:49:36,930] INFO in password_utils: Password verification attempted. Result: failure.
+[2025-07-07 19:50:03,289] INFO in article_service: Checking report threshold for article 1: current count = 5, threshold = 3
+[2025-07-07 19:50:03,290] INFO in article_service: Threshold met/exceeded for article 1. Hiding article.
+[2025-07-07 19:50:03,290] INFO in article_service: Article 1 hidden successfully after reaching threshold.
+[2025-07-07 19:50:03,292] INFO in article_service: Checking report threshold for article 1: current count = 1, threshold = 3
+[2025-07-07 19:50:03,292] INFO in article_service: Threshold NOT met for article 1. Current count: 1, threshold: 3
+[2025-07-07 19:50:03,295] INFO in article_service: User 1 is adding a new DISLIKE for article 1 (was OFF, now ON).
+[2025-07-07 19:50:03,296] INFO in article_service: User 1 completed DISLIKE toggle for article 1.
+[2025-07-07 19:50:03,299] INFO in article_service: User 1 is toggling DISLIKE OFF for article 1 (was ON, now OFF).
+[2025-07-07 19:50:03,299] INFO in article_service: User 1 completed DISLIKE toggle for article 1.
+[2025-07-07 19:50:03,301] INFO in article_service: User 1 is adding a new LIKE for article 1 (was OFF, now ON).
+[2025-07-07 19:50:03,302] INFO in article_service: User 1 completed LIKE toggle for article 1.
+[2025-07-07 19:50:03,304] INFO in article_service: User 1 is toggling LIKE OFF for article 1 (was ON, now OFF).
+[2025-07-07 19:50:03,305] INFO in article_service: User 1 completed LIKE toggle for article 1.
+[2025-07-07 19:50:03,307] INFO in article_service: Starting to save articles.
+[2025-07-07 19:50:03,308] INFO in article_service: Starting to save articles.
+[2025-07-07 19:50:03,310] INFO in article_service: Starting to save articles.
+[2025-07-07 19:50:03,310] INFO in article_service: Saving article: Test Article from source: source
+[2025-07-07 19:50:03,312] INFO in article_service: Completed saving all articles.
+[2025-07-07 19:50:03,315] INFO in authentication_service: Login attempt for email: test@example.com
+[2025-07-07 19:50:03,315] INFO in authentication_service: User login successful for email: test@example.com
+[2025-07-07 19:50:03,316] INFO in authentication_service: Login attempt for email: notfound@example.com
+[2025-07-07 19:50:03,317] WARNING in authentication_service: Failed login for email: notfound@example.com (user not found)
+[2025-07-07 19:50:03,318] INFO in authentication_service: Login attempt for email: test@example.com
+[2025-07-07 19:50:03,318] WARNING in authentication_service: Failed login for email: test@example.com (invalid password)
+[2025-07-07 19:50:03,639] INFO in password_utils: Password hashed.
+[2025-07-07 19:50:03,657] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 19:50:03,657] INFO in classify_category_utils: Keyword match found in text for category: Entertainment
+[2025-07-07 19:50:03,658] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 19:50:03,659] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 19:50:03,659] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 19:50:03,679] INFO in jwt_utils: JWT access token created for data: {'user_id': 1, 'role': 'admin'}
+[2025-07-07 19:50:03,680] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 19:50:03,988] INFO in password_utils: Password hashed.
+[2025-07-07 19:50:04,285] INFO in password_utils: Password verification attempted. Result: success.
+[2025-07-07 19:50:04,568] INFO in password_utils: Password verification attempted. Result: failure.
+[2025-07-07 19:54:29,337] INFO in article_service: Checking report threshold for article 1: current count = 5, threshold = 3
+[2025-07-07 19:54:29,337] INFO in article_service: Threshold met/exceeded for article 1. Hiding article.
+[2025-07-07 19:54:29,337] INFO in article_service: Article 1 hidden successfully after reaching threshold.
+[2025-07-07 19:54:29,339] INFO in article_service: Checking report threshold for article 1: current count = 1, threshold = 3
+[2025-07-07 19:54:29,339] INFO in article_service: Threshold NOT met for article 1. Current count: 1, threshold: 3
+[2025-07-07 19:54:29,341] INFO in article_service: User 1 is adding a new DISLIKE for article 1 (was OFF, now ON).
+[2025-07-07 19:54:29,341] INFO in article_service: User 1 completed DISLIKE toggle for article 1.
+[2025-07-07 19:54:29,343] INFO in article_service: User 1 is toggling DISLIKE OFF for article 1 (was ON, now OFF).
+[2025-07-07 19:54:29,343] INFO in article_service: User 1 completed DISLIKE toggle for article 1.
+[2025-07-07 19:54:29,345] INFO in article_service: User 1 is adding a new LIKE for article 1 (was OFF, now ON).
+[2025-07-07 19:54:29,345] INFO in article_service: User 1 completed LIKE toggle for article 1.
+[2025-07-07 19:54:29,346] INFO in article_service: User 1 is toggling LIKE OFF for article 1 (was ON, now OFF).
+[2025-07-07 19:54:29,347] INFO in article_service: User 1 completed LIKE toggle for article 1.
+[2025-07-07 19:54:29,348] INFO in article_service: Starting to save articles.
+[2025-07-07 19:54:29,348] INFO in article_service: Starting to save articles.
+[2025-07-07 19:54:29,349] INFO in article_service: Starting to save articles.
+[2025-07-07 19:54:29,351] INFO in article_service: Saving article: Test Article from source: source
+[2025-07-07 19:54:29,353] INFO in article_service: Completed saving all articles.
+[2025-07-07 19:54:29,354] INFO in authentication_service: Login attempt for email: test@example.com
+[2025-07-07 19:54:29,355] INFO in authentication_service: User login successful for email: test@example.com
+[2025-07-07 19:54:29,356] INFO in authentication_service: Login attempt for email: notfound@example.com
+[2025-07-07 19:54:29,356] WARNING in authentication_service: Failed login for email: notfound@example.com (user not found)
+[2025-07-07 19:54:29,357] INFO in authentication_service: Login attempt for email: test@example.com
+[2025-07-07 19:54:29,358] WARNING in authentication_service: Failed login for email: test@example.com (invalid password)
+[2025-07-07 19:54:29,663] INFO in password_utils: Password hashed.
+[2025-07-07 19:54:29,676] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 19:54:29,676] INFO in classify_category_utils: Keyword match found in text for category: Entertainment
+[2025-07-07 19:54:29,676] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 19:54:29,677] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 19:54:29,677] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 19:54:29,713] INFO in jwt_utils: JWT access token created for data: {'user_id': 1, 'role': 'admin'}
+[2025-07-07 19:54:29,714] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 19:54:29,998] INFO in password_utils: Password hashed.
+[2025-07-07 19:54:30,288] INFO in password_utils: Password verification attempted. Result: success.
+[2025-07-07 19:54:30,539] INFO in password_utils: Password verification attempted. Result: failure.
+[2025-07-07 19:55:19,972] INFO in article_service: Checking report threshold for article 1: current count = 5, threshold = 3
+[2025-07-07 19:55:19,972] INFO in article_service: Threshold met/exceeded for article 1. Hiding article.
+[2025-07-07 19:55:19,973] INFO in article_service: Article 1 hidden successfully after reaching threshold.
+[2025-07-07 19:55:19,975] INFO in article_service: Checking report threshold for article 1: current count = 1, threshold = 3
+[2025-07-07 19:55:19,975] INFO in article_service: Threshold NOT met for article 1. Current count: 1, threshold: 3
+[2025-07-07 19:55:19,977] INFO in article_service: User 1 is adding a new DISLIKE for article 1 (was OFF, now ON).
+[2025-07-07 19:55:19,978] INFO in article_service: User 1 completed DISLIKE toggle for article 1.
+[2025-07-07 19:55:19,980] INFO in article_service: User 1 is toggling DISLIKE OFF for article 1 (was ON, now OFF).
+[2025-07-07 19:55:19,981] INFO in article_service: User 1 completed DISLIKE toggle for article 1.
+[2025-07-07 19:55:19,983] INFO in article_service: User 1 is adding a new LIKE for article 1 (was OFF, now ON).
+[2025-07-07 19:55:19,984] INFO in article_service: User 1 completed LIKE toggle for article 1.
+[2025-07-07 19:55:19,985] INFO in article_service: User 1 is toggling LIKE OFF for article 1 (was ON, now OFF).
+[2025-07-07 19:55:19,986] INFO in article_service: User 1 completed LIKE toggle for article 1.
+[2025-07-07 19:55:19,987] INFO in article_service: Starting to save articles.
+[2025-07-07 19:55:19,988] INFO in article_service: Starting to save articles.
+[2025-07-07 19:55:19,990] INFO in article_service: Starting to save articles.
+[2025-07-07 19:55:19,990] INFO in article_service: Saving article: Test Article from source: source
+[2025-07-07 19:55:19,993] INFO in article_service: Completed saving all articles.
+[2025-07-07 19:55:19,994] INFO in authentication_service: Login attempt for email: test@example.com
+[2025-07-07 19:55:19,994] INFO in authentication_service: User login successful for email: test@example.com
+[2025-07-07 19:55:19,995] INFO in authentication_service: Login attempt for email: notfound@example.com
+[2025-07-07 19:55:19,995] WARNING in authentication_service: Failed login for email: notfound@example.com (user not found)
+[2025-07-07 19:55:19,996] INFO in authentication_service: Login attempt for email: test@example.com
+[2025-07-07 19:55:19,997] WARNING in authentication_service: Failed login for email: test@example.com (invalid password)
+[2025-07-07 19:55:20,254] INFO in password_utils: Password hashed.
+[2025-07-07 19:55:20,264] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 19:55:20,265] INFO in classify_category_utils: Keyword match found in text for category: Entertainment
+[2025-07-07 19:55:20,265] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 19:55:20,265] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 19:55:20,266] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 19:55:20,281] INFO in jwt_utils: JWT access token created for data: {'user_id': 1, 'role': 'admin'}
+[2025-07-07 19:55:20,281] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 19:55:20,610] INFO in password_utils: Password hashed.
+[2025-07-07 19:55:20,975] INFO in password_utils: Password verification attempted. Result: success.
+[2025-07-07 19:55:21,315] INFO in password_utils: Password verification attempted. Result: failure.
+[2025-07-07 20:24:29,426] INFO in password_utils: Password hashed.
+[2025-07-07 20:24:58,153] INFO in authentication_service: Login attempt for email: om@gmail.com
+[2025-07-07 20:24:58,868] INFO in password_utils: Password verification attempted. Result: success.
+[2025-07-07 20:24:58,958] INFO in jwt_utils: JWT access token created for data: {'user_id': 10, 'user_role': 'user'}
+[2025-07-07 20:24:58,961] INFO in authentication_service: User login successful for email: om@gmail.com
+[2025-07-07 20:26:38,403] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 20:26:47,169] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 20:27:32,897] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 20:27:54,914] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 20:28:28,633] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 20:29:01,917] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 20:29:22,646] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 20:29:46,789] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 20:30:12,097] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 20:30:30,982] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 20:30:41,219] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 20:31:14,002] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 20:31:35,017] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 20:31:35,056] ERROR in article_controller: Error fetching article 4697: Articles not found
+[2025-07-07 20:32:38,868] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 20:32:38,874] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:32:38,875] INFO in classify_category_utils: Keyword match found in text for category: Entertainment
+[2025-07-07 20:32:38,875] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 20:32:38,876] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:32:38,876] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:32:38,877] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 20:32:38,878] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 20:32:38,878] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:32:38,879] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 20:32:38,879] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:32:38,880] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 20:32:38,880] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 20:32:38,881] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:32:38,881] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 20:32:38,882] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 20:32:38,883] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:32:38,883] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:32:38,884] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 20:32:38,884] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:32:45,522] INFO in article_service: Starting to save articles.
+[2025-07-07 20:32:45,523] INFO in article_service: Saving article: The current GC standings at the Tour de France 2025 - Cyclingnews from source: Cyclingnews.com
+[2025-07-07 20:32:45,525] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:32:45,525] INFO in article_repo: Inserting article: The current GC standings at the Tour de France 2025 - Cyclingnews from source: Cyclingnews.com
+[2025-07-07 20:32:45,890] INFO in article_service: Saving article: Box Office: ‘Jurassic World Rebirth’ Stomps to $147 Million Over July Fourth Holiday Weekend - Variety from source: Variety
+[2025-07-07 20:32:45,891] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:32:45,891] INFO in article_repo: Inserting article: Box Office: ‘Jurassic World Rebirth’ Stomps to $147 Million Over July Fourth Holiday Weekend - Variety from source: Variety
+[2025-07-07 20:32:46,284] INFO in article_service: Saving article: Guest column | A patient’s eye view of radiation therapy: This is what it feels like - The Washington Post from source: The Washington Post
+[2025-07-07 20:32:46,287] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:32:46,288] INFO in article_repo: Inserting article: Guest column | A patient’s eye view of radiation therapy: This is what it feels like - The Washington Post from source: The Washington Post
+[2025-07-07 20:32:46,817] INFO in article_service: Saving article: How Trump's megabill could slam the job market - Politico from source: Politico
+[2025-07-07 20:32:46,818] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:32:46,818] INFO in article_repo: Inserting article: How Trump's megabill could slam the job market - Politico from source: Politico
+[2025-07-07 20:32:47,196] INFO in article_service: Saving article: Bayern Munich: Jamal Musiala out for 'long period' with broken leg and dislocated ankle - BBC from source: BBC News
+[2025-07-07 20:32:47,196] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:32:47,197] INFO in article_repo: Inserting article: Bayern Munich: Jamal Musiala out for 'long period' with broken leg and dislocated ankle - BBC from source: BBC News
+[2025-07-07 20:32:47,636] INFO in article_service: Saving article: Tariffs return to April rates on August 1 without deals, Bessent says - Axios from source: Axios
+[2025-07-07 20:32:47,637] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:32:47,638] INFO in article_repo: Inserting article: Tariffs return to April rates on August 1 without deals, Bessent says - Axios from source: Axios
+[2025-07-07 20:32:48,067] INFO in article_service: Saving article: Cops Eye Speed as Factor in Sophia Hutchins' Deadly ATV Crash - TMZ from source: TMZ
+[2025-07-07 20:32:48,067] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:32:48,068] INFO in article_repo: Inserting article: Cops Eye Speed as Factor in Sophia Hutchins' Deadly ATV Crash - TMZ from source: TMZ
+[2025-07-07 20:32:48,517] INFO in article_service: Saving article: Knives, bullets and thieves: the quest for food in Gaza - NPR from source: NPR
+[2025-07-07 20:32:48,519] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:32:48,520] INFO in article_repo: Inserting article: Knives, bullets and thieves: the quest for food in Gaza - NPR from source: NPR
+[2025-07-07 20:32:48,971] INFO in article_service: Saving article: Before you reconnect with an old friend online, ask yourself these questions - The Washington Post from source: The Washington Post
+[2025-07-07 20:32:48,978] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:32:48,982] INFO in article_repo: Inserting article: Before you reconnect with an old friend online, ask yourself these questions - The Washington Post from source: The Washington Post
+[2025-07-07 20:32:49,490] INFO in article_service: Saving article: Don’t wait for Amazon Prime Day, our experts found 67 deals worth shopping early - CNN from source: CNN
+[2025-07-07 20:32:49,500] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:32:49,506] INFO in article_repo: Inserting article: Don’t wait for Amazon Prime Day, our experts found 67 deals worth shopping early - CNN from source: CNN
+[2025-07-07 20:32:49,909] INFO in article_service: Saving article: Sharon Osbourne disinvites greedy band from Ozzy's Black Sabbath farewell concert - pagesix.com from source: Page Six
+[2025-07-07 20:32:49,911] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:32:49,934] INFO in article_repo: Inserting article: Sharon Osbourne disinvites greedy band from Ozzy's Black Sabbath farewell concert - pagesix.com from source: Page Six
+[2025-07-07 20:32:50,466] INFO in article_service: Saving article: Iran’s supreme leader appears in public for first time since Israeli attack - Financial Times from source: Financial Times
+[2025-07-07 20:32:50,470] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:32:50,472] INFO in article_repo: Inserting article: Iran’s supreme leader appears in public for first time since Israeli attack - Financial Times from source: Financial Times
+[2025-07-07 20:32:50,909] INFO in article_service: Saving article: A Comet From Another Solar System Is On Its Way - Defector from source: Defector.com
+[2025-07-07 20:32:50,919] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:32:50,920] INFO in article_repo: Inserting article: A Comet From Another Solar System Is On Its Way - Defector from source: Defector.com
+[2025-07-07 20:32:51,296] INFO in article_service: Saving article: 4 things to know about the vaccine ingredient thimerosal - NPR from source: NPR
+[2025-07-07 20:32:51,297] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:32:51,297] INFO in article_repo: Inserting article: 4 things to know about the vaccine ingredient thimerosal - NPR from source: NPR
+[2025-07-07 20:32:51,751] INFO in article_service: Saving article: After 9,000 Layoffs, Microsoft Boss Has Brutal Advice for Sacked Workers - Futurism from source: Futurism
+[2025-07-07 20:32:51,752] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:32:51,752] INFO in article_repo: Inserting article: After 9,000 Layoffs, Microsoft Boss Has Brutal Advice for Sacked Workers - Futurism from source: Futurism
+[2025-07-07 20:32:52,095] INFO in article_service: Saving article: Israel to send team to Gaza talks despite Hamas demands, PM says - BBC from source: BBC News
+[2025-07-07 20:32:52,096] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:32:52,096] INFO in article_repo: Inserting article: Israel to send team to Gaza talks despite Hamas demands, PM says - BBC from source: BBC News
+[2025-07-07 20:32:52,371] INFO in article_service: Saving article: Citizen scientists pinpoint 10,000 eclipsing star pairs - The Washington Post from source: The Washington Post
+[2025-07-07 20:32:52,372] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:32:52,372] INFO in article_repo: Inserting article: Citizen scientists pinpoint 10,000 eclipsing star pairs - The Washington Post from source: The Washington Post
+[2025-07-07 20:32:52,810] INFO in article_service: Saving article: Tropical Storm Chantal brings heavy rains as it moves across northeastern South Carolina - AP News from source: Associated Press
+[2025-07-07 20:32:52,811] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:32:52,811] INFO in article_repo: Inserting article: Tropical Storm Chantal brings heavy rains as it moves across northeastern South Carolina - AP News from source: Associated Press
+[2025-07-07 20:32:53,259] INFO in article_service: Saving article: US deports eight men to South Sudan after legal battle - BBC from source: BBC News
+[2025-07-07 20:32:53,259] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:32:53,260] INFO in article_repo: Inserting article: US deports eight men to South Sudan after legal battle - BBC from source: BBC News
+[2025-07-07 20:32:53,686] INFO in article_service: Saving article: US tariffs on European goods threaten to shake up the world's largest 2-way trade relationship - AP News from source: Associated Press
+[2025-07-07 20:32:53,687] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:32:53,688] INFO in article_repo: Inserting article: US tariffs on European goods threaten to shake up the world's largest 2-way trade relationship - AP News from source: Associated Press
+[2025-07-07 20:32:55,156] INFO in article_service: Saving article: Global Tourism Surging Ahead of Economic Growth, With Visits to Hit 30 Billion By 2034 from source: hotelnewsresource.com
+[2025-07-07 20:32:55,157] INFO in article_repo: Inserting article: Global Tourism Surging Ahead of Economic Growth, With Visits to Hit 30 Billion By 2034 from source: hotelnewsresource.com
+[2025-07-07 20:32:55,395] INFO in article_service: Completed saving all articles.
+[2025-07-07 20:34:08,154] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 20:34:33,645] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 20:34:37,271] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 20:34:53,969] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 20:35:56,511] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 20:40:00,507] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 20:40:16,076] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 20:40:16,077] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:40:16,078] INFO in classify_category_utils: Keyword match found in text for category: Entertainment
+[2025-07-07 20:40:16,078] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 20:40:16,079] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:40:16,081] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:40:16,082] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 20:40:16,082] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 20:40:16,083] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:40:16,084] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 20:40:16,085] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:40:16,085] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 20:40:16,086] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 20:40:16,087] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:40:16,088] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 20:40:16,088] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 20:40:16,089] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:40:16,089] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:40:16,090] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 20:40:16,091] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:40:23,070] INFO in article_service: Starting to save articles.
+[2025-07-07 20:40:23,073] INFO in article_service: Saving article: The current GC standings at the Tour de France 2025 - Cyclingnews from source: Cyclingnews.com
+[2025-07-07 20:40:23,073] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:40:23,074] INFO in article_repo: Inserting article: The current GC standings at the Tour de France 2025 - Cyclingnews from source: Cyclingnews.com
+[2025-07-07 20:40:23,464] INFO in article_service: Saving article: Box Office: ‘Jurassic World Rebirth’ Stomps to $147 Million Over July Fourth Holiday Weekend - Variety from source: Variety
+[2025-07-07 20:40:23,466] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:40:23,469] INFO in article_repo: Inserting article: Box Office: ‘Jurassic World Rebirth’ Stomps to $147 Million Over July Fourth Holiday Weekend - Variety from source: Variety
+[2025-07-07 20:40:23,997] INFO in article_service: Saving article: Guest column | A patient’s eye view of radiation therapy: This is what it feels like - The Washington Post from source: The Washington Post
+[2025-07-07 20:40:23,998] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:40:23,999] INFO in article_repo: Inserting article: Guest column | A patient’s eye view of radiation therapy: This is what it feels like - The Washington Post from source: The Washington Post
+[2025-07-07 20:40:24,592] INFO in article_service: Saving article: How Trump's megabill could slam the job market - Politico from source: Politico
+[2025-07-07 20:40:24,593] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:40:24,594] INFO in article_repo: Inserting article: How Trump's megabill could slam the job market - Politico from source: Politico
+[2025-07-07 20:40:25,046] INFO in article_service: Saving article: Bayern Munich: Jamal Musiala out for 'long period' with broken leg and dislocated ankle - BBC from source: BBC News
+[2025-07-07 20:40:25,047] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:40:25,048] INFO in article_repo: Inserting article: Bayern Munich: Jamal Musiala out for 'long period' with broken leg and dislocated ankle - BBC from source: BBC News
+[2025-07-07 20:40:25,526] INFO in article_service: Saving article: Tariffs return to April rates on August 1 without deals, Bessent says - Axios from source: Axios
+[2025-07-07 20:40:25,527] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:40:25,527] INFO in article_repo: Inserting article: Tariffs return to April rates on August 1 without deals, Bessent says - Axios from source: Axios
+[2025-07-07 20:40:26,035] INFO in article_service: Saving article: Cops Eye Speed as Factor in Sophia Hutchins' Deadly ATV Crash - TMZ from source: TMZ
+[2025-07-07 20:40:26,036] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:40:26,037] INFO in article_repo: Inserting article: Cops Eye Speed as Factor in Sophia Hutchins' Deadly ATV Crash - TMZ from source: TMZ
+[2025-07-07 20:40:26,473] INFO in article_service: Saving article: Knives, bullets and thieves: the quest for food in Gaza - NPR from source: NPR
+[2025-07-07 20:40:26,474] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:40:26,475] INFO in article_repo: Inserting article: Knives, bullets and thieves: the quest for food in Gaza - NPR from source: NPR
+[2025-07-07 20:40:26,905] INFO in article_service: Saving article: Before you reconnect with an old friend online, ask yourself these questions - The Washington Post from source: The Washington Post
+[2025-07-07 20:40:26,906] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:40:26,906] INFO in article_repo: Inserting article: Before you reconnect with an old friend online, ask yourself these questions - The Washington Post from source: The Washington Post
+[2025-07-07 20:40:27,400] INFO in article_service: Saving article: Don’t wait for Amazon Prime Day, our experts found 67 deals worth shopping early - CNN from source: CNN
+[2025-07-07 20:40:27,400] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:40:27,401] INFO in article_repo: Inserting article: Don’t wait for Amazon Prime Day, our experts found 67 deals worth shopping early - CNN from source: CNN
+[2025-07-07 20:40:27,795] INFO in article_service: Saving article: Sharon Osbourne disinvites greedy band from Ozzy's Black Sabbath farewell concert - pagesix.com from source: Page Six
+[2025-07-07 20:40:27,797] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:40:27,798] INFO in article_repo: Inserting article: Sharon Osbourne disinvites greedy band from Ozzy's Black Sabbath farewell concert - pagesix.com from source: Page Six
+[2025-07-07 20:40:28,321] INFO in article_service: Saving article: Iran’s supreme leader appears in public for first time since Israeli attack - Financial Times from source: Financial Times
+[2025-07-07 20:40:28,322] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:40:28,322] INFO in article_repo: Inserting article: Iran’s supreme leader appears in public for first time since Israeli attack - Financial Times from source: Financial Times
+[2025-07-07 20:40:28,775] INFO in article_service: Saving article: A Comet From Another Solar System Is On Its Way - Defector from source: Defector.com
+[2025-07-07 20:40:28,777] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:40:28,778] INFO in article_repo: Inserting article: A Comet From Another Solar System Is On Its Way - Defector from source: Defector.com
+[2025-07-07 20:40:29,204] INFO in article_service: Saving article: 4 things to know about the vaccine ingredient thimerosal - NPR from source: NPR
+[2025-07-07 20:40:29,204] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:40:29,206] INFO in article_repo: Inserting article: 4 things to know about the vaccine ingredient thimerosal - NPR from source: NPR
+[2025-07-07 20:40:29,710] INFO in article_service: Saving article: After 9,000 Layoffs, Microsoft Boss Has Brutal Advice for Sacked Workers - Futurism from source: Futurism
+[2025-07-07 20:40:29,711] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:40:29,712] INFO in article_repo: Inserting article: After 9,000 Layoffs, Microsoft Boss Has Brutal Advice for Sacked Workers - Futurism from source: Futurism
+[2025-07-07 20:40:30,190] INFO in article_service: Saving article: Israel to send team to Gaza talks despite Hamas demands, PM says - BBC from source: BBC News
+[2025-07-07 20:40:30,191] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:40:30,192] INFO in article_repo: Inserting article: Israel to send team to Gaza talks despite Hamas demands, PM says - BBC from source: BBC News
+[2025-07-07 20:40:30,588] INFO in article_service: Saving article: Citizen scientists pinpoint 10,000 eclipsing star pairs - The Washington Post from source: The Washington Post
+[2025-07-07 20:40:30,589] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:40:30,590] INFO in article_repo: Inserting article: Citizen scientists pinpoint 10,000 eclipsing star pairs - The Washington Post from source: The Washington Post
+[2025-07-07 20:40:31,093] INFO in article_service: Saving article: Tropical Storm Chantal brings heavy rains as it moves across northeastern South Carolina - AP News from source: Associated Press
+[2025-07-07 20:40:31,094] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:40:31,095] INFO in article_repo: Inserting article: Tropical Storm Chantal brings heavy rains as it moves across northeastern South Carolina - AP News from source: Associated Press
+[2025-07-07 20:40:31,587] INFO in article_service: Saving article: US deports eight men to South Sudan after legal battle - BBC from source: BBC News
+[2025-07-07 20:40:31,588] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:40:31,589] INFO in article_repo: Inserting article: US deports eight men to South Sudan after legal battle - BBC from source: BBC News
+[2025-07-07 20:40:31,993] INFO in article_service: Saving article: US tariffs on European goods threaten to shake up the world's largest 2-way trade relationship - AP News from source: Associated Press
+[2025-07-07 20:40:31,994] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:40:31,995] INFO in article_repo: Inserting article: US tariffs on European goods threaten to shake up the world's largest 2-way trade relationship - AP News from source: Associated Press
+[2025-07-07 20:40:32,483] INFO in article_service: Saving article: Apple Appeals EU's €500 Million Fine Over Digital Markets Act Violation from source: gurufocus.com
+[2025-07-07 20:40:32,485] INFO in article_repo: Inserting article: Apple Appeals EU's €500 Million Fine Over Digital Markets Act Violation from source: gurufocus.com
+[2025-07-07 20:40:32,774] INFO in article_service: Saving article: Valaris Secures $760 Million Contracts with Anadarko Petroleum from source: gurufocus.com
+[2025-07-07 20:40:32,775] INFO in article_repo: Inserting article: Valaris Secures $760 Million Contracts with Anadarko Petroleum from source: gurufocus.com
+[2025-07-07 20:40:33,546] INFO in article_service: Completed saving all articles.
+[2025-07-07 20:40:52,836] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 20:40:52,851] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:40:52,852] INFO in classify_category_utils: Keyword match found in text for category: Entertainment
+[2025-07-07 20:40:52,854] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 20:40:52,855] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:40:52,856] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:40:52,857] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 20:40:52,858] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 20:40:52,859] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:40:52,860] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 20:40:52,861] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:40:52,862] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 20:40:52,862] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 20:40:52,863] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:40:52,864] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 20:40:52,866] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 20:40:52,867] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:40:52,868] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:40:52,869] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 20:40:52,870] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:40:59,032] INFO in article_service: Starting to save articles.
+[2025-07-07 20:40:59,033] INFO in article_service: Saving article: The current GC standings at the Tour de France 2025 - Cyclingnews from source: Cyclingnews.com
+[2025-07-07 20:40:59,034] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:40:59,035] INFO in article_repo: Inserting article: The current GC standings at the Tour de France 2025 - Cyclingnews from source: Cyclingnews.com
+[2025-07-07 20:40:59,412] INFO in article_service: Saving article: Box Office: ‘Jurassic World Rebirth’ Stomps to $147 Million Over July Fourth Holiday Weekend - Variety from source: Variety
+[2025-07-07 20:40:59,413] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:40:59,415] INFO in article_repo: Inserting article: Box Office: ‘Jurassic World Rebirth’ Stomps to $147 Million Over July Fourth Holiday Weekend - Variety from source: Variety
+[2025-07-07 20:40:59,897] INFO in article_service: Saving article: Guest column | A patient’s eye view of radiation therapy: This is what it feels like - The Washington Post from source: The Washington Post
+[2025-07-07 20:40:59,898] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:40:59,899] INFO in article_repo: Inserting article: Guest column | A patient’s eye view of radiation therapy: This is what it feels like - The Washington Post from source: The Washington Post
+[2025-07-07 20:41:00,449] INFO in article_service: Saving article: How Trump's megabill could slam the job market - Politico from source: Politico
+[2025-07-07 20:41:00,449] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:41:00,450] INFO in article_repo: Inserting article: How Trump's megabill could slam the job market - Politico from source: Politico
+[2025-07-07 20:41:00,884] INFO in article_service: Saving article: Bayern Munich: Jamal Musiala out for 'long period' with broken leg and dislocated ankle - BBC from source: BBC News
+[2025-07-07 20:41:00,885] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:41:00,886] INFO in article_repo: Inserting article: Bayern Munich: Jamal Musiala out for 'long period' with broken leg and dislocated ankle - BBC from source: BBC News
+[2025-07-07 20:41:01,359] INFO in article_service: Saving article: Tariffs return to April rates on August 1 without deals, Bessent says - Axios from source: Axios
+[2025-07-07 20:41:01,360] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:41:01,361] INFO in article_repo: Inserting article: Tariffs return to April rates on August 1 without deals, Bessent says - Axios from source: Axios
+[2025-07-07 20:41:01,844] INFO in article_service: Saving article: Cops Eye Speed as Factor in Sophia Hutchins' Deadly ATV Crash - TMZ from source: TMZ
+[2025-07-07 20:41:01,844] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:41:01,845] INFO in article_repo: Inserting article: Cops Eye Speed as Factor in Sophia Hutchins' Deadly ATV Crash - TMZ from source: TMZ
+[2025-07-07 20:41:02,255] INFO in article_service: Saving article: Knives, bullets and thieves: the quest for food in Gaza - NPR from source: NPR
+[2025-07-07 20:41:02,256] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:41:02,257] INFO in article_repo: Inserting article: Knives, bullets and thieves: the quest for food in Gaza - NPR from source: NPR
+[2025-07-07 20:41:02,650] INFO in article_service: Saving article: Before you reconnect with an old friend online, ask yourself these questions - The Washington Post from source: The Washington Post
+[2025-07-07 20:41:02,651] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:41:02,651] INFO in article_repo: Inserting article: Before you reconnect with an old friend online, ask yourself these questions - The Washington Post from source: The Washington Post
+[2025-07-07 20:41:03,133] INFO in article_service: Saving article: Don’t wait for Amazon Prime Day, our experts found 67 deals worth shopping early - CNN from source: CNN
+[2025-07-07 20:41:03,134] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:41:03,135] INFO in article_repo: Inserting article: Don’t wait for Amazon Prime Day, our experts found 67 deals worth shopping early - CNN from source: CNN
+[2025-07-07 20:41:03,502] INFO in article_service: Saving article: Sharon Osbourne disinvites greedy band from Ozzy's Black Sabbath farewell concert - pagesix.com from source: Page Six
+[2025-07-07 20:41:03,502] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:41:03,503] INFO in article_repo: Inserting article: Sharon Osbourne disinvites greedy band from Ozzy's Black Sabbath farewell concert - pagesix.com from source: Page Six
+[2025-07-07 20:41:03,995] INFO in article_service: Saving article: Iran’s supreme leader appears in public for first time since Israeli attack - Financial Times from source: Financial Times
+[2025-07-07 20:41:03,996] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:41:03,996] INFO in article_repo: Inserting article: Iran’s supreme leader appears in public for first time since Israeli attack - Financial Times from source: Financial Times
+[2025-07-07 20:41:04,408] INFO in article_service: Saving article: A Comet From Another Solar System Is On Its Way - Defector from source: Defector.com
+[2025-07-07 20:41:04,409] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:41:04,410] INFO in article_repo: Inserting article: A Comet From Another Solar System Is On Its Way - Defector from source: Defector.com
+[2025-07-07 20:41:04,820] INFO in article_service: Saving article: 4 things to know about the vaccine ingredient thimerosal - NPR from source: NPR
+[2025-07-07 20:41:04,821] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:41:04,822] INFO in article_repo: Inserting article: 4 things to know about the vaccine ingredient thimerosal - NPR from source: NPR
+[2025-07-07 20:41:05,305] INFO in article_service: Saving article: After 9,000 Layoffs, Microsoft Boss Has Brutal Advice for Sacked Workers - Futurism from source: Futurism
+[2025-07-07 20:41:05,306] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:41:05,307] INFO in article_repo: Inserting article: After 9,000 Layoffs, Microsoft Boss Has Brutal Advice for Sacked Workers - Futurism from source: Futurism
+[2025-07-07 20:41:05,723] INFO in article_service: Saving article: Israel to send team to Gaza talks despite Hamas demands, PM says - BBC from source: BBC News
+[2025-07-07 20:41:05,724] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:41:05,724] INFO in article_repo: Inserting article: Israel to send team to Gaza talks despite Hamas demands, PM says - BBC from source: BBC News
+[2025-07-07 20:41:06,078] INFO in article_service: Saving article: Citizen scientists pinpoint 10,000 eclipsing star pairs - The Washington Post from source: The Washington Post
+[2025-07-07 20:41:06,079] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:41:06,080] INFO in article_repo: Inserting article: Citizen scientists pinpoint 10,000 eclipsing star pairs - The Washington Post from source: The Washington Post
+[2025-07-07 20:41:06,589] INFO in article_service: Saving article: Tropical Storm Chantal brings heavy rains as it moves across northeastern South Carolina - AP News from source: Associated Press
+[2025-07-07 20:41:06,591] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:41:06,591] INFO in article_repo: Inserting article: Tropical Storm Chantal brings heavy rains as it moves across northeastern South Carolina - AP News from source: Associated Press
+[2025-07-07 20:41:07,057] INFO in article_service: Saving article: US deports eight men to South Sudan after legal battle - BBC from source: BBC News
+[2025-07-07 20:41:07,058] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:41:07,059] INFO in article_repo: Inserting article: US deports eight men to South Sudan after legal battle - BBC from source: BBC News
+[2025-07-07 20:41:07,472] INFO in article_service: Saving article: US tariffs on European goods threaten to shake up the world's largest 2-way trade relationship - AP News from source: Associated Press
+[2025-07-07 20:41:07,473] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:41:07,475] INFO in article_repo: Inserting article: US tariffs on European goods threaten to shake up the world's largest 2-way trade relationship - AP News from source: Associated Press
+[2025-07-07 20:41:07,906] INFO in article_service: Saving article: Apple Appeals EU's €500 Million Fine Over Digital Markets Act Violation from source: gurufocus.com
+[2025-07-07 20:41:07,908] INFO in article_repo: Inserting article: Apple Appeals EU's €500 Million Fine Over Digital Markets Act Violation from source: gurufocus.com
+[2025-07-07 20:41:08,231] INFO in article_service: Saving article: Valaris Secures $760 Million Contracts with Anadarko Petroleum from source: gurufocus.com
+[2025-07-07 20:41:08,232] INFO in article_repo: Inserting article: Valaris Secures $760 Million Contracts with Anadarko Petroleum from source: gurufocus.com
+[2025-07-07 20:41:09,035] INFO in article_service: Completed saving all articles.
+[2025-07-07 20:46:16,124] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 20:56:04,202] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 20:56:04,209] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:56:04,210] INFO in classify_category_utils: Keyword match found in text for category: Entertainment
+[2025-07-07 20:56:04,211] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 20:56:04,211] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:56:04,212] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:56:04,213] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 20:56:04,213] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 20:56:04,214] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:56:04,215] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 20:56:04,215] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:56:04,216] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 20:56:04,217] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 20:56:04,218] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:56:04,218] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 20:56:04,219] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 20:56:04,220] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:56:04,221] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:56:04,222] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 20:56:04,223] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:56:10,815] INFO in article_service: Starting to save articles.
+[2025-07-07 20:56:10,815] INFO in article_service: Saving article: The current GC standings at the Tour de France 2025 - Cyclingnews from source: Cyclingnews.com
+[2025-07-07 20:56:10,816] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:56:10,818] INFO in article_repo: Inserting article: The current GC standings at the Tour de France 2025 - Cyclingnews from source: Cyclingnews.com
+[2025-07-07 20:56:11,303] INFO in article_service: Saving article: Box Office: ‘Jurassic World Rebirth’ Stomps to $147 Million Over July Fourth Holiday Weekend - Variety from source: Variety
+[2025-07-07 20:56:11,304] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:56:11,305] INFO in article_repo: Inserting article: Box Office: ‘Jurassic World Rebirth’ Stomps to $147 Million Over July Fourth Holiday Weekend - Variety from source: Variety
+[2025-07-07 20:56:11,839] INFO in article_service: Saving article: Guest column | A patient’s eye view of radiation therapy: This is what it feels like - The Washington Post from source: The Washington Post
+[2025-07-07 20:56:11,840] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:56:11,841] INFO in article_repo: Inserting article: Guest column | A patient’s eye view of radiation therapy: This is what it feels like - The Washington Post from source: The Washington Post
+[2025-07-07 20:56:12,502] INFO in article_service: Saving article: How Trump's megabill could slam the job market - Politico from source: Politico
+[2025-07-07 20:56:12,503] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:56:12,506] INFO in article_repo: Inserting article: How Trump's megabill could slam the job market - Politico from source: Politico
+[2025-07-07 20:56:13,002] INFO in article_service: Saving article: Bayern Munich: Jamal Musiala out for 'long period' with broken leg and dislocated ankle - BBC from source: BBC News
+[2025-07-07 20:56:13,005] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:56:13,012] INFO in article_repo: Inserting article: Bayern Munich: Jamal Musiala out for 'long period' with broken leg and dislocated ankle - BBC from source: BBC News
+[2025-07-07 20:56:13,588] INFO in article_service: Saving article: Tariffs return to April rates on August 1 without deals, Bessent says - Axios from source: Axios
+[2025-07-07 20:56:13,590] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:56:13,590] INFO in article_repo: Inserting article: Tariffs return to April rates on August 1 without deals, Bessent says - Axios from source: Axios
+[2025-07-07 20:56:14,128] INFO in article_service: Saving article: Cops Eye Speed as Factor in Sophia Hutchins' Deadly ATV Crash - TMZ from source: TMZ
+[2025-07-07 20:56:14,129] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:56:14,130] INFO in article_repo: Inserting article: Cops Eye Speed as Factor in Sophia Hutchins' Deadly ATV Crash - TMZ from source: TMZ
+[2025-07-07 20:56:14,588] INFO in article_service: Saving article: Knives, bullets and thieves: the quest for food in Gaza - NPR from source: NPR
+[2025-07-07 20:56:14,589] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:56:14,590] INFO in article_repo: Inserting article: Knives, bullets and thieves: the quest for food in Gaza - NPR from source: NPR
+[2025-07-07 20:56:15,031] INFO in article_service: Saving article: Before you reconnect with an old friend online, ask yourself these questions - The Washington Post from source: The Washington Post
+[2025-07-07 20:56:15,038] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:56:15,039] INFO in article_repo: Inserting article: Before you reconnect with an old friend online, ask yourself these questions - The Washington Post from source: The Washington Post
+[2025-07-07 20:56:15,564] INFO in article_service: Saving article: Don’t wait for Amazon Prime Day, our experts found 67 deals worth shopping early - CNN from source: CNN
+[2025-07-07 20:56:15,565] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:56:15,565] INFO in article_repo: Inserting article: Don’t wait for Amazon Prime Day, our experts found 67 deals worth shopping early - CNN from source: CNN
+[2025-07-07 20:56:15,968] INFO in article_service: Saving article: Sharon Osbourne disinvites greedy band from Ozzy's Black Sabbath farewell concert - pagesix.com from source: Page Six
+[2025-07-07 20:56:15,970] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:56:15,971] INFO in article_repo: Inserting article: Sharon Osbourne disinvites greedy band from Ozzy's Black Sabbath farewell concert - pagesix.com from source: Page Six
+[2025-07-07 20:56:16,457] INFO in article_service: Saving article: Iran’s supreme leader appears in public for first time since Israeli attack - Financial Times from source: Financial Times
+[2025-07-07 20:56:16,457] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:56:16,458] INFO in article_repo: Inserting article: Iran’s supreme leader appears in public for first time since Israeli attack - Financial Times from source: Financial Times
+[2025-07-07 20:56:16,864] INFO in article_service: Saving article: A Comet From Another Solar System Is On Its Way - Defector from source: Defector.com
+[2025-07-07 20:56:16,865] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:56:16,866] INFO in article_repo: Inserting article: A Comet From Another Solar System Is On Its Way - Defector from source: Defector.com
+[2025-07-07 20:56:17,247] INFO in article_service: Saving article: 4 things to know about the vaccine ingredient thimerosal - NPR from source: NPR
+[2025-07-07 20:56:17,248] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:56:17,249] INFO in article_repo: Inserting article: 4 things to know about the vaccine ingredient thimerosal - NPR from source: NPR
+[2025-07-07 20:56:17,708] INFO in article_service: Saving article: After 9,000 Layoffs, Microsoft Boss Has Brutal Advice for Sacked Workers - Futurism from source: Futurism
+[2025-07-07 20:56:17,709] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:56:17,710] INFO in article_repo: Inserting article: After 9,000 Layoffs, Microsoft Boss Has Brutal Advice for Sacked Workers - Futurism from source: Futurism
+[2025-07-07 20:56:18,142] INFO in article_service: Saving article: Israel to send team to Gaza talks despite Hamas demands, PM says - BBC from source: BBC News
+[2025-07-07 20:56:18,143] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:56:18,144] INFO in article_repo: Inserting article: Israel to send team to Gaza talks despite Hamas demands, PM says - BBC from source: BBC News
+[2025-07-07 20:56:18,492] INFO in article_service: Saving article: Citizen scientists pinpoint 10,000 eclipsing star pairs - The Washington Post from source: The Washington Post
+[2025-07-07 20:56:18,493] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:56:18,494] INFO in article_repo: Inserting article: Citizen scientists pinpoint 10,000 eclipsing star pairs - The Washington Post from source: The Washington Post
+[2025-07-07 20:56:18,963] INFO in article_service: Saving article: Tropical Storm Chantal brings heavy rains as it moves across northeastern South Carolina - AP News from source: Associated Press
+[2025-07-07 20:56:18,964] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:56:18,965] INFO in article_repo: Inserting article: Tropical Storm Chantal brings heavy rains as it moves across northeastern South Carolina - AP News from source: Associated Press
+[2025-07-07 20:56:19,415] INFO in article_service: Saving article: US deports eight men to South Sudan after legal battle - BBC from source: BBC News
+[2025-07-07 20:56:19,416] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:56:19,417] INFO in article_repo: Inserting article: US deports eight men to South Sudan after legal battle - BBC from source: BBC News
+[2025-07-07 20:56:19,804] INFO in article_service: Saving article: US tariffs on European goods threaten to shake up the world's largest 2-way trade relationship - AP News from source: Associated Press
+[2025-07-07 20:56:19,805] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:56:19,806] INFO in article_repo: Inserting article: US tariffs on European goods threaten to shake up the world's largest 2-way trade relationship - AP News from source: Associated Press
+[2025-07-07 20:56:21,087] INFO in article_service: Completed saving all articles.
+[2025-07-07 20:56:42,633] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 20:56:42,633] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:56:42,634] INFO in classify_category_utils: Keyword match found in text for category: Entertainment
+[2025-07-07 20:56:42,634] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 20:56:42,635] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:56:42,636] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:56:42,636] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 20:56:42,637] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 20:56:42,637] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:56:42,638] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 20:56:42,638] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:56:42,639] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 20:56:42,640] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 20:56:42,641] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:56:42,642] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 20:56:42,644] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 20:56:42,645] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:56:42,646] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:56:42,647] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 20:56:42,648] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 20:56:48,504] INFO in article_service: Starting to save articles.
+[2025-07-07 20:56:48,507] INFO in article_service: Saving article: The current GC standings at the Tour de France 2025 - Cyclingnews from source: Cyclingnews.com
+[2025-07-07 20:56:48,510] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:56:48,512] INFO in article_repo: Inserting article: The current GC standings at the Tour de France 2025 - Cyclingnews from source: Cyclingnews.com
+[2025-07-07 20:56:48,951] INFO in article_service: Saving article: Box Office: ‘Jurassic World Rebirth’ Stomps to $147 Million Over July Fourth Holiday Weekend - Variety from source: Variety
+[2025-07-07 20:56:48,954] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:56:48,956] INFO in article_repo: Inserting article: Box Office: ‘Jurassic World Rebirth’ Stomps to $147 Million Over July Fourth Holiday Weekend - Variety from source: Variety
+[2025-07-07 20:56:49,541] INFO in article_service: Saving article: Guest column | A patient’s eye view of radiation therapy: This is what it feels like - The Washington Post from source: The Washington Post
+[2025-07-07 20:56:49,544] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:56:49,544] INFO in article_repo: Inserting article: Guest column | A patient’s eye view of radiation therapy: This is what it feels like - The Washington Post from source: The Washington Post
+[2025-07-07 20:56:50,166] INFO in article_service: Saving article: How Trump's megabill could slam the job market - Politico from source: Politico
+[2025-07-07 20:56:50,172] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:56:50,174] INFO in article_repo: Inserting article: How Trump's megabill could slam the job market - Politico from source: Politico
+[2025-07-07 20:56:50,644] INFO in article_service: Saving article: Bayern Munich: Jamal Musiala out for 'long period' with broken leg and dislocated ankle - BBC from source: BBC News
+[2025-07-07 20:56:50,645] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:56:50,646] INFO in article_repo: Inserting article: Bayern Munich: Jamal Musiala out for 'long period' with broken leg and dislocated ankle - BBC from source: BBC News
+[2025-07-07 20:56:51,179] INFO in article_service: Saving article: Tariffs return to April rates on August 1 without deals, Bessent says - Axios from source: Axios
+[2025-07-07 20:56:51,179] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:56:51,180] INFO in article_repo: Inserting article: Tariffs return to April rates on August 1 without deals, Bessent says - Axios from source: Axios
+[2025-07-07 20:56:51,689] INFO in article_service: Saving article: Cops Eye Speed as Factor in Sophia Hutchins' Deadly ATV Crash - TMZ from source: TMZ
+[2025-07-07 20:56:51,690] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:56:51,691] INFO in article_repo: Inserting article: Cops Eye Speed as Factor in Sophia Hutchins' Deadly ATV Crash - TMZ from source: TMZ
+[2025-07-07 20:56:52,154] INFO in article_service: Saving article: Knives, bullets and thieves: the quest for food in Gaza - NPR from source: NPR
+[2025-07-07 20:56:52,158] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:56:52,159] INFO in article_repo: Inserting article: Knives, bullets and thieves: the quest for food in Gaza - NPR from source: NPR
+[2025-07-07 20:56:52,618] INFO in article_service: Saving article: Before you reconnect with an old friend online, ask yourself these questions - The Washington Post from source: The Washington Post
+[2025-07-07 20:56:52,619] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:56:52,620] INFO in article_repo: Inserting article: Before you reconnect with an old friend online, ask yourself these questions - The Washington Post from source: The Washington Post
+[2025-07-07 20:56:53,195] INFO in article_service: Saving article: Don’t wait for Amazon Prime Day, our experts found 67 deals worth shopping early - CNN from source: CNN
+[2025-07-07 20:56:53,197] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:56:53,199] INFO in article_repo: Inserting article: Don’t wait for Amazon Prime Day, our experts found 67 deals worth shopping early - CNN from source: CNN
+[2025-07-07 20:56:53,650] INFO in article_service: Saving article: Sharon Osbourne disinvites greedy band from Ozzy's Black Sabbath farewell concert - pagesix.com from source: Page Six
+[2025-07-07 20:56:53,651] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:56:53,655] INFO in article_repo: Inserting article: Sharon Osbourne disinvites greedy band from Ozzy's Black Sabbath farewell concert - pagesix.com from source: Page Six
+[2025-07-07 20:56:54,240] INFO in article_service: Saving article: Iran’s supreme leader appears in public for first time since Israeli attack - Financial Times from source: Financial Times
+[2025-07-07 20:56:54,241] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:56:54,242] INFO in article_repo: Inserting article: Iran’s supreme leader appears in public for first time since Israeli attack - Financial Times from source: Financial Times
+[2025-07-07 20:56:54,743] INFO in article_service: Saving article: A Comet From Another Solar System Is On Its Way - Defector from source: Defector.com
+[2025-07-07 20:56:54,745] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:56:54,745] INFO in article_repo: Inserting article: A Comet From Another Solar System Is On Its Way - Defector from source: Defector.com
+[2025-07-07 20:56:55,232] INFO in article_service: Saving article: 4 things to know about the vaccine ingredient thimerosal - NPR from source: NPR
+[2025-07-07 20:56:55,233] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:56:55,234] INFO in article_repo: Inserting article: 4 things to know about the vaccine ingredient thimerosal - NPR from source: NPR
+[2025-07-07 20:56:55,781] INFO in article_service: Saving article: After 9,000 Layoffs, Microsoft Boss Has Brutal Advice for Sacked Workers - Futurism from source: Futurism
+[2025-07-07 20:56:55,817] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:56:55,833] INFO in article_repo: Inserting article: After 9,000 Layoffs, Microsoft Boss Has Brutal Advice for Sacked Workers - Futurism from source: Futurism
+[2025-07-07 20:56:56,568] INFO in article_service: Saving article: Israel to send team to Gaza talks despite Hamas demands, PM says - BBC from source: BBC News
+[2025-07-07 20:56:56,581] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:56:56,634] INFO in article_repo: Inserting article: Israel to send team to Gaza talks despite Hamas demands, PM says - BBC from source: BBC News
+[2025-07-07 20:56:57,174] INFO in article_service: Saving article: Citizen scientists pinpoint 10,000 eclipsing star pairs - The Washington Post from source: The Washington Post
+[2025-07-07 20:56:57,175] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:56:57,178] INFO in article_repo: Inserting article: Citizen scientists pinpoint 10,000 eclipsing star pairs - The Washington Post from source: The Washington Post
+[2025-07-07 20:56:57,751] INFO in article_service: Saving article: Tropical Storm Chantal brings heavy rains as it moves across northeastern South Carolina - AP News from source: Associated Press
+[2025-07-07 20:56:57,752] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:56:57,753] INFO in article_repo: Inserting article: Tropical Storm Chantal brings heavy rains as it moves across northeastern South Carolina - AP News from source: Associated Press
+[2025-07-07 20:56:58,314] INFO in article_service: Saving article: US deports eight men to South Sudan after legal battle - BBC from source: BBC News
+[2025-07-07 20:56:58,315] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:56:58,316] INFO in article_repo: Inserting article: US deports eight men to South Sudan after legal battle - BBC from source: BBC News
+[2025-07-07 20:56:58,768] INFO in article_service: Saving article: US tariffs on European goods threaten to shake up the world's largest 2-way trade relationship - AP News from source: Associated Press
+[2025-07-07 20:56:58,770] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 20:56:58,771] INFO in article_repo: Inserting article: US tariffs on European goods threaten to shake up the world's largest 2-way trade relationship - AP News from source: Associated Press
+[2025-07-07 20:57:00,192] INFO in article_service: Completed saving all articles.
+[2025-07-07 20:58:51,662] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 20:58:55,461] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 20:58:59,888] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 20:59:19,356] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 21:04:21,851] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 21:04:46,696] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 21:05:33,337] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 21:09:30,532] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 21:19:28,476] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 21:20:26,972] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 21:21:33,966] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 21:22:28,767] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 21:22:58,800] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 21:23:00,775] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 21:23:11,648] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 21:23:24,504] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 21:23:40,059] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 21:23:45,202] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 21:23:58,843] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 21:24:19,230] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 21:24:47,441] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 21:24:50,379] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 21:25:54,032] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 21:25:54,033] WARNING in jwt_utils: JWT token expired during decode.
+[2025-07-07 21:26:03,550] INFO in authentication_service: Login attempt for email: om@gmail.com
+[2025-07-07 21:26:03,951] INFO in password_utils: Password verification attempted. Result: success.
+[2025-07-07 21:26:03,951] INFO in jwt_utils: JWT access token created for data: {'user_id': 10, 'user_role': 'user'}
+[2025-07-07 21:26:03,952] INFO in authentication_service: User login successful for email: om@gmail.com
+[2025-07-07 21:26:25,348] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 21:26:25,370] INFO in article_service: User 10 is adding a new LIKE for article 4674 (was OFF, now ON).
+[2025-07-07 21:26:25,473] INFO in article_service: User 10 completed LIKE toggle for article 4674.
+[2025-07-07 21:26:39,345] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 21:27:22,822] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 21:27:22,822] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 21:27:22,823] INFO in classify_category_utils: Keyword match found in text for category: Entertainment
+[2025-07-07 21:27:22,823] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 21:27:22,823] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 21:27:22,823] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 21:27:22,823] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 21:27:22,825] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 21:27:22,825] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 21:27:22,825] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 21:27:22,825] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 21:27:22,825] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 21:27:22,825] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 21:27:22,825] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 21:27:22,825] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 21:27:22,826] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 21:27:22,826] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 21:27:22,826] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 21:27:22,826] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 21:27:22,826] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 21:27:30,182] INFO in article_service: Starting to save articles.
+[2025-07-07 21:27:30,182] INFO in article_service: Saving article: The current GC standings at the Tour de France 2025 - Cyclingnews from source: Cyclingnews.com
+[2025-07-07 21:27:30,182] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 21:27:30,182] INFO in article_repo: Inserting article: The current GC standings at the Tour de France 2025 - Cyclingnews from source: Cyclingnews.com
+[2025-07-07 21:27:30,373] INFO in article_service: Saving article: Box Office: ‘Jurassic World Rebirth’ Stomps to $147 Million Over July Fourth Holiday Weekend - Variety from source: Variety
+[2025-07-07 21:27:30,373] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 21:27:30,373] INFO in article_repo: Inserting article: Box Office: ‘Jurassic World Rebirth’ Stomps to $147 Million Over July Fourth Holiday Weekend - Variety from source: Variety
+[2025-07-07 21:27:30,627] INFO in article_service: Saving article: Guest column | A patient’s eye view of radiation therapy: This is what it feels like - The Washington Post from source: The Washington Post
+[2025-07-07 21:27:30,628] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 21:27:30,628] INFO in article_repo: Inserting article: Guest column | A patient’s eye view of radiation therapy: This is what it feels like - The Washington Post from source: The Washington Post
+[2025-07-07 21:27:30,931] INFO in article_service: Saving article: How Trump's megabill could slam the job market - Politico from source: Politico
+[2025-07-07 21:27:30,931] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 21:27:30,931] INFO in article_repo: Inserting article: How Trump's megabill could slam the job market - Politico from source: Politico
+[2025-07-07 21:27:31,151] INFO in article_service: Saving article: Bayern Munich: Jamal Musiala out for 'long period' with broken leg and dislocated ankle - BBC from source: BBC News
+[2025-07-07 21:27:31,152] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 21:27:31,152] INFO in article_repo: Inserting article: Bayern Munich: Jamal Musiala out for 'long period' with broken leg and dislocated ankle - BBC from source: BBC News
+[2025-07-07 21:27:31,384] INFO in article_service: Saving article: Tariffs return to April rates on August 1 without deals, Bessent says - Axios from source: Axios
+[2025-07-07 21:27:31,384] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 21:27:31,384] INFO in article_repo: Inserting article: Tariffs return to April rates on August 1 without deals, Bessent says - Axios from source: Axios
+[2025-07-07 21:27:31,639] INFO in article_service: Saving article: Cops Eye Speed as Factor in Sophia Hutchins' Deadly ATV Crash - TMZ from source: TMZ
+[2025-07-07 21:27:31,640] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 21:27:31,640] INFO in article_repo: Inserting article: Cops Eye Speed as Factor in Sophia Hutchins' Deadly ATV Crash - TMZ from source: TMZ
+[2025-07-07 21:27:31,864] INFO in article_service: Saving article: Knives, bullets and thieves: the quest for food in Gaza - NPR from source: NPR
+[2025-07-07 21:27:31,864] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 21:27:31,865] INFO in article_repo: Inserting article: Knives, bullets and thieves: the quest for food in Gaza - NPR from source: NPR
+[2025-07-07 21:27:32,068] INFO in article_service: Saving article: Before you reconnect with an old friend online, ask yourself these questions - The Washington Post from source: The Washington Post
+[2025-07-07 21:27:32,068] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 21:27:32,068] INFO in article_repo: Inserting article: Before you reconnect with an old friend online, ask yourself these questions - The Washington Post from source: The Washington Post
+[2025-07-07 21:27:32,301] INFO in article_service: Saving article: Don’t wait for Amazon Prime Day, our experts found 67 deals worth shopping early - CNN from source: CNN
+[2025-07-07 21:27:32,302] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 21:27:32,302] INFO in article_repo: Inserting article: Don’t wait for Amazon Prime Day, our experts found 67 deals worth shopping early - CNN from source: CNN
+[2025-07-07 21:27:32,481] INFO in article_service: Saving article: Sharon Osbourne disinvites greedy band from Ozzy's Black Sabbath farewell concert - pagesix.com from source: Page Six
+[2025-07-07 21:27:32,481] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 21:27:32,483] INFO in article_repo: Inserting article: Sharon Osbourne disinvites greedy band from Ozzy's Black Sabbath farewell concert - pagesix.com from source: Page Six
+[2025-07-07 21:27:32,738] INFO in article_service: Saving article: Iran’s supreme leader appears in public for first time since Israeli attack - Financial Times from source: Financial Times
+[2025-07-07 21:27:32,739] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 21:27:32,739] INFO in article_repo: Inserting article: Iran’s supreme leader appears in public for first time since Israeli attack - Financial Times from source: Financial Times
+[2025-07-07 21:27:32,942] INFO in article_service: Saving article: A Comet From Another Solar System Is On Its Way - Defector from source: Defector.com
+[2025-07-07 21:27:32,942] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 21:27:32,942] INFO in article_repo: Inserting article: A Comet From Another Solar System Is On Its Way - Defector from source: Defector.com
+[2025-07-07 21:27:33,150] INFO in article_service: Saving article: 4 things to know about the vaccine ingredient thimerosal - NPR from source: NPR
+[2025-07-07 21:27:33,151] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 21:27:33,151] INFO in article_repo: Inserting article: 4 things to know about the vaccine ingredient thimerosal - NPR from source: NPR
+[2025-07-07 21:27:33,385] INFO in article_service: Saving article: After 9,000 Layoffs, Microsoft Boss Has Brutal Advice for Sacked Workers - Futurism from source: Futurism
+[2025-07-07 21:27:33,386] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 21:27:33,386] INFO in article_repo: Inserting article: After 9,000 Layoffs, Microsoft Boss Has Brutal Advice for Sacked Workers - Futurism from source: Futurism
+[2025-07-07 21:27:33,604] INFO in article_service: Saving article: Israel to send team to Gaza talks despite Hamas demands, PM says - BBC from source: BBC News
+[2025-07-07 21:27:33,605] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 21:27:33,605] INFO in article_repo: Inserting article: Israel to send team to Gaza talks despite Hamas demands, PM says - BBC from source: BBC News
+[2025-07-07 21:27:33,793] INFO in article_service: Saving article: Citizen scientists pinpoint 10,000 eclipsing star pairs - The Washington Post from source: The Washington Post
+[2025-07-07 21:27:33,794] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 21:27:33,794] INFO in article_repo: Inserting article: Citizen scientists pinpoint 10,000 eclipsing star pairs - The Washington Post from source: The Washington Post
+[2025-07-07 21:27:34,019] INFO in article_service: Saving article: Tropical Storm Chantal brings heavy rains as it moves across northeastern South Carolina - AP News from source: Associated Press
+[2025-07-07 21:27:34,020] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 21:27:34,020] INFO in article_repo: Inserting article: Tropical Storm Chantal brings heavy rains as it moves across northeastern South Carolina - AP News from source: Associated Press
+[2025-07-07 21:27:34,242] INFO in article_service: Saving article: US deports eight men to South Sudan after legal battle - BBC from source: BBC News
+[2025-07-07 21:27:34,243] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 21:27:34,243] INFO in article_repo: Inserting article: US deports eight men to South Sudan after legal battle - BBC from source: BBC News
+[2025-07-07 21:27:34,441] INFO in article_service: Saving article: US tariffs on European goods threaten to shake up the world's largest 2-way trade relationship - AP News from source: Associated Press
+[2025-07-07 21:27:34,441] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 21:27:34,441] INFO in article_repo: Inserting article: US tariffs on European goods threaten to shake up the world's largest 2-way trade relationship - AP News from source: Associated Press
+[2025-07-07 21:27:35,186] INFO in article_service: Completed saving all articles.
+[2025-07-07 21:30:36,810] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 21:31:04,004] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 21:31:20,952] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 21:31:20,952] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 21:31:20,953] INFO in classify_category_utils: Keyword match found in text for category: Entertainment
+[2025-07-07 21:31:20,953] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 21:31:20,954] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 21:31:20,954] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 21:31:20,955] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 21:31:20,955] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 21:31:20,957] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 21:31:20,957] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 21:31:20,958] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 21:31:20,959] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 21:31:20,959] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 21:31:20,960] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 21:31:20,961] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 21:31:20,961] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 21:31:20,962] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 21:31:20,963] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 21:31:20,964] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 21:31:20,964] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 21:31:29,488] INFO in article_service: Starting to save articles.
+[2025-07-07 21:31:29,488] INFO in article_service: Saving article: The current GC standings at the Tour de France 2025 - Cyclingnews from source: Cyclingnews.com
+[2025-07-07 21:31:29,489] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 21:31:29,490] INFO in article_repo: Inserting article: The current GC standings at the Tour de France 2025 - Cyclingnews from source: Cyclingnews.com
+[2025-07-07 21:31:29,747] INFO in article_service: Saving article: Box Office: ‘Jurassic World Rebirth’ Stomps to $147 Million Over July Fourth Holiday Weekend - Variety from source: Variety
+[2025-07-07 21:31:29,748] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 21:31:29,749] INFO in article_repo: Inserting article: Box Office: ‘Jurassic World Rebirth’ Stomps to $147 Million Over July Fourth Holiday Weekend - Variety from source: Variety
+[2025-07-07 21:31:30,076] INFO in article_service: Saving article: Guest column | A patient’s eye view of radiation therapy: This is what it feels like - The Washington Post from source: The Washington Post
+[2025-07-07 21:31:30,077] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 21:31:30,078] INFO in article_repo: Inserting article: Guest column | A patient’s eye view of radiation therapy: This is what it feels like - The Washington Post from source: The Washington Post
+[2025-07-07 21:31:30,432] INFO in article_service: Saving article: How Trump's megabill could slam the job market - Politico from source: Politico
+[2025-07-07 21:31:30,432] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 21:31:30,432] INFO in article_repo: Inserting article: How Trump's megabill could slam the job market - Politico from source: Politico
+[2025-07-07 21:31:30,697] INFO in article_service: Saving article: Bayern Munich: Jamal Musiala out for 'long period' with broken leg and dislocated ankle - BBC from source: BBC News
+[2025-07-07 21:31:30,698] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 21:31:30,698] INFO in article_repo: Inserting article: Bayern Munich: Jamal Musiala out for 'long period' with broken leg and dislocated ankle - BBC from source: BBC News
+[2025-07-07 21:31:31,029] INFO in article_service: Saving article: Tariffs return to April rates on August 1 without deals, Bessent says - Axios from source: Axios
+[2025-07-07 21:31:31,030] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 21:31:31,030] INFO in article_repo: Inserting article: Tariffs return to April rates on August 1 without deals, Bessent says - Axios from source: Axios
+[2025-07-07 21:31:31,331] INFO in article_service: Saving article: Cops Eye Speed as Factor in Sophia Hutchins' Deadly ATV Crash - TMZ from source: TMZ
+[2025-07-07 21:31:31,331] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 21:31:31,331] INFO in article_repo: Inserting article: Cops Eye Speed as Factor in Sophia Hutchins' Deadly ATV Crash - TMZ from source: TMZ
+[2025-07-07 21:31:31,589] INFO in article_service: Saving article: Knives, bullets and thieves: the quest for food in Gaza - NPR from source: NPR
+[2025-07-07 21:31:31,589] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 21:31:31,589] INFO in article_repo: Inserting article: Knives, bullets and thieves: the quest for food in Gaza - NPR from source: NPR
+[2025-07-07 21:31:31,823] INFO in article_service: Saving article: Before you reconnect with an old friend online, ask yourself these questions - The Washington Post from source: The Washington Post
+[2025-07-07 21:31:31,824] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 21:31:31,825] INFO in article_repo: Inserting article: Before you reconnect with an old friend online, ask yourself these questions - The Washington Post from source: The Washington Post
+[2025-07-07 21:31:32,103] INFO in article_service: Saving article: Don’t wait for Amazon Prime Day, our experts found 67 deals worth shopping early - CNN from source: CNN
+[2025-07-07 21:31:32,104] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 21:31:32,104] INFO in article_repo: Inserting article: Don’t wait for Amazon Prime Day, our experts found 67 deals worth shopping early - CNN from source: CNN
+[2025-07-07 21:31:32,345] INFO in article_service: Saving article: Sharon Osbourne disinvites greedy band from Ozzy's Black Sabbath farewell concert - pagesix.com from source: Page Six
+[2025-07-07 21:31:32,346] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 21:31:32,347] INFO in article_repo: Inserting article: Sharon Osbourne disinvites greedy band from Ozzy's Black Sabbath farewell concert - pagesix.com from source: Page Six
+[2025-07-07 21:31:32,630] INFO in article_service: Saving article: Iran’s supreme leader appears in public for first time since Israeli attack - Financial Times from source: Financial Times
+[2025-07-07 21:31:32,630] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 21:31:32,631] INFO in article_repo: Inserting article: Iran’s supreme leader appears in public for first time since Israeli attack - Financial Times from source: Financial Times
+[2025-07-07 21:31:32,895] INFO in article_service: Saving article: A Comet From Another Solar System Is On Its Way - Defector from source: Defector.com
+[2025-07-07 21:31:32,896] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 21:31:32,896] INFO in article_repo: Inserting article: A Comet From Another Solar System Is On Its Way - Defector from source: Defector.com
+[2025-07-07 21:31:33,168] INFO in article_service: Saving article: 4 things to know about the vaccine ingredient thimerosal - NPR from source: NPR
+[2025-07-07 21:31:33,169] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 21:31:33,169] INFO in article_repo: Inserting article: 4 things to know about the vaccine ingredient thimerosal - NPR from source: NPR
+[2025-07-07 21:31:33,454] INFO in article_service: Saving article: After 9,000 Layoffs, Microsoft Boss Has Brutal Advice for Sacked Workers - Futurism from source: Futurism
+[2025-07-07 21:31:33,455] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 21:31:33,455] INFO in article_repo: Inserting article: After 9,000 Layoffs, Microsoft Boss Has Brutal Advice for Sacked Workers - Futurism from source: Futurism
+[2025-07-07 21:31:33,688] INFO in article_service: Saving article: Israel to send team to Gaza talks despite Hamas demands, PM says - BBC from source: BBC News
+[2025-07-07 21:31:33,689] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 21:31:33,690] INFO in article_repo: Inserting article: Israel to send team to Gaza talks despite Hamas demands, PM says - BBC from source: BBC News
+[2025-07-07 21:31:33,904] INFO in article_service: Saving article: Citizen scientists pinpoint 10,000 eclipsing star pairs - The Washington Post from source: The Washington Post
+[2025-07-07 21:31:33,905] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 21:31:33,906] INFO in article_repo: Inserting article: Citizen scientists pinpoint 10,000 eclipsing star pairs - The Washington Post from source: The Washington Post
+[2025-07-07 21:31:34,207] INFO in article_service: Saving article: Tropical Storm Chantal brings heavy rains as it moves across northeastern South Carolina - AP News from source: Associated Press
+[2025-07-07 21:31:34,209] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 21:31:34,209] INFO in article_repo: Inserting article: Tropical Storm Chantal brings heavy rains as it moves across northeastern South Carolina - AP News from source: Associated Press
+[2025-07-07 21:31:34,491] INFO in article_service: Saving article: US deports eight men to South Sudan after legal battle - BBC from source: BBC News
+[2025-07-07 21:31:34,491] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 21:31:34,492] INFO in article_repo: Inserting article: US deports eight men to South Sudan after legal battle - BBC from source: BBC News
+[2025-07-07 21:31:34,764] INFO in article_service: Saving article: US tariffs on European goods threaten to shake up the world's largest 2-way trade relationship - AP News from source: Associated Press
+[2025-07-07 21:31:34,764] WARNING in article_repo: Article missing published_at, using current UTC time.
+[2025-07-07 21:31:34,766] INFO in article_repo: Inserting article: US tariffs on European goods threaten to shake up the world's largest 2-way trade relationship - AP News from source: Associated Press
+[2025-07-07 21:31:35,154] INFO in article_service: Saving article: Why APA Corp (APA) May Struggle to Outperform: A Look at Future Challenges from source: gurufocus.com
+[2025-07-07 21:31:35,155] INFO in article_repo: Inserting article: Why APA Corp (APA) May Struggle to Outperform: A Look at Future Challenges from source: gurufocus.com
+[2025-07-07 21:31:35,612] INFO in article_service: Saving article: Ategrity Specialty (ASIC) Receives Overweight Rating from Wells Fargo | ASIC Stock News from source: gurufocus.com
+[2025-07-07 21:31:35,612] INFO in article_repo: Inserting article: Ategrity Specialty (ASIC) Receives Overweight Rating from Wells Fargo | ASIC Stock News from source: gurufocus.com
+[2025-07-07 21:31:35,835] INFO in article_service: Completed saving all articles.

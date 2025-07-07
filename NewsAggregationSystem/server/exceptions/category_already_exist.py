@@ -1,0 +1,2 @@
+class CategoryAlreadyExistException(Exception):
+    pass

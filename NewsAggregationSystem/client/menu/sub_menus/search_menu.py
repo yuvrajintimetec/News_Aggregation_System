@@ -1,0 +1,80 @@
+from NewsAggregationSystem.client.menu.base_menu import BaseMenu
+from NewsAggregationSystem.client.utilities import api_utilities
+from NewsAggregationSystem.client.utilities.server_reponse_utils import simple_response_containing_list, \
+    article_details_response, simple_response
+
+
+class SearchMenu(BaseMenu):
+    article_map = {}
+    def __init__(self, access_token, user_data):
+        self.access_token = access_token
+        self.user_data = user_data
+
+    def show_menu(self):
+        print("\nS E A R C H")
+        print("1. Back\n2. Logout\n3. Save Article\n4. React on an Article\n5. Report an Article\n6. Open an Article")
+
+    def api_request(self):
+        keyword = input("Enter search keyword: ").strip().lower()
+        start = input("Start Date (YYYY-MM-DD): ")
+        end = input("End Date (YYYY-MM-DD): ")
+        sort = input("Sort by (likes/dislikes, leave blank to skip): ")
+        if sort:
+            url = f"user/articles/search?keyword={keyword}&start_date={start}&end_date={end}&sort_by={sort}"
+        else:
+            url = f"user/articles/search?keyword={keyword}&start_date={start}&end_date={end}"
+
+        response = api_utilities.get_all_with_token(url, {"Authorization": f"Bearer {self.access_token}"})
+        print(f"\nS E A R C H\nResults for “{keyword}”")
+        articles = simple_response_containing_list(response)
+        if type(articles) is list:
+            for index, article in enumerate(articles, start=1):
+                print(f"{index} - {article['title']}")
+                self.article_map.update({str(index): article['article_id']})
+        else:
+            print(articles)
+        self.show_menu()
+        choice = input("Choose (1-6): ")
+        if choice == "1":
+            return
+        elif choice == "2":
+            return "logout"
+        if choice == "3":
+            article_id = input("Enter Article ID to save: ")
+            saved_article_response = api_utilities.create_with_token(f"user/saved-article/{article_id}", {},
+                                                                     {"Authorization": f"Bearer {self.access_token}"})
+            simple_response(saved_article_response)
+        elif choice == "4":
+            article_id = input("Enter Article ID to react: ")
+            print("1. Like\n2. Dislike")
+            choice = input("Choose(1-2): ")
+            if choice not in ("1", "2"):
+                print("Invalid choice.")
+                return
+            endpoint = f"user/react/like/{article_id}" if choice == "1" else f"user/react/dislike/{article_id}"
+            article_reaction_response = api_utilities.create_with_token(endpoint, {}, {
+                "Authorization": f"Bearer {self.access_token}"})
+            simple_response(article_reaction_response)
+        elif choice == "5":
+            article_id = input("Enter Article ID to report: ")
+            report_reason = input("Enter reason for reporting the article: ")
+            report_article_response = api_utilities.create_with_token(f"user/report-article/{article_id}",
+                                                                      {"reason": report_reason},
+                                                                      {"Authorization": f"Bearer {self.access_token}"})
+            simple_response(report_article_response)
+        elif choice == "6":
+            choice = input("Enter the article that you want to open: ").strip()
+            if choice in self.article_map:
+                article_id = self.article_map.get(choice)
+                action = input("Enter 1 to Open or any other key to continue: ")
+                if action == "1":
+                    article_response = api_utilities.get_by_id_with_token(f"articles", article_id, {
+                        "Authorization": f"Bearer {self.access_token}"})
+                    final_article_response = simple_response_containing_list(article_response)
+                    article_details_response(final_article_response)
+                else:
+                    pass
+            else:
+                print("Invalid Choice")
+        else:
+            print("Invalid choice.")
