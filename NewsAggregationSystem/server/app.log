@@ -117,3 +117,358 @@
 [2025-07-07 18:43:06,965] INFO in jwt_utils: Decoding JWT access token.
 [2025-07-07 18:44:21,063] INFO in jwt_utils: Decoding JWT access token.
 [2025-07-07 18:44:24,170] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 19:19:08,294] INFO in article_service: Checking report threshold for article 1: current count = 5, threshold = 3
+[2025-07-07 19:19:08,294] INFO in article_service: Threshold met/exceeded for article 1. Hiding article.
+[2025-07-07 19:19:08,295] INFO in article_service: Article 1 hidden successfully after reaching threshold.
+[2025-07-07 19:19:08,297] INFO in article_service: Checking report threshold for article 1: current count = 1, threshold = 3
+[2025-07-07 19:19:08,297] INFO in article_service: Threshold NOT met for article 1. Current count: 1, threshold: 3
+[2025-07-07 19:19:08,299] INFO in article_service: User 1 is adding a new DISLIKE for article 1 (was OFF, now ON).
+[2025-07-07 19:19:08,299] INFO in article_service: User 1 completed DISLIKE toggle for article 1.
+[2025-07-07 19:19:08,301] INFO in article_service: User 1 is toggling DISLIKE OFF for article 1 (was ON, now OFF).
+[2025-07-07 19:19:08,301] INFO in article_service: User 1 completed DISLIKE toggle for article 1.
+[2025-07-07 19:19:08,304] INFO in article_service: User 1 is adding a new LIKE for article 1 (was OFF, now ON).
+[2025-07-07 19:19:08,304] INFO in article_service: User 1 completed LIKE toggle for article 1.
+[2025-07-07 19:19:08,307] INFO in article_service: User 1 is toggling LIKE OFF for article 1 (was ON, now OFF).
+[2025-07-07 19:19:08,308] INFO in article_service: User 1 completed LIKE toggle for article 1.
+[2025-07-07 19:19:08,309] INFO in article_service: Starting to save articles.
+[2025-07-07 19:19:08,309] INFO in article_service: Starting to save articles.
+[2025-07-07 19:19:08,311] INFO in article_service: Starting to save articles.
+[2025-07-07 19:19:08,311] INFO in article_service: Saving article: Test Article from source: source
+[2025-07-07 19:19:08,313] INFO in article_service: Completed saving all articles.
+[2025-07-07 19:19:08,314] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 19:19:08,314] INFO in classify_category_utils: Keyword match found in text for category: Entertainment
+[2025-07-07 19:19:08,315] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 19:19:08,315] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 19:19:08,315] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 19:19:08,358] INFO in jwt_utils: JWT access token created for data: {'user_id': 1, 'role': 'admin'}
+[2025-07-07 19:19:08,358] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 19:19:08,835] INFO in password_utils: Password hashed.
+[2025-07-07 19:19:09,201] INFO in password_utils: Password verification attempted. Result: success.
+[2025-07-07 19:19:09,553] INFO in password_utils: Password verification attempted. Result: failure.
+[2025-07-07 19:20:46,039] INFO in article_service: Checking report threshold for article 1: current count = 5, threshold = 3
+[2025-07-07 19:20:46,039] INFO in article_service: Threshold met/exceeded for article 1. Hiding article.
+[2025-07-07 19:20:46,040] INFO in article_service: Article 1 hidden successfully after reaching threshold.
+[2025-07-07 19:20:46,041] INFO in article_service: Checking report threshold for article 1: current count = 1, threshold = 3
+[2025-07-07 19:20:46,042] INFO in article_service: Threshold NOT met for article 1. Current count: 1, threshold: 3
+[2025-07-07 19:20:46,043] INFO in article_service: User 1 is adding a new DISLIKE for article 1 (was OFF, now ON).
+[2025-07-07 19:20:46,043] INFO in article_service: User 1 completed DISLIKE toggle for article 1.
+[2025-07-07 19:20:46,046] INFO in article_service: User 1 is toggling DISLIKE OFF for article 1 (was ON, now OFF).
+[2025-07-07 19:20:46,046] INFO in article_service: User 1 completed DISLIKE toggle for article 1.
+[2025-07-07 19:20:46,047] INFO in article_service: User 1 is adding a new LIKE for article 1 (was OFF, now ON).
+[2025-07-07 19:20:46,048] INFO in article_service: User 1 completed LIKE toggle for article 1.
+[2025-07-07 19:20:46,049] INFO in article_service: User 1 is toggling LIKE OFF for article 1 (was ON, now OFF).
+[2025-07-07 19:20:46,050] INFO in article_service: User 1 completed LIKE toggle for article 1.
+[2025-07-07 19:20:46,051] INFO in article_service: Starting to save articles.
+[2025-07-07 19:20:46,051] INFO in article_service: Starting to save articles.
+[2025-07-07 19:20:46,053] INFO in article_service: Starting to save articles.
+[2025-07-07 19:20:46,053] INFO in article_service: Saving article: Test Article from source: source
+[2025-07-07 19:20:46,055] INFO in article_service: Completed saving all articles.
+[2025-07-07 19:20:46,056] INFO in authentication_service: Login attempt for email: test@example.com
+[2025-07-07 19:20:46,056] INFO in authentication_service: User login successful for email: test@example.com
+[2025-07-07 19:20:46,057] INFO in authentication_service: Login attempt for email: notfound@example.com
+[2025-07-07 19:20:46,057] WARNING in authentication_service: Failed login for email: notfound@example.com (user not found)
+[2025-07-07 19:20:46,058] INFO in authentication_service: Login attempt for email: test@example.com
+[2025-07-07 19:20:46,058] WARNING in authentication_service: Failed login for email: test@example.com (invalid password)
+[2025-07-07 19:20:46,356] INFO in password_utils: Password hashed.
+[2025-07-07 19:20:46,370] INFO in notification_service: Starting to send notifications by email.
+[2025-07-07 19:20:50,439] INFO in notification_service: Sent notification email to user_id: 2, email: test@example.com
+[2025-07-07 19:20:50,440] INFO in notification_service: Completed sending notifications by email.
+[2025-07-07 19:20:50,450] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 19:20:50,451] INFO in classify_category_utils: Keyword match found in text for category: Entertainment
+[2025-07-07 19:20:50,451] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 19:20:50,452] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 19:20:50,453] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 19:20:50,466] INFO in jwt_utils: JWT access token created for data: {'user_id': 1, 'role': 'admin'}
+[2025-07-07 19:20:50,467] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 19:20:50,744] INFO in password_utils: Password hashed.
+[2025-07-07 19:20:51,002] INFO in password_utils: Password verification attempted. Result: success.
+[2025-07-07 19:20:51,306] INFO in password_utils: Password verification attempted. Result: failure.
+[2025-07-07 19:35:42,255] INFO in article_service: Checking report threshold for article 1: current count = 5, threshold = 3
+[2025-07-07 19:35:42,256] INFO in article_service: Threshold met/exceeded for article 1. Hiding article.
+[2025-07-07 19:35:42,256] INFO in article_service: Article 1 hidden successfully after reaching threshold.
+[2025-07-07 19:35:42,258] INFO in article_service: Checking report threshold for article 1: current count = 1, threshold = 3
+[2025-07-07 19:35:42,259] INFO in article_service: Threshold NOT met for article 1. Current count: 1, threshold: 3
+[2025-07-07 19:35:42,261] INFO in article_service: User 1 is adding a new DISLIKE for article 1 (was OFF, now ON).
+[2025-07-07 19:35:42,261] INFO in article_service: User 1 completed DISLIKE toggle for article 1.
+[2025-07-07 19:35:42,265] INFO in article_service: User 1 is toggling DISLIKE OFF for article 1 (was ON, now OFF).
+[2025-07-07 19:35:42,265] INFO in article_service: User 1 completed DISLIKE toggle for article 1.
+[2025-07-07 19:35:42,267] INFO in article_service: User 1 is adding a new LIKE for article 1 (was OFF, now ON).
+[2025-07-07 19:35:42,268] INFO in article_service: User 1 completed LIKE toggle for article 1.
+[2025-07-07 19:35:42,270] INFO in article_service: User 1 is toggling LIKE OFF for article 1 (was ON, now OFF).
+[2025-07-07 19:35:42,270] INFO in article_service: User 1 completed LIKE toggle for article 1.
+[2025-07-07 19:35:42,273] INFO in article_service: Starting to save articles.
+[2025-07-07 19:35:42,273] INFO in article_service: Starting to save articles.
+[2025-07-07 19:35:42,276] INFO in article_service: Starting to save articles.
+[2025-07-07 19:35:42,276] INFO in article_service: Saving article: Test Article from source: source
+[2025-07-07 19:35:42,278] INFO in article_service: Completed saving all articles.
+[2025-07-07 19:35:42,281] INFO in authentication_service: Login attempt for email: test@example.com
+[2025-07-07 19:35:42,281] INFO in authentication_service: User login successful for email: test@example.com
+[2025-07-07 19:35:42,282] INFO in authentication_service: Login attempt for email: notfound@example.com
+[2025-07-07 19:35:42,283] WARNING in authentication_service: Failed login for email: notfound@example.com (user not found)
+[2025-07-07 19:35:42,284] INFO in authentication_service: Login attempt for email: test@example.com
+[2025-07-07 19:35:42,284] WARNING in authentication_service: Failed login for email: test@example.com (invalid password)
+[2025-07-07 19:35:42,558] INFO in password_utils: Password hashed.
+[2025-07-07 19:35:42,576] INFO in notification_service: Starting to send notifications by email.
+[2025-07-07 19:35:46,104] INFO in notification_service: Sent notification email to user_id: 2, email: test@example.com
+[2025-07-07 19:35:46,104] INFO in notification_service: Completed sending notifications by email.
+[2025-07-07 19:35:46,122] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 19:35:46,122] INFO in classify_category_utils: Keyword match found in text for category: Entertainment
+[2025-07-07 19:35:46,123] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 19:35:46,123] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 19:35:46,124] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 19:35:46,161] INFO in jwt_utils: JWT access token created for data: {'user_id': 1, 'role': 'admin'}
+[2025-07-07 19:35:46,161] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 19:35:46,434] INFO in password_utils: Password hashed.
+[2025-07-07 19:35:46,672] INFO in password_utils: Password verification attempted. Result: success.
+[2025-07-07 19:35:46,917] INFO in password_utils: Password verification attempted. Result: failure.
+[2025-07-07 19:41:25,714] INFO in article_service: Checking report threshold for article 1: current count = 5, threshold = 3
+[2025-07-07 19:41:25,715] INFO in article_service: Threshold met/exceeded for article 1. Hiding article.
+[2025-07-07 19:41:25,715] INFO in article_service: Article 1 hidden successfully after reaching threshold.
+[2025-07-07 19:41:25,718] INFO in article_service: Checking report threshold for article 1: current count = 1, threshold = 3
+[2025-07-07 19:41:25,718] INFO in article_service: Threshold NOT met for article 1. Current count: 1, threshold: 3
+[2025-07-07 19:41:25,721] INFO in article_service: User 1 is adding a new DISLIKE for article 1 (was OFF, now ON).
+[2025-07-07 19:41:25,722] INFO in article_service: User 1 completed DISLIKE toggle for article 1.
+[2025-07-07 19:41:25,726] INFO in article_service: User 1 is toggling DISLIKE OFF for article 1 (was ON, now OFF).
+[2025-07-07 19:41:25,726] INFO in article_service: User 1 completed DISLIKE toggle for article 1.
+[2025-07-07 19:41:25,728] INFO in article_service: User 1 is adding a new LIKE for article 1 (was OFF, now ON).
+[2025-07-07 19:41:25,728] INFO in article_service: User 1 completed LIKE toggle for article 1.
+[2025-07-07 19:41:25,730] INFO in article_service: User 1 is toggling LIKE OFF for article 1 (was ON, now OFF).
+[2025-07-07 19:41:25,731] INFO in article_service: User 1 completed LIKE toggle for article 1.
+[2025-07-07 19:41:25,733] INFO in article_service: Starting to save articles.
+[2025-07-07 19:41:25,733] INFO in article_service: Starting to save articles.
+[2025-07-07 19:41:25,737] INFO in article_service: Starting to save articles.
+[2025-07-07 19:41:25,737] INFO in article_service: Saving article: Test Article from source: source
+[2025-07-07 19:41:25,740] INFO in article_service: Completed saving all articles.
+[2025-07-07 19:41:25,744] INFO in authentication_service: Login attempt for email: test@example.com
+[2025-07-07 19:41:25,744] INFO in authentication_service: User login successful for email: test@example.com
+[2025-07-07 19:41:25,745] INFO in authentication_service: Login attempt for email: notfound@example.com
+[2025-07-07 19:41:25,746] WARNING in authentication_service: Failed login for email: notfound@example.com (user not found)
+[2025-07-07 19:41:25,747] INFO in authentication_service: Login attempt for email: test@example.com
+[2025-07-07 19:41:25,747] WARNING in authentication_service: Failed login for email: test@example.com (invalid password)
+[2025-07-07 19:41:26,052] INFO in password_utils: Password hashed.
+[2025-07-07 19:41:26,078] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 19:41:26,079] INFO in classify_category_utils: Keyword match found in text for category: Entertainment
+[2025-07-07 19:41:26,079] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 19:41:26,080] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 19:41:26,081] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 19:41:26,124] INFO in jwt_utils: JWT access token created for data: {'user_id': 1, 'role': 'admin'}
+[2025-07-07 19:41:26,125] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 19:41:26,418] INFO in password_utils: Password hashed.
+[2025-07-07 19:41:26,728] INFO in password_utils: Password verification attempted. Result: success.
+[2025-07-07 19:41:27,044] INFO in password_utils: Password verification attempted. Result: failure.
+[2025-07-07 19:44:27,021] INFO in article_service: Checking report threshold for article 1: current count = 5, threshold = 3
+[2025-07-07 19:44:27,021] INFO in article_service: Threshold met/exceeded for article 1. Hiding article.
+[2025-07-07 19:44:27,022] INFO in article_service: Article 1 hidden successfully after reaching threshold.
+[2025-07-07 19:44:27,024] INFO in article_service: Checking report threshold for article 1: current count = 1, threshold = 3
+[2025-07-07 19:44:27,024] INFO in article_service: Threshold NOT met for article 1. Current count: 1, threshold: 3
+[2025-07-07 19:44:27,026] INFO in article_service: User 1 is adding a new DISLIKE for article 1 (was OFF, now ON).
+[2025-07-07 19:44:27,027] INFO in article_service: User 1 completed DISLIKE toggle for article 1.
+[2025-07-07 19:44:27,029] INFO in article_service: User 1 is toggling DISLIKE OFF for article 1 (was ON, now OFF).
+[2025-07-07 19:44:27,030] INFO in article_service: User 1 completed DISLIKE toggle for article 1.
+[2025-07-07 19:44:27,031] INFO in article_service: User 1 is adding a new LIKE for article 1 (was OFF, now ON).
+[2025-07-07 19:44:27,032] INFO in article_service: User 1 completed LIKE toggle for article 1.
+[2025-07-07 19:44:27,034] INFO in article_service: User 1 is toggling LIKE OFF for article 1 (was ON, now OFF).
+[2025-07-07 19:44:27,035] INFO in article_service: User 1 completed LIKE toggle for article 1.
+[2025-07-07 19:44:27,037] INFO in article_service: Starting to save articles.
+[2025-07-07 19:44:27,038] INFO in article_service: Starting to save articles.
+[2025-07-07 19:44:27,040] INFO in article_service: Starting to save articles.
+[2025-07-07 19:44:27,040] INFO in article_service: Saving article: Test Article from source: source
+[2025-07-07 19:44:27,042] INFO in article_service: Completed saving all articles.
+[2025-07-07 19:44:27,043] INFO in authentication_service: Login attempt for email: test@example.com
+[2025-07-07 19:44:27,044] INFO in authentication_service: User login successful for email: test@example.com
+[2025-07-07 19:44:27,045] INFO in authentication_service: Login attempt for email: notfound@example.com
+[2025-07-07 19:44:27,045] WARNING in authentication_service: Failed login for email: notfound@example.com (user not found)
+[2025-07-07 19:44:27,046] INFO in authentication_service: Login attempt for email: test@example.com
+[2025-07-07 19:44:27,046] WARNING in authentication_service: Failed login for email: test@example.com (invalid password)
+[2025-07-07 19:44:27,346] INFO in password_utils: Password hashed.
+[2025-07-07 19:44:27,364] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 19:44:27,365] INFO in classify_category_utils: Keyword match found in text for category: Entertainment
+[2025-07-07 19:44:27,365] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 19:44:27,366] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 19:44:27,366] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 19:44:27,387] INFO in jwt_utils: JWT access token created for data: {'user_id': 1, 'role': 'admin'}
+[2025-07-07 19:44:27,387] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 19:44:27,711] INFO in password_utils: Password hashed.
+[2025-07-07 19:44:28,040] INFO in password_utils: Password verification attempted. Result: success.
+[2025-07-07 19:44:28,379] INFO in password_utils: Password verification attempted. Result: failure.
+[2025-07-07 19:44:55,170] INFO in article_service: Checking report threshold for article 1: current count = 5, threshold = 3
+[2025-07-07 19:44:55,171] INFO in article_service: Threshold met/exceeded for article 1. Hiding article.
+[2025-07-07 19:44:55,171] INFO in article_service: Article 1 hidden successfully after reaching threshold.
+[2025-07-07 19:44:55,172] INFO in article_service: Checking report threshold for article 1: current count = 1, threshold = 3
+[2025-07-07 19:44:55,173] INFO in article_service: Threshold NOT met for article 1. Current count: 1, threshold: 3
+[2025-07-07 19:44:55,175] INFO in article_service: User 1 is adding a new DISLIKE for article 1 (was OFF, now ON).
+[2025-07-07 19:44:55,176] INFO in article_service: User 1 completed DISLIKE toggle for article 1.
+[2025-07-07 19:44:55,180] INFO in article_service: User 1 is toggling DISLIKE OFF for article 1 (was ON, now OFF).
+[2025-07-07 19:44:55,180] INFO in article_service: User 1 completed DISLIKE toggle for article 1.
+[2025-07-07 19:44:55,182] INFO in article_service: User 1 is adding a new LIKE for article 1 (was OFF, now ON).
+[2025-07-07 19:44:55,183] INFO in article_service: User 1 completed LIKE toggle for article 1.
+[2025-07-07 19:44:55,185] INFO in article_service: User 1 is toggling LIKE OFF for article 1 (was ON, now OFF).
+[2025-07-07 19:44:55,185] INFO in article_service: User 1 completed LIKE toggle for article 1.
+[2025-07-07 19:44:55,187] INFO in article_service: Starting to save articles.
+[2025-07-07 19:44:55,187] INFO in article_service: Starting to save articles.
+[2025-07-07 19:44:55,190] INFO in article_service: Starting to save articles.
+[2025-07-07 19:44:55,190] INFO in article_service: Saving article: Test Article from source: source
+[2025-07-07 19:44:55,193] INFO in article_service: Completed saving all articles.
+[2025-07-07 19:44:55,196] INFO in authentication_service: Login attempt for email: test@example.com
+[2025-07-07 19:44:55,196] INFO in authentication_service: User login successful for email: test@example.com
+[2025-07-07 19:44:55,197] INFO in authentication_service: Login attempt for email: notfound@example.com
+[2025-07-07 19:44:55,198] WARNING in authentication_service: Failed login for email: notfound@example.com (user not found)
+[2025-07-07 19:44:55,199] INFO in authentication_service: Login attempt for email: test@example.com
+[2025-07-07 19:44:55,199] WARNING in authentication_service: Failed login for email: test@example.com (invalid password)
+[2025-07-07 19:44:55,486] INFO in password_utils: Password hashed.
+[2025-07-07 19:44:55,502] INFO in notification_service: Starting to send notifications by email.
+[2025-07-07 19:44:59,058] INFO in notification_service: Sent notification email to user_id: 2, email: test@example.com
+[2025-07-07 19:44:59,058] INFO in notification_service: Completed sending notifications by email.
+[2025-07-07 19:44:59,075] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 19:44:59,076] INFO in classify_category_utils: Keyword match found in text for category: Entertainment
+[2025-07-07 19:44:59,076] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 19:44:59,077] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 19:44:59,077] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 19:44:59,094] INFO in jwt_utils: JWT access token created for data: {'user_id': 1, 'role': 'admin'}
+[2025-07-07 19:44:59,095] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 19:44:59,346] INFO in password_utils: Password hashed.
+[2025-07-07 19:44:59,622] INFO in password_utils: Password verification attempted. Result: success.
+[2025-07-07 19:44:59,904] INFO in password_utils: Password verification attempted. Result: failure.
+[2025-07-07 19:49:32,141] INFO in article_service: Checking report threshold for article 1: current count = 5, threshold = 3
+[2025-07-07 19:49:32,142] INFO in article_service: Threshold met/exceeded for article 1. Hiding article.
+[2025-07-07 19:49:32,142] INFO in article_service: Article 1 hidden successfully after reaching threshold.
+[2025-07-07 19:49:32,144] INFO in article_service: Checking report threshold for article 1: current count = 1, threshold = 3
+[2025-07-07 19:49:32,144] INFO in article_service: Threshold NOT met for article 1. Current count: 1, threshold: 3
+[2025-07-07 19:49:32,147] INFO in article_service: User 1 is adding a new DISLIKE for article 1 (was OFF, now ON).
+[2025-07-07 19:49:32,147] INFO in article_service: User 1 completed DISLIKE toggle for article 1.
+[2025-07-07 19:49:32,149] INFO in article_service: User 1 is toggling DISLIKE OFF for article 1 (was ON, now OFF).
+[2025-07-07 19:49:32,149] INFO in article_service: User 1 completed DISLIKE toggle for article 1.
+[2025-07-07 19:49:32,150] INFO in article_service: User 1 is adding a new LIKE for article 1 (was OFF, now ON).
+[2025-07-07 19:49:32,150] INFO in article_service: User 1 completed LIKE toggle for article 1.
+[2025-07-07 19:49:32,152] INFO in article_service: User 1 is toggling LIKE OFF for article 1 (was ON, now OFF).
+[2025-07-07 19:49:32,152] INFO in article_service: User 1 completed LIKE toggle for article 1.
+[2025-07-07 19:49:32,153] INFO in article_service: Starting to save articles.
+[2025-07-07 19:49:32,153] INFO in article_service: Starting to save articles.
+[2025-07-07 19:49:32,155] INFO in article_service: Starting to save articles.
+[2025-07-07 19:49:32,156] INFO in article_service: Saving article: Test Article from source: source
+[2025-07-07 19:49:32,157] INFO in article_service: Completed saving all articles.
+[2025-07-07 19:49:32,159] INFO in authentication_service: Login attempt for email: test@example.com
+[2025-07-07 19:49:32,159] INFO in authentication_service: User login successful for email: test@example.com
+[2025-07-07 19:49:32,160] INFO in authentication_service: Login attempt for email: notfound@example.com
+[2025-07-07 19:49:32,160] WARNING in authentication_service: Failed login for email: notfound@example.com (user not found)
+[2025-07-07 19:49:32,161] INFO in authentication_service: Login attempt for email: test@example.com
+[2025-07-07 19:49:32,161] WARNING in authentication_service: Failed login for email: test@example.com (invalid password)
+[2025-07-07 19:49:32,413] INFO in password_utils: Password hashed.
+[2025-07-07 19:49:32,428] INFO in notification_service: Starting to send notifications by email.
+[2025-07-07 19:49:35,858] INFO in notification_service: Sent notification email to user_id: 2, email: test@example.com
+[2025-07-07 19:49:35,859] INFO in notification_service: Completed sending notifications by email.
+[2025-07-07 19:49:35,880] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 19:49:35,881] INFO in classify_category_utils: Keyword match found in text for category: Entertainment
+[2025-07-07 19:49:35,882] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 19:49:35,883] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 19:49:35,883] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 19:49:35,924] INFO in jwt_utils: JWT access token created for data: {'user_id': 1, 'role': 'admin'}
+[2025-07-07 19:49:35,924] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 19:49:36,247] INFO in password_utils: Password hashed.
+[2025-07-07 19:49:36,580] INFO in password_utils: Password verification attempted. Result: success.
+[2025-07-07 19:49:36,930] INFO in password_utils: Password verification attempted. Result: failure.
+[2025-07-07 19:50:03,289] INFO in article_service: Checking report threshold for article 1: current count = 5, threshold = 3
+[2025-07-07 19:50:03,290] INFO in article_service: Threshold met/exceeded for article 1. Hiding article.
+[2025-07-07 19:50:03,290] INFO in article_service: Article 1 hidden successfully after reaching threshold.
+[2025-07-07 19:50:03,292] INFO in article_service: Checking report threshold for article 1: current count = 1, threshold = 3
+[2025-07-07 19:50:03,292] INFO in article_service: Threshold NOT met for article 1. Current count: 1, threshold: 3
+[2025-07-07 19:50:03,295] INFO in article_service: User 1 is adding a new DISLIKE for article 1 (was OFF, now ON).
+[2025-07-07 19:50:03,296] INFO in article_service: User 1 completed DISLIKE toggle for article 1.
+[2025-07-07 19:50:03,299] INFO in article_service: User 1 is toggling DISLIKE OFF for article 1 (was ON, now OFF).
+[2025-07-07 19:50:03,299] INFO in article_service: User 1 completed DISLIKE toggle for article 1.
+[2025-07-07 19:50:03,301] INFO in article_service: User 1 is adding a new LIKE for article 1 (was OFF, now ON).
+[2025-07-07 19:50:03,302] INFO in article_service: User 1 completed LIKE toggle for article 1.
+[2025-07-07 19:50:03,304] INFO in article_service: User 1 is toggling LIKE OFF for article 1 (was ON, now OFF).
+[2025-07-07 19:50:03,305] INFO in article_service: User 1 completed LIKE toggle for article 1.
+[2025-07-07 19:50:03,307] INFO in article_service: Starting to save articles.
+[2025-07-07 19:50:03,308] INFO in article_service: Starting to save articles.
+[2025-07-07 19:50:03,310] INFO in article_service: Starting to save articles.
+[2025-07-07 19:50:03,310] INFO in article_service: Saving article: Test Article from source: source
+[2025-07-07 19:50:03,312] INFO in article_service: Completed saving all articles.
+[2025-07-07 19:50:03,315] INFO in authentication_service: Login attempt for email: test@example.com
+[2025-07-07 19:50:03,315] INFO in authentication_service: User login successful for email: test@example.com
+[2025-07-07 19:50:03,316] INFO in authentication_service: Login attempt for email: notfound@example.com
+[2025-07-07 19:50:03,317] WARNING in authentication_service: Failed login for email: notfound@example.com (user not found)
+[2025-07-07 19:50:03,318] INFO in authentication_service: Login attempt for email: test@example.com
+[2025-07-07 19:50:03,318] WARNING in authentication_service: Failed login for email: test@example.com (invalid password)
+[2025-07-07 19:50:03,639] INFO in password_utils: Password hashed.
+[2025-07-07 19:50:03,657] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 19:50:03,657] INFO in classify_category_utils: Keyword match found in text for category: Entertainment
+[2025-07-07 19:50:03,658] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 19:50:03,659] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 19:50:03,659] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 19:50:03,679] INFO in jwt_utils: JWT access token created for data: {'user_id': 1, 'role': 'admin'}
+[2025-07-07 19:50:03,680] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 19:50:03,988] INFO in password_utils: Password hashed.
+[2025-07-07 19:50:04,285] INFO in password_utils: Password verification attempted. Result: success.
+[2025-07-07 19:50:04,568] INFO in password_utils: Password verification attempted. Result: failure.
+[2025-07-07 19:54:29,337] INFO in article_service: Checking report threshold for article 1: current count = 5, threshold = 3
+[2025-07-07 19:54:29,337] INFO in article_service: Threshold met/exceeded for article 1. Hiding article.
+[2025-07-07 19:54:29,337] INFO in article_service: Article 1 hidden successfully after reaching threshold.
+[2025-07-07 19:54:29,339] INFO in article_service: Checking report threshold for article 1: current count = 1, threshold = 3
+[2025-07-07 19:54:29,339] INFO in article_service: Threshold NOT met for article 1. Current count: 1, threshold: 3
+[2025-07-07 19:54:29,341] INFO in article_service: User 1 is adding a new DISLIKE for article 1 (was OFF, now ON).
+[2025-07-07 19:54:29,341] INFO in article_service: User 1 completed DISLIKE toggle for article 1.
+[2025-07-07 19:54:29,343] INFO in article_service: User 1 is toggling DISLIKE OFF for article 1 (was ON, now OFF).
+[2025-07-07 19:54:29,343] INFO in article_service: User 1 completed DISLIKE toggle for article 1.
+[2025-07-07 19:54:29,345] INFO in article_service: User 1 is adding a new LIKE for article 1 (was OFF, now ON).
+[2025-07-07 19:54:29,345] INFO in article_service: User 1 completed LIKE toggle for article 1.
+[2025-07-07 19:54:29,346] INFO in article_service: User 1 is toggling LIKE OFF for article 1 (was ON, now OFF).
+[2025-07-07 19:54:29,347] INFO in article_service: User 1 completed LIKE toggle for article 1.
+[2025-07-07 19:54:29,348] INFO in article_service: Starting to save articles.
+[2025-07-07 19:54:29,348] INFO in article_service: Starting to save articles.
+[2025-07-07 19:54:29,349] INFO in article_service: Starting to save articles.
+[2025-07-07 19:54:29,351] INFO in article_service: Saving article: Test Article from source: source
+[2025-07-07 19:54:29,353] INFO in article_service: Completed saving all articles.
+[2025-07-07 19:54:29,354] INFO in authentication_service: Login attempt for email: test@example.com
+[2025-07-07 19:54:29,355] INFO in authentication_service: User login successful for email: test@example.com
+[2025-07-07 19:54:29,356] INFO in authentication_service: Login attempt for email: notfound@example.com
+[2025-07-07 19:54:29,356] WARNING in authentication_service: Failed login for email: notfound@example.com (user not found)
+[2025-07-07 19:54:29,357] INFO in authentication_service: Login attempt for email: test@example.com
+[2025-07-07 19:54:29,358] WARNING in authentication_service: Failed login for email: test@example.com (invalid password)
+[2025-07-07 19:54:29,663] INFO in password_utils: Password hashed.
+[2025-07-07 19:54:29,676] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 19:54:29,676] INFO in classify_category_utils: Keyword match found in text for category: Entertainment
+[2025-07-07 19:54:29,676] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 19:54:29,677] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 19:54:29,677] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 19:54:29,713] INFO in jwt_utils: JWT access token created for data: {'user_id': 1, 'role': 'admin'}
+[2025-07-07 19:54:29,714] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 19:54:29,998] INFO in password_utils: Password hashed.
+[2025-07-07 19:54:30,288] INFO in password_utils: Password verification attempted. Result: success.
+[2025-07-07 19:54:30,539] INFO in password_utils: Password verification attempted. Result: failure.
+[2025-07-07 19:55:19,972] INFO in article_service: Checking report threshold for article 1: current count = 5, threshold = 3
+[2025-07-07 19:55:19,972] INFO in article_service: Threshold met/exceeded for article 1. Hiding article.
+[2025-07-07 19:55:19,973] INFO in article_service: Article 1 hidden successfully after reaching threshold.
+[2025-07-07 19:55:19,975] INFO in article_service: Checking report threshold for article 1: current count = 1, threshold = 3
+[2025-07-07 19:55:19,975] INFO in article_service: Threshold NOT met for article 1. Current count: 1, threshold: 3
+[2025-07-07 19:55:19,977] INFO in article_service: User 1 is adding a new DISLIKE for article 1 (was OFF, now ON).
+[2025-07-07 19:55:19,978] INFO in article_service: User 1 completed DISLIKE toggle for article 1.
+[2025-07-07 19:55:19,980] INFO in article_service: User 1 is toggling DISLIKE OFF for article 1 (was ON, now OFF).
+[2025-07-07 19:55:19,981] INFO in article_service: User 1 completed DISLIKE toggle for article 1.
+[2025-07-07 19:55:19,983] INFO in article_service: User 1 is adding a new LIKE for article 1 (was OFF, now ON).
+[2025-07-07 19:55:19,984] INFO in article_service: User 1 completed LIKE toggle for article 1.
+[2025-07-07 19:55:19,985] INFO in article_service: User 1 is toggling LIKE OFF for article 1 (was ON, now OFF).
+[2025-07-07 19:55:19,986] INFO in article_service: User 1 completed LIKE toggle for article 1.
+[2025-07-07 19:55:19,987] INFO in article_service: Starting to save articles.
+[2025-07-07 19:55:19,988] INFO in article_service: Starting to save articles.
+[2025-07-07 19:55:19,990] INFO in article_service: Starting to save articles.
+[2025-07-07 19:55:19,990] INFO in article_service: Saving article: Test Article from source: source
+[2025-07-07 19:55:19,993] INFO in article_service: Completed saving all articles.
+[2025-07-07 19:55:19,994] INFO in authentication_service: Login attempt for email: test@example.com
+[2025-07-07 19:55:19,994] INFO in authentication_service: User login successful for email: test@example.com
+[2025-07-07 19:55:19,995] INFO in authentication_service: Login attempt for email: notfound@example.com
+[2025-07-07 19:55:19,995] WARNING in authentication_service: Failed login for email: notfound@example.com (user not found)
+[2025-07-07 19:55:19,996] INFO in authentication_service: Login attempt for email: test@example.com
+[2025-07-07 19:55:19,997] WARNING in authentication_service: Failed login for email: test@example.com (invalid password)
+[2025-07-07 19:55:20,254] INFO in password_utils: Password hashed.
+[2025-07-07 19:55:20,264] INFO in classify_category_utils: Keyword match found in text for category: Business
+[2025-07-07 19:55:20,265] INFO in classify_category_utils: Keyword match found in text for category: Entertainment
+[2025-07-07 19:55:20,265] INFO in classify_category_utils: No specific keyword match found. Assigned category: General
+[2025-07-07 19:55:20,265] INFO in classify_category_utils: Keyword match found in text for category: Sports
+[2025-07-07 19:55:20,266] INFO in classify_category_utils: Keyword match found in text for category: Technology
+[2025-07-07 19:55:20,281] INFO in jwt_utils: JWT access token created for data: {'user_id': 1, 'role': 'admin'}
+[2025-07-07 19:55:20,281] INFO in jwt_utils: Decoding JWT access token.
+[2025-07-07 19:55:20,610] INFO in password_utils: Password hashed.
+[2025-07-07 19:55:20,975] INFO in password_utils: Password verification attempted. Result: success.
+[2025-07-07 19:55:21,315] INFO in password_utils: Password verification attempted. Result: failure.

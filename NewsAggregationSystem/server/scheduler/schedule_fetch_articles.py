@@ -13,6 +13,8 @@ def call_fetch_articles_api():
         base_url = os.getenv("BASE_URL")
         response = requests.get(f"{base_url}/articles/external_source")
         logger.info(f"Scheduler Response: {response.status_code}")
+    except requests.exceptions.ConnectionError:
+        return {"error": "Server is not reachable."}
     except Exception as e:
         logger.error(f"Error: {str(e)}")
     finally:

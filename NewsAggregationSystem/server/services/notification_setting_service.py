@@ -3,7 +3,6 @@ from NewsAggregationSystem.server.repos.category_repo import CategoryRepo
 from NewsAggregationSystem.server.repos.keyword_article_mapping_repo import KeywordArticleMappingRepo
 from NewsAggregationSystem.server.repos.keyword_repo import KeywordRepo
 from NewsAggregationSystem.server.repos.notification_setting_repo import NotificationSettingRepo
-from fastapi import HTTPException, status
 from NewsAggregationSystem.server.exceptions.not_found_exception import NotFoundException
 from NewsAggregationSystem.server.exceptions.invalid_data_exception import InvalidDataException
 
