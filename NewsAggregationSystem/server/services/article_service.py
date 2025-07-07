@@ -92,6 +92,7 @@ class ArticleService:
 
     def get_articles_by_date_range(self, user_id, start_date, end_date, category):
         articles =  self.article_repo.fetch_articles_by_date_range(user_id, start_date, end_date, category)
+        print(articles,"++++++++++")
         if not articles:
             raise NotFoundException(f"Articles not found")
         return articles

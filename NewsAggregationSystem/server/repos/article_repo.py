@@ -50,7 +50,7 @@ class ArticleRepo:
                     SELECT DISTINCT a.* FROM article a
                     JOIN category_article_mapping cam ON a.article_id = cam.article_id
                     JOIN category c ON cam.category_id = c.category_id
-                    WHERE {base_filter} {category_filter} {sort_by_filter}
+                    WHERE  {base_filter} {category_filter}{sort_by_filter}
                 """
         else:
             last_query = f"""
@@ -115,15 +115,16 @@ class ArticleRepo:
 
 
     def fetch_articles_by_date_range(self, user_id, start_date, end_date, category):
+        category = category.strip().lower()
         base_filter = "a.is_hidden = 0 AND DATE(a.published_at) BETWEEN %s AND %s"
         category_filter = ""
         sort_by_filter = ""
         params = [start_date, end_date, user_id, start_date, end_date, user_id, start_date, end_date, user_id,
                   start_date, end_date, user_id, start_date, end_date, user_id, start_date, end_date, user_id, start_date, end_date]
 
-        if category.strip().lower() != "all" and category.strip() != "":
-            category_filter = "AND c.category_name = %s"
-            params.insert(len(params)-1, category.strip().lower())
+        if category != "all" and category.strip() != "":
+            category_filter = "AND category_name = %s"
+            params.append(category)
 
         return self.fetch_articles_by_user_preference(base_filter, category_filter, sort_by_filter, params)
 
