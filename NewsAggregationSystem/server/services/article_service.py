@@ -38,10 +38,6 @@ class ArticleService:
             categories = article.get("categories")
             server_id = article.get("server_id")
 
-            
-            if not title or not url or not published_at or not categories or not isinstance(categories, list):
-                raise InvalidDataException(f"Missing required fields in article: {article}")
-
             article_data = {
                 "title": title,
                 "description": description,
@@ -51,33 +47,22 @@ class ArticleService:
                 "published_at": published_at,
                 "server_id": server_id
             }
-            inserted = self.article_repo.insert_article(article_data)
-            if not inserted:
-                raise UpdateFailedException(f"Failed to insert article: {title}")
+            self.article_repo.insert_article(article_data)
             article_id = self.article_repo.find_latest_article()[0]
 
             for category_name in categories:
-                if not category_name:
-                    continue
-                category = self.category_repo.find_category(category_name)
-                if not category:
-                    raise NotFoundException(f"Category '{category_name}' not found for article '{title}'")
-                category_id, _ = category[0]
-                existing_mapping = self.mapping_repo.get_category_article_mapping(category_id, article_id)
-                if not existing_mapping:
-                    mapping = self.mapping_repo.create_category_article_mapping(category_id, article_id)
-                    if not mapping:
-                        raise UpdateFailedException(f"Failed to map article '{title}' to category '{category_name}'")
+                if category_name:
+                    category = self.category_repo.find_category(category_name)
+                    if category:
+                        category_id, category_name = category[0]
+                        existing_mapping = self.mapping_repo.get_category_article_mapping(category_id, article_id)
+                        if not existing_mapping:
+                            self.mapping_repo.create_category_article_mapping(category_id, article_id)
 
             is_latest = self.article_repo.get_latest_status(article_id)[0][0]
             if is_latest:
-                notification = self.notification_repo.insert_notifications_for_article(article_id)
-                if not notification:
-                    raise UpdateFailedException(f"Failed to insert notification for article '{title}'")
-
-            updated = self.article_repo.update_latest_status(article_id)
-            if not updated:
-                raise UpdateFailedException(f"Failed to update latest status for article '{title}'")
+               self.notification_repo.insert_notifications_for_article(article_id)
+            self.article_repo.update_latest_status(article_id)
 
     def save_article_read_history(self, article_id: int, user_id: int):
         existing_article_read_history = self.read_article_history_repo.get_article_read_history(user_id, article_id)
@@ -85,32 +70,33 @@ class ArticleService:
             self.read_article_history_repo.update_article_read_date(user_id, article_id)
         else:
             self.read_article_history_repo.insert_article_read_history(user_id, article_id)
+        return True
+
+    def find_article_by_id(self, user_id: int, article_id: int):
+        article = self.article_repo.find_article_by_id(article_id)
+        if not article:
+            raise NotFoundException(f"Articles not found")
+        read_history = self.save_article_read_history(article[0][0], user_id)
+        if not read_history:
+            raise NotFoundException(f"Won't save the read history")
+        return article
 
     def get_articles_for_today(self, user_id):
         articles =  self.article_repo.fetch_articles_by_today(user_id)
         if not articles:
             raise NotFoundException(f"Articles not found")
-        read_history = [self.save_article_read_history(article[0], user_id) for article in articles]
-        if not read_history:
-            raise NotFoundException(f"Won't read the articles")
         return articles
 
     def get_articles_by_date_range(self, user_id, start_date, end_date, category):
         articles =  self.article_repo.fetch_articles_by_date_range(user_id, start_date, end_date, category)
         if not articles:
             raise NotFoundException(f"Articles not found")
-        read_history = [self.save_article_read_history(article[0], user_id) for article in articles]
-        if not read_history:
-            raise NotFoundException(f"Won't read the articles")
         return articles
 
     def search_articles_by_keyword(self, start_date, end_date, keyword, sort_by,  user_id):
         articles = self.article_repo.search_articles(start_date, end_date, keyword, sort_by, user_id)
         if not articles:
             raise NotFoundException(f"Articles not found")
-        read_history = [self.save_article_read_history(article[0], user_id) for article in articles]
-        if not read_history:
-            raise NotFoundException(f"Won't read the articles")
         return articles
 
     def save_article(self, user_id, article_id):

@@ -25,7 +25,15 @@ class ArticleRepo:
         return db_query(query, ())
 
     def find_article_by_id(self, article_id):
-        query = '''Select * from article where article_id = %s'''
+
+        if isinstance(article_id, tuple):
+            article_id = article_id[0]
+        
+        query = """
+            SELECT a.* FROM article a
+            WHERE a.article_id = %s AND
+            a.is_hidden = FALSE
+        """
         return db_query(query, (article_id,))
 
     def find_latest_article(self):

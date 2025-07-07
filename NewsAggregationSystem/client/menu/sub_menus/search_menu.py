@@ -5,14 +5,14 @@ from NewsAggregationSystem.client.utilities.server_reponse_utils import simple_r
 
 
 class SearchMenu(BaseMenu):
-
+    article_map = {}
     def __init__(self, access_token, user_data):
         self.access_token = access_token
         self.user_data = user_data
 
     def show_menu(self):
         print("\nS E A R C H")
-        print("1. Back\n2. Logout\n3. Save Article\n4. React on an Article\n5. Report an Article")
+        print("1. Back\n2. Logout\n3. Save Article\n4. React on an Article\n5. Report an Article\n6. Open an Article")
 
     def api_request(self):
         keyword = input("Enter search keyword: ").strip().lower()
@@ -28,12 +28,13 @@ class SearchMenu(BaseMenu):
         print(f"\nS E A R C H\nResults for “{keyword}”")
         articles = simple_response_containing_list(response)
         if type(articles) is list:
-            for article in articles:
-                article_details_response(article)
+            for index, article in enumerate(articles, start=1):
+                print(f"{index} - {article['title']}")
+                self.article_map.update({str(index): article['article_id']})
         else:
             print(articles)
         self.show_menu()
-        choice = input("Choose (1-5): ")
+        choice = input("Choose (1-6): ")
         if choice == "1":
             return
         elif choice == "2":
@@ -61,5 +62,19 @@ class SearchMenu(BaseMenu):
                                                                       {"reason": report_reason},
                                                                       {"Authorization": f"Bearer {self.access_token}"})
             simple_response(report_article_response)
+        elif choice == "6":
+            choice = input("Enter the article that you want to open: ").strip()
+            if choice in self.article_map:
+                article_id = self.article_map.get(choice)
+                action = input("Enter 1 to Open or any other key to continue: ")
+                if action == "1":
+                    article_response = api_utilities.get_by_id_with_token(f"articles", article_id, {
+                        "Authorization": f"Bearer {self.access_token}"})
+                    final_article_response = simple_response_containing_list(article_response)
+                    article_details_response(final_article_response)
+                else:
+                    pass
+            else:
+                print("Invalid Choice")
         else:
             print("Invalid choice.")

@@ -21,4 +21,22 @@ class ArticleController:
         except (NotFoundException, InvalidDataException, UpdateFailedException) as error:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(error))
 
+    def get_article(self,user_info, article_id: int):
+        try:
+            article = self.article_service.find_article_by_id(user_info["user_id"], article_id)
+            keys = [
+                "article_id",
+                "title",
+                "description",
+                "content",
+                "source",
+                "url",
+                "published_at",
+                "server_id"
+            ]
+            article_response = {keys[info]:article[0][info] for info in range(0,8)}
+            return {"message": article_response}
+        except (NotFoundException, InvalidDataException, UpdateFailedException) as error:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(error))
+
 
