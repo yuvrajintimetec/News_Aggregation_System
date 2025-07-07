@@ -1,6 +1,6 @@
 from NewsAggregationSystem.server.database import db_query
 from datetime import datetime
-
+from NewsAggregationSystem.server.utilities.logger import logger
 
 
 class ArticleRepo:
@@ -10,7 +10,10 @@ class ArticleRepo:
             dt = datetime.strptime(published_at, "%Y-%m-%dT%H:%M:%S.%fZ")
             formatted_published_at = dt.strftime("%Y-%m-%d %H:%M:%S")
         else:
+            logger.warning("Article missing published_at, using current UTC time.")
             formatted_published_at = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
+        logger.info(
+            f"Inserting article: {article.get('title', 'No Title')} from source: {article.get('source', 'Unknown')}")
         query = '''INSERT INTO article (title,
                     description,
                     content,

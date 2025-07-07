@@ -3,6 +3,7 @@ from NewsAggregationSystem.server.repos.notification_repo import NotificationRep
 from NewsAggregationSystem.server.repos.user_repo import UserRepo
 from NewsAggregationSystem.server.utilities.email_utils import send_email
 from NewsAggregationSystem.server.exceptions.not_found_exception import NotFoundException
+from NewsAggregationSystem.server.utilities.logger import logger
 
 class NotificationService:
     def __init__(self):
@@ -22,6 +23,7 @@ class NotificationService:
         return messages
 
     async def send_notifications_by_email(self):
+        logger.info("Starting to send notifications by email.")
         notifications = self.notification_repo.get_all_notifications()
         for notification in notifications:
             notification_id = notification[0]
@@ -30,5 +32,7 @@ class NotificationService:
             message = notification[2]
             subject = "News Notification"
             await send_email(user_email, subject, message)
+            logger.info(f"Sent notification email to user_id: {user_id}, email: {user_email}")
             self.notification_repo.mark_as_read(notification_id)
             self.notification_repo.update_notification_date(notification_id)
+        logger.info("Completed sending notifications by email.")

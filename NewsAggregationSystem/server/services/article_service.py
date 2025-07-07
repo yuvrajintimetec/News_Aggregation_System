@@ -7,10 +7,10 @@ from NewsAggregationSystem.server.repos.react_article_repo import ReactArticleRe
 from NewsAggregationSystem.server.repos.report_article_repo import ReportArticleRepo
 import os
 from dotenv import load_dotenv
-from fastapi import HTTPException, status
 from NewsAggregationSystem.server.exceptions.not_found_exception import NotFoundException
 from NewsAggregationSystem.server.exceptions.invalid_data_exception import InvalidDataException
 from NewsAggregationSystem.server.exceptions.update_failed_exception import UpdateFailedException
+from NewsAggregationSystem.server.utilities.logger import logger
 
 load_dotenv()
 
@@ -26,6 +26,7 @@ class ArticleService:
         self.read_article_history_repo = ReadArticleHistoryRepo()
 
     def save_articles(self, articles):
+        logger.info("Starting to save articles.")
         if not articles or not isinstance(articles, list):
             raise InvalidDataException("No articles provided or invalid format.")
         for article in articles:
@@ -38,6 +39,7 @@ class ArticleService:
             categories = article.get("categories")
             server_id = article.get("server_id")
 
+            logger.info(f"Saving article: {title} from source: {source}")
             article_data = {
                 "title": title,
                 "description": description,
@@ -63,6 +65,7 @@ class ArticleService:
             if is_latest:
                self.notification_repo.insert_notifications_for_article(article_id)
             self.article_repo.update_latest_status(article_id)
+        logger.info("Completed saving all articles.")
 
     def save_article_read_history(self, article_id: int, user_id: int):
         existing_article_read_history = self.read_article_history_repo.get_article_read_history(user_id, article_id)
@@ -129,29 +132,45 @@ class ArticleService:
     def react_like_to_article(self, user_id: int, article_id: int):
         existing_reaction = self.react_article_repo.get_reaction(user_id, article_id)
         if existing_reaction:
-             is_like = not existing_reaction[0][5]
-             if not self.react_article_repo.update_like_reaction(user_id, article_id, is_like):
-                    raise UpdateFailedException(f"Won't be able to react")
+            is_like = not existing_reaction[0][5]
+            if is_like:
+                logger.info(f"User {user_id} is toggling LIKE ON for article {article_id} (was OFF, now ON).")
+            else:
+                logger.info(f"User {user_id} is toggling LIKE OFF for article {article_id} (was ON, now OFF).")
+            if not self.react_article_repo.update_like_reaction(user_id, article_id, is_like):
+                logger.error(f"User {user_id} failed to update like reaction for article {article_id}.")
+                raise UpdateFailedException(f"Won't be able to react")
         else:
+            logger.info(f"User {user_id} is adding a new LIKE for article {article_id} (was OFF, now ON).")
             if self.react_article_repo.insert_like_reaction(user_id, article_id, True):
                 pass
             else:
+                logger.error(f"User {user_id} failed to add like reaction for article {article_id}.")
                 raise UpdateFailedException(f"Won't be able to react")
         self.article_repo.update_likes()
+        logger.info(f"User {user_id} completed LIKE toggle for article {article_id}.")
         return {"message": "You reacted on an article"}
 
     def react_dislike_to_article(self, user_id: int, article_id: int):
         existing_reaction = self.react_article_repo.get_reaction(user_id, article_id)
         if existing_reaction:
             is_dislike = not existing_reaction[0][4]
+            if is_dislike:
+                logger.info(f"User {user_id} is toggling DISLIKE ON for article {article_id} (was OFF, now ON).")
+            else:
+                logger.info(f"User {user_id} is toggling DISLIKE OFF for article {article_id} (was ON, now OFF).")
             if not self.react_article_repo.update_dislike_reaction(user_id, article_id, is_dislike):
-                    raise UpdateFailedException(f"Won't be able to react")
+                logger.error(f"User {user_id} failed to update dislike reaction for article {article_id}.")
+                raise UpdateFailedException(f"Won't be able to react")
         else:
+            logger.info(f"User {user_id} is adding a new DISLIKE for article {article_id} (was OFF, now ON).")
             if self.react_article_repo.insert_dislike_reaction(user_id, article_id, True):
                 pass
             else:
+                logger.error(f"User {user_id} failed to add dislike reaction for article {article_id}.")
                 raise UpdateFailedException(f"Won't be able to react")
         self.article_repo.update_dislikes()
+        logger.info(f"User {user_id} completed DISLIKE toggle for article {article_id}.")
         return {"message": "You reacted on an article"}
 
     def submit_article_report(self, article_id: int, user_id: int, reason: str):
@@ -177,15 +196,21 @@ class ArticleService:
     def hide_article_report(self, article_id):
         report = self.report_article_repo.count_reports_for_article(article_id)
         if not report:
+            logger.warning(f"Article with id {article_id} doesn't exist or has no reports.")
             raise NotFoundException(f"Article with id {article_id} doesn't exist")
         article_id = report[0][0]
         report_count = report[0][1]
         threshold_value = os.getenv("REPORT_THRESHOLD")
+        logger.info(f"Checking report threshold for article {article_id}: current count = {report_count}, threshold = {threshold_value}")
         if report_count >= int(threshold_value):
+            logger.info(f"Threshold met/exceeded for article {article_id}. Hiding article.")
             self.article_repo.set_article_hidden(article_id, True)
+            logger.info(f"Article {article_id} hidden successfully after reaching threshold.")
+            return {"message": f"Article hidden successfully"}
         else:
+            logger.info(f"Threshold NOT met for article {article_id}. Current count: {report_count}, threshold: {threshold_value}")
             raise InvalidDataException(f"Cannot reach the threshold value yet which is {int(threshold_value)} ")
-        return {"message": f"Article hidden successfully"}
+
 
     def hide_reported_articles_with_keyword(self, keyword):
         keyword = keyword.strip()

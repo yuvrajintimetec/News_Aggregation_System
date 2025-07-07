@@ -150,8 +150,11 @@ class UserController:
                 return {"message": "Configuration done successfully"}
             else:
                 return {"error": "Configuration setup failed"}
-        except (NotFoundException, InvalidDataException) as error:
+        except NotFoundException as error:
             raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(error))
+        except InvalidDataException as error:
+            raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=str(error))
+
 
     def react_like_to_article(self, user_id: int, article_id: int):
         try:
